@@ -35,6 +35,9 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+      (final: prev: {
+        awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+      })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -45,7 +48,7 @@
 
   nix = {
     # This will add each flake input as a registry
-    # To make nix3 commands consistent with your flake
+    # To make nix commands consistent with your flake
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
@@ -59,40 +62,179 @@
       auto-optimise-store = true;
     };
   };
+  
+  # Select internationalisation properties
+  i18n.defaultLocale = "en_AU.UTF-8";
+  # Set timezone
+  time.timeZone = "Australia/Perth";
 
-  # FIXME: Add the rest of your current configuration
+  boot = {
+    # Kernel to install
+    kernelPackages = pkgs.linuxPackages_latest;
+    # Autoload stage 2 modules
+    kernelModules = [ "i2c-dev" "i2c-piix4" ];
+    # Autoload stage 1 modules
+    initrd.kernelModules = [ "amdgpu" ];
 
-  # TODO: Set your hostname
-  networking.hostName = "your-hostname";
-
-  # TODO: This is just an example, be sure to use whatever bootloader you prefer
-  boot.loader.systemd-boot.enable = true;
-
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.users = {
-    # FIXME: Replace with your username
-    your-username = {
-      # TODO: You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "correcthorsebatterystaple";
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "wheel" ];
+    loader = {
+      systemd-boot.enable = true;
+    
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
     };
   };
 
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  services.openssh = {
+  hardware = {
+    bluetooth.enable = true;
+   
+    # Setup sound server (Audio Support)
+    pulseaudio = {
+      enable = true;
+      support32Bit = true; # If compatibility with 32-bit applications is desired.
+    };
+    
+    # Configure OpenGL
+    opengl = {
+      enable = true;
+      # Vulkan
+      driSupport = true;
+      driSupport32Bit = true;
+      # OpenCL
+      extraPackages = with pkgs; [
+        rocm-opencl-icd
+        rocm-opencl-runtime
+      ];
+    };
+  };
+
+  networking = {
+    hostName = "fuchsia";
+    domain = "kanto.dev";
+    # Connect to networks
+    networkmanager.enable = true;
+  };
+
+  fonts = {
+    # Install system fonts
+    fonts = with pkgs; [
+      fantasque-sans-mono
+      fira-code
+      ibm-plex
+      inconsolata
+      iosevka
+      jetbrains-mono
+    ];
+  };
+
+  # Setup environment
+  environment = {
+    # Symlink /bin/sh to POSIX-Complient shell
+    binsh = "${pkgs.bash}/bin/bash";
+    shells = with pkgs; [ zsh ];
+
+    # Install packages, prefix with 'unstable.' to use overlay
+    systemPackages = with pkgs; [
+      # System tools
+      curl git home-manager trash tree unrar unzip vim wget zip
+      
+      # Developer tools
+      docker-compose
+
+      # QMK firmware
+      unstable.qmk
+      unstable.vial
+
+      # Code editors
+      emacs vscode
+
+      # Browsers
+      firefox
+
+      # Graphics
+      gimp inkscape krita
+
+      # Modelling
+      blender freecad openscad
+
+      # Misc
+      openrgb
+    ];
+    
+    # Completions for system packages
+    pathsToLink = [ "/share/zsh" ];
+  };
+
+  programs = {
+    zsh.enable = true;
+    
+    # GPG and SSH support for yubikey
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Dedicated Server
+    };
+  };
+
+  services = {
+    udev.packages = with pkgs; [
+      yubikey-personalization
+      openrgb
+      qmk-udev-rules
+    ];
+
+    xserver = {
+      enable = true;
+      layout = "au";
+      videoDrivers = [ "amdgpu" ];
+
+      # Configure display manager
+      displayManager = {
+        sddm.enable = true;
+        # Setup dual monitors
+        setupCommands = ''
+          ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 1920x1080 --output DisplayPort-0 --mode 2560x1440 --right-of HDMI-A-0
+        '';
+      };
+      
+      # Git version provided by nixpkgs-f2k
+      windowManager.awesome = {
+        enable = true;        
+        luaModules = with pkgs.luaPackages; [
+          luarocks # is the package manager for Lua modules
+          luadbi-mysql # Database abstraction layer
+        ];
+      };
+
+      desktopManager.plasma5.enable = true;
+    };
+  };
+
+  # Install docker
+  virtualisation.docker = {
     enable = true;
-    # Forbid root login through SSH.
-    permitRootLogin = "no";
-    # Use keys only. Remove if you want to SSH using password (not recommended)
-    passwordAuthentication = false;
+    # Reduce container downtime due to daemon crashes
+    liveRestore = false;
+  };
+
+  # Login and use sudo with our yubikey
+  security.pam.services = {
+    login.u2fAuth = true;
+    sudo.u2fAuth = true;
+  };
+
+  # Users
+  users.users.sajenim = {
+      isNormalUser = true;
+      description = "Jasmine Marie Wilson";
+      extraGroups = [ "audio" "docker" "networkmanager" "wheel" ];
+      shell = pkgs.zsh;
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
