@@ -137,7 +137,7 @@
     # Install packages, prefix with 'unstable.' to use overlay
     systemPackages = with pkgs; [
       # System tools
-      curl git home-manager trash tree unrar unzip vim wget zip
+      curl git home-manager trash-cli tree unrar unzip vim wget zip
       
       # Developer tools
       docker-compose
