@@ -49,4 +49,8 @@
       nvim-web-devicons # Provides icons
     ];
   };
+
+  xdg.configFile = {
+    nvim = { source = ../../config/nvim; recursive = true; };
+  };
 }
