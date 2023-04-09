@@ -47,7 +47,7 @@ vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_better_performance = 0
 
 -- To disable italic in `Comment`, set this option to `1`
-vim.g.gruvbox_material_disable_italic_comment = 0
+vim.g.gruvbox_material_disable_italic_comment = 1
 
 -- To enable bold in function name just like the original gruvbox, set this option to `1`
 vim.g.gruvbox_material_enable_bold = 0
