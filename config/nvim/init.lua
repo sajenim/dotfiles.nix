@@ -31,6 +31,11 @@ local map = vim.api.nvim_set_keymap
 
 
 map('n', '<leader>t', ':NvimTreeToggle<cr>', opts)
+
+map('n', '<A-h>', ':NavigatorLeft<cr>', opts)
+map('n', '<A-l>', ':NavigatorRight<cr>', opts)
+map('n', '<A-k>', ':NavigatorUp<cr>', opts)
+map('n', '<A-j>', ':NavigatorDown<cr>', opts)
 -- }}}
 
 --
@@ -67,6 +72,7 @@ vim.cmd [[colorscheme gruvbox-material]]
 require('nvim-tree').setup()
 require('Comment').setup()
 require('gitsigns').setup()
+require('Navigator').setup()
 
 -- user
 require('user.lspconfig')
