@@ -49,12 +49,6 @@
    
     # Extra commands that should be added to '.zshrc'
     initExtra = ''
-      # Emacs mode
-      bindkey -e
-
-      # Customize prompt
-      PROMPT="%F{1}♥ %f%F{2}~ %f"
-      RPROMPT="%~"
     '';
   };
 }
