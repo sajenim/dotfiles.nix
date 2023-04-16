@@ -37,6 +37,7 @@
       # })
       (final: prev: {
         awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+        wezterm = inputs.nixpkgs-f2k.packages.${pkgs.system}.wezterm-git;
       })
     ];
     # Configure your nixpkgs instance
@@ -159,7 +160,7 @@
       blender freecad openscad
 
       # Misc
-      openrgb
+      openrgb wezterm
     ];
     
     # Completions for system packages
