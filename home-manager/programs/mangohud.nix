@@ -8,6 +8,7 @@
       gpu_core_clock = true;
       cpu_temp = true;
       cpu_mhz = true;
+      toggle_hud = "F12";
     };
   };
 }
