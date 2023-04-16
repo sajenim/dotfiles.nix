@@ -60,7 +60,6 @@
     };
 
     packages = with pkgs; [
-      wezterm
       discord
       spotify
       unstable.prismlauncher
