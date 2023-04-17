@@ -61,6 +61,7 @@
 
     packages = with pkgs; [
       discord
+      hilbish
       spotify
       unstable.prismlauncher
     ];
