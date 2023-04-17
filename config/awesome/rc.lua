@@ -76,18 +76,8 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Table of layouts to cover with awful.layout.inc, order matters.
 tag.connect_signal("request::default_layouts", function()
     awful.layout.append_default_layouts({
-        -- awful.layout.suit.floating,
         awful.layout.suit.tile,
-        -- awful.layout.suit.tile.left,
-        -- awful.layout.suit.tile.bottom,
-        -- awful.layout.suit.tile.top,
-        -- awful.layout.suit.fair,
-        -- awful.layout.suit.fair.horizontal,
-        -- awful.layout.suit.spiral,
         awful.layout.suit.spiral.dwindle,
-        -- awful.layout.suit.max,
-        -- awful.layout.suit.max.fullscreen,
-        -- awful.layout.suit.magnifier,
         awful.layout.suit.corner.nw,
     })
 end)
@@ -114,9 +104,6 @@ end)
 -- }}}
 
 -- {{{ Wibar
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
@@ -162,41 +149,48 @@ screen.connect_signal("request::desktop_decoration", function(s)
         }
     }
 
-    -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = {
-            awful.button({ }, 1, function (c)
-                c:activate { context = "tasklist", action = "toggle_minimization" }
-            end),
-            awful.button({ }, 3, function() awful.menu.client_list { theme = { width = 250 } } end),
-            awful.button({ }, 4, function() awful.client.focus.byidx(-1) end),
-            awful.button({ }, 5, function() awful.client.focus.byidx( 1) end),
-        }
-    }
-
-    -- Create the wibox
-    s.mywibox = awful.wibar {
+    -- Create the top wibox
+    s.top_panel = awful.wibar {
         position = "top",
         screen   = s,
         widget   = {
-            layout = wibox.layout.align.horizontal,
             { -- Left widgets
-                layout = wibox.layout.fixed.horizontal,
                 mylauncher,
                 s.mytaglist,
                 s.mypromptbox,
-            },
-            s.mytasklist, -- Middle widget
-            { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-                mykeyboardlayout,
-                wibox.widget.systray(),
+            },
+            {
+              -- Middle widget
+                layout = wibox.layout.fixed.horizontal,
+            },
+            { -- Right widgets
                 mytextclock,
                 s.mylayoutbox,
+                layout = wibox.layout.fixed.horizontal,
             },
+            layout = wibox.layout.align.horizontal,
         }
+    }
+
+    --
+
+    -- Create the bottom wibox
+    s.bottom_panel = awful.wibar {
+      position = "bottom",
+      screen   =  s,
+      widget   = {
+        {
+            layout = wibox.layout.fixed.horizontal,
+        },
+        {
+            layout = wibox.layout.fixed.horizontal,
+        },
+        {   
+            layout = wibox.layout.fixed.horizontal,
+        },
+        layout = wibox.layout.align.horizontal,
+      }
     }
 end)
 
