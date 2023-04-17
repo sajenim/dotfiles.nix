@@ -70,6 +70,7 @@
   # Setup user configuration
   xdg.configFile = {
     awesome =  { source = ../config/awesome;  recursive = true; };
+    hilbish =  { source = ../config/hilbish;  recursive = true; };
     wezterm =  { source = ../config/wezterm;  recursive = true; };
   };
 
