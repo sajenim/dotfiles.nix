@@ -18,7 +18,7 @@
     ./programs/nvim.nix
     ./programs/zsh.nix
     # Services
-    ./services/picom.nix
+    # ./services/picom.nix
   ];
 
   nixpkgs = {
@@ -38,6 +38,10 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+      (final: prev: {
+        awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+        wezterm = inputs.nixpkgs-f2k.packages.${pkgs.system}.wezterm-git;
+      })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -63,8 +67,24 @@
       discord
       hilbish
       spotify
+      # nixpkgs-f2k
+      wezterm
+      # pkgs.unstable
       unstable.prismlauncher
     ];
+  };
+
+  xsession = {
+    enable = true;
+    scriptPath = ".xsession-hm";
+    # Git version provided by nixpkgs-f2k
+    windowManager.awesome = {
+      enable = true;
+      luaModules = with pkgs.luaPackages; [
+        luarocks # it the package manager for Lua modules
+        luadbi-mysql # Database abstraction layer
+      ];
+    };
   };
 
   # Setup user configuration

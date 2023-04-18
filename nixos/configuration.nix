@@ -35,10 +35,6 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-      (final: prev: {
-        awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
-        wezterm = inputs.nixpkgs-f2k.packages.${pkgs.system}.wezterm-git;
-      })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -160,7 +156,7 @@
       blender freecad openscad
 
       # Misc
-      openrgb wezterm
+      openrgb
     ];
     
     # Completions for system packages
@@ -198,24 +194,26 @@
       # Configure display manager
       displayManager = {
         sddm.enable = true;
+        defaultSession = "plasma";
         # Setup dual monitors
         setupCommands = ''
           ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 1920x1080 --output DisplayPort-0 --mode 2560x1440 --right-of HDMI-A-0
         '';
       };
       
-      # Git version provided by nixpkgs-f2k
-      windowManager.awesome = {
-        enable = true;        
-        luaModules = with pkgs.luaPackages; [
-          luarocks # is the package manager for Lua modules
-          luadbi-mysql # Database abstraction layer
-        ];
+      desktopManager = {
+        plasma5.enable = true;
+        session = [{
+          name = "home-manager";
+          start = ''
+            ${pkgs.stdenv.shell} $HOME/.xsession-hm &
+            waitPID=$!
+          '';
+        }];
       };
-
-      desktopManager.plasma5.enable = true;
     };
   };
+
 
   # Install docker
   virtualisation.docker = {
