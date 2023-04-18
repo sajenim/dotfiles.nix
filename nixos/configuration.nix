@@ -214,7 +214,6 @@
     };
   };
 
-
   # Install docker
   virtualisation.docker = {
     enable = true;
