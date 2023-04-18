@@ -24,3 +24,13 @@ bait.catch('hilbish.vimMode', function(mode)
                 ansikit.cursorStyle(ansikit.lineCursor)
         end
 end)
+
+-- Aliases
+hilbish.alias('c', 'clear')
+hilbish.alias('hm', 'cd ~/')
+hilbish.alias('tp', 'trash-put')
+hilbish.alias('ud', 'cd ..')
+hilbish.alias('la', 'ls -a')
+hilbish.alias('ll', 'ls -l')
+hilbish.alias('uh', 'home-manager switch --flake .#sajenim@fuchsia')
+hilbish.alias('us', 'sudo nixos-rebuild switch --flake .#fuchsia')
