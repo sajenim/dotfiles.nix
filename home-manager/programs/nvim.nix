@@ -24,7 +24,6 @@
 
       # Quality of Life Enhancements
       comment-nvim      # Smart and powerful commenting
-      Navigator-nvim    # Navigate between neovim and multiplexers
 
       # User Interface
       gruvbox-material  # Theme
