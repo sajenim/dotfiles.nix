@@ -25,6 +25,9 @@
       ud = "cd ..";
       la = "ls -a";
       ll = "ls -l";
+      tt = "wezterm cli set-tab-title ";
+      uh = "home-manager switch --flake .#sajenim@fuchsia";
+      us = "sudo nixos-rebuild switch --flake .#fuchsia";
     };
 
     # An attribute set that adds to named directory hash table
@@ -49,6 +52,7 @@
    
     # Extra commands that should be added to '.zshrc'
     initExtra = ''
+      PROMPT='%F{blue}%n %F{cyan}%~ %F{red}♥ %f';
     '';
   };
 }
