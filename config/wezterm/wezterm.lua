@@ -15,9 +15,6 @@ end
 config.check_for_updates = false
 config.show_update_window = false
 
--- Set our default shell to hilbish
-config.default_prog = { 'hilbish' }
-
 -- Font
 config.font = wezterm.font 'Fira Code'
 config.font_size = 10.0
