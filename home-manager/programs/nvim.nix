@@ -3,9 +3,10 @@
 {
   home.packages = with pkgs.unstable; [
     # Language servers
-    clang-tools         # C, C++, Objective C/C++, OpenCL, CUDA, and RenderScript
-    lua-language-server # Lua
-    nil                 # Nix
+    clang-tools             # C, C++, Objective C/C++, OpenCL, CUDA, and RenderScript
+    haskell-language-server # Haskell
+    lua-language-server     # Lua
+    nil                     # Nix
   ];
 
   programs.neovim = {

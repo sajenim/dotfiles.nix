@@ -138,6 +138,7 @@
       
       # Developer tools
       docker-compose
+      unstable.ghc
 
       # QMK firmware
       unstable.qmk

@@ -2,6 +2,11 @@
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.nil_ls.setup{}
 
+-- haskell-language-server
+require'lspconfig'.hls.setup {
+  filetypes = { 'haskell', 'lhaskell', 'cabal' },
+}
+
 -- lua-language-server
 require'lspconfig'.lua_ls.setup {
   settings = {
