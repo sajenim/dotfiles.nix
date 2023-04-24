@@ -139,6 +139,7 @@
       # Developer tools
       docker-compose
       unstable.ghc
+      unstable.cabal-install
 
       # QMK firmware
       unstable.qmk
@@ -196,10 +197,6 @@
       displayManager = {
         sddm.enable = true;
         defaultSession = "plasma";
-        # Setup dual monitors
-        setupCommands = ''
-          ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-A-0 --mode 1920x1080 --output DisplayPort-0 --mode 2560x1440 --right-of HDMI-A-0
-        '';
       };
       
       desktopManager = {
