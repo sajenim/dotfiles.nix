@@ -52,6 +52,7 @@
    
     # Extra commands that should be added to '.zshrc'
     initExtra = ''
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       PROMPT='%F{blue}%n %F{cyan}%~ %F{red}♥ %f';
     '';
   };
