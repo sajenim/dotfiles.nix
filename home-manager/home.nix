@@ -11,14 +11,12 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    # Programs
+    ./xsession.nix
     ./programs/discocss.nix
     ./programs/git.nix
     ./programs/mangohud.nix
     ./programs/nvim.nix
     ./programs/zsh.nix
-    # Services
-    # ./services/picom.nix
   ];
 
   nixpkgs = {
@@ -39,7 +37,6 @@
       #   });
       # })
       (final: prev: {
-        awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
         wezterm = inputs.nixpkgs-f2k.packages.${pkgs.system}.wezterm-git;
       })
     ];
@@ -56,43 +53,24 @@
   programs.home-manager.enable = true;
 
   home = {
+    # Setup our user environment
     username = "sajenim";
     homeDirectory = "/home/sajenim";
-
     sessionVariables = {
       EDITOR = "nvim";
     };
-
+  
+    # Install some packages
     packages = with pkgs; [
       discord
-      hilbish
       spotify
-      # nixpkgs-f2k
-      wezterm
       # pkgs.unstable
       unstable.prismlauncher
     ];
   };
 
-  xsession = {
-    enable = true;
-    scriptPath = ".xsession-hm";
-    # Git version provided by nixpkgs-f2k
-    windowManager.awesome = {
-      enable = true;
-      luaModules = with pkgs.luaPackages; [
-        luarocks # it the package manager for Lua modules
-        luadbi-mysql # Database abstraction layer
-      ];
-    };
-  };
-
-  # Setup user configuration
-  xdg.configFile = {
-    awesome =  { source = ../config/awesome;  recursive = true; };
-    hilbish =  { source = ../config/hilbish;  recursive = true; };
-    wezterm =  { source = ../config/wezterm;  recursive = true; };
-  };
+  # Copy user configuration
+  xdg.configFile = { };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
