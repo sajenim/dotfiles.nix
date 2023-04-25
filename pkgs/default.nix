@@ -3,5 +3,5 @@
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
   # example = pkgs.callPackage ./example { };
-  candybar = pkgs.callPackage ./candybar { };
+  xmobar = pkgs.callPackage ./xmobar-config { };
 }
