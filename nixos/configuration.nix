@@ -122,6 +122,7 @@
       inconsolata
       iosevka
       jetbrains-mono
+      nerdfonts
     ];
   };
 
@@ -134,16 +135,13 @@
     # Install packages, prefix with 'unstable.' to use overlay
     systemPackages = with pkgs; [
       # System tools
-      curl git home-manager ranger trash-cli tree unrar unzip vim wget zip
+      curl git glxinfo home-manager htop ranger trash-cli tree unrar unzip vim wget zip
       
       # Developer tools
-      docker-compose
-      unstable.ghc
-      unstable.cabal-install
+      docker-compose ghc cabal-install
 
       # QMK firmware
-      unstable.qmk
-      unstable.vial
+      qmk vial
 
       # Code editors
       emacs vscode
@@ -155,10 +153,11 @@
       gimp inkscape krita
 
       # Modelling
-      blender freecad openscad
+      # blender (build failure on unstable)
+      freecad openscad
 
       # Misc
-      openrgb
+      openrgb protonup-ng
     ];
     
     # Completions for system packages
