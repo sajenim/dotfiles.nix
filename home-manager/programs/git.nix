@@ -5,5 +5,8 @@
     enable = true;
     userName = "sajenim";
     userEmail = "its.jassy@pm.me";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
   };
 }
