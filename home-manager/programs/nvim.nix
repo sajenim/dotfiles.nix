@@ -1,7 +1,7 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 
 {
-  home.packages = with pkgs.unstable; [
+  home.packages = with pkgs; [
     # Language servers
     clang-tools             # C, C++, Objective C/C++, OpenCL, CUDA, and RenderScript
     haskell-language-server # Haskell
@@ -11,8 +11,8 @@
 
   programs.neovim = {
     enable = true;
-    package = pkgs.unstable.neovim-unwrapped;
-    plugins = with pkgs.unstable.vimPlugins; [      
+    package = pkgs.neovim-unwrapped;
+    plugins = with pkgs.vimPlugins; [
       # Install all grammar packages 
       # nvim-treesitter.withAllGrammars
 
