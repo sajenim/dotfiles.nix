@@ -11,6 +11,29 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+-- This function returns the suggested title for a tab.
+-- It prefers the title that was set via `tab:set_title()`
+-- or `wezterm cli set-tab-title`, but falls back to the
+-- title of the active pane in that tab.
+function tab_title(tab_info)
+  local title = tab_info.tab_title
+  -- if the tab title is explicitly set, take that
+  if title and #title > 0 then
+    return title
+  end
+  -- Otherwise, use the title from the active pane
+  -- in that tab
+  return tab_info.active_pane.title
+end
+
+wezterm.on(
+  'format-tab-title',
+  function(tab, tabs, panes, config, hover, max_width)
+    local title = tab_title(tab)
+    return { { Text = ' ' .. title .. '' }, }
+  end
+)
+
 -- Do not check for or show window with update information
 config.check_for_updates = false
 config.show_update_window = false
@@ -36,17 +59,18 @@ config.enable_tab_bar               = true
 config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom            = true
 config.tab_max_width                = 24
+config.show_tab_index_in_tab_bar    = false
 
 -- Colors
 config.colors = {
   tab_bar = {
     background = '#1d2021',
     -- style tabs
-    active_tab          = { bg_color = '#1d2021', fg_color = '#d4be98', intensity = 'Normal', italic = false, },
-    inactive_tab        = { bg_color = '#1d2021', fg_color = '#7c6f64', intensity = 'Half',   italic = false, },
-    inactive_tab_hover  = { bg_color = '#1d2021', fg_color = '#7c6f64', intensity = 'Half',   italic = false, },
-    new_tab             = { bg_color = '#1d2021', fg_color = '#7c6f64', intensity = 'Half',   italic = false, },
-    new_tab_hover       = { bg_color = '#1d2021', fg_color = '#7c6f64', intensity = 'Half',   italic = false, },
+    active_tab          = { bg_color = '#1d2021', fg_color = '#d3869b', intensity = 'Bold', italic = false, },
+    inactive_tab        = { bg_color = '#1d2021', fg_color = '#7daea3', intensity = 'Bold', italic = false, },
+    inactive_tab_hover  = { bg_color = '#1d2021', fg_color = '#7daea3', intensity = 'Bold', italic = false, },
+    new_tab             = { bg_color = '#1d2021', fg_color = '#7c6f64', intensity = 'Bold', italic = false, },
+    new_tab_hover       = { bg_color = '#1d2021', fg_color = '#7c6f64', intensity = 'Bold', italic = false, },
   }
 }
 
