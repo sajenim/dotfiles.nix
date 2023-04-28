@@ -9,7 +9,7 @@
       corner-radius = 10;
       rounded-corners-exclude = [
         # "window_type = 'normal'"
-        # "window_type = 'dock'"
+        "window_type = 'dock'"
       ];
     };
   };
