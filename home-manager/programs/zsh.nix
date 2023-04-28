@@ -33,8 +33,8 @@
     # An attribute set that adds to named directory hash table
     dirHashes = {
       # QMK Keymaps
-      km-crkbd = "$HOME/keyboards/qmk_keymaps/keyboards/crkbd/keymaps/sajenim";
-      km-kchrn = "$HOME/keyboards/qmk_keymaps/keyboards/keychron/q4/ansi_v2/keymaps/sajenim";
+      km-crkbd = "$HOME/Projects/keyboards/qmk_keymaps/keyboards/crkbd/keymaps/sajenim";
+      km-kchrn = "$HOME/Projects/keyboards/qmk_keymaps/keyboards/keychron/q4/ansi_v2/keymaps/sajenim";
     };
  
     # Install plugins
