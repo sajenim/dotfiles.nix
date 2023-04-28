@@ -9,7 +9,7 @@
     dmenu
     feh
     wezterm
-    candybar
+    xmobar
   ];
 
   xsession = {
