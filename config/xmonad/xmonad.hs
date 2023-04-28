@@ -1,39 +1,37 @@
+-- Base
 import XMonad
 import System.Exit
+import qualified XMonad.StackSet as W
+
 -- Actions
 import XMonad.Actions.CycleWS
+
 -- Hooks
 import XMonad.Hooks.EwmhDesktops
--- Layout
+
+-- Layouts
 import XMonad.Layout.ThreeColumns
+
+-- Layout modifiers
 import XMonad.Layout.Spacing
 import XMonad.Layout.Renamed
--- Util
+
+-- Utilities
 import XMonad.Util.EZConfig (additionalKeysP)
+
 -- xmobar dependencies
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 import XMonad.Util.Loggers
--- qualified imports
-import qualified XMonad.StackSet as W
 
-main :: IO ()
-main = xmonad 
-     . ewmhFullscreen
-     . ewmh
-     . withEasySB (statusBarProp "candybar" (pure myXmobarPP)) defToggleStrutsKey
-     $ myConfig
-
-myConfig = def
-    { modMask            = myModMask
-    , layoutHook         = myLayout
-    , terminal           = myTerminal
-    , borderWidth        = myBorderWidth
-    , normalBorderColor  = myNormalBorderColor
-    , focusedBorderColor = myFocusedBorderColor
-    , workspaces         = myWorkspaces
-    } `additionalKeysP` myKeys
+-- | Configuration
+myTerminal           = "wezterm"
+myModMask            = mod4Mask
+myBorderWidth        = 5
+myNormalBorderColor  = "#282828"
+myFocusedBorderColor = "#282828"
+myWorkspaces         = ["code", "chat", "web", "games", "misc"]
 
 -- | Keybindings
 myKeys =
@@ -43,7 +41,6 @@ myKeys =
     , ("M-C-w"          , kill                             ) -- %! Close the focused window
     -- layouts
     , ("M-<Space>"      , sendMessage NextLayout           ) -- %! Rotate through the available layout algorithms
-    , ("M-f"            , sendMessage $ JumpToLayout "Full") -- %! Focus fullscreen layout
     -- move focus up or down the window stack
     , ("M-<Down>"       , windows W.focusDown              ) -- %! Move focus to the next window
     , ("M-<Up>"         , windows W.focusUp                ) -- %! Move focus to the previous window
@@ -76,52 +73,85 @@ myKeys =
     , ("M-S-q"          , io exitSuccess                   ) -- %! Quit xmonad
     ]
 
--- | Configuration
-myTerminal           = "wezterm"
-myModMask            = mod4Mask
-myBorderWidth        = 5
-myNormalBorderColor  = "#282828"
-myFocusedBorderColor = "#282828"
-myWorkspaces         = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
 -- | Layouts
-myLayout = gaps $ tiled ||| threeCol ||| Full
+myLayout = gaps $ tiled ||| threeCol ||| full
   where
     -- Add a configurable amount of space around windows.
     gaps     = spacingRaw False (Border 50 50 50 50) True (Border 10 10 10 10) True
-
-    threeCol = ThreeColMid nmaster delta ratio
-    tiled    = Tall nmaster delta ratio
+    -- Our layouts
+    tiled    = renamed [Replace "Tiled"]        $ Tall nmaster delta ratio
+    threeCol = renamed [Replace "Three Column"] $ ThreeColMid nmaster delta ratio
+    full     = renamed [Replace "Fullscreen"]   $ Full
+    -- Layout settings
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
     delta    = 3/100  -- Percent of screen to increment by when resizing panes
 
 -- | Xmobar
-myXmobarPP :: PP
-myXmobarPP = def
-    { ppSep             = magenta " • "
+xmobarTop    = statusBarPropTo "_XMONAD_LOG_1" "xmobar-top"    (pure ppTop)
+xmobarBottom = statusBarPropTo "_XMONAD_LOG_2" "xmobar-bottom" (pure ppBottom)
+
+ppTop :: PP
+ppTop = def
+    { ppSep             = grey0 " | "
     , ppTitleSanitize   = xmobarStrip
-    , ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2
-    , ppHidden          = white . wrap " " ""
-    , ppHiddenNoWindows = lowWhite . wrap " " ""
-    , ppUrgent          = red . wrap (yellow "!") (yellow "!")
+    -- workspace labels
+    , ppCurrent         = purple . wrap " " ""
+    , ppVisible         = blue   . wrap " " ""
+    , ppHidden          = grey0  . wrap " " ""
+    , ppHiddenNoWindows = grey0  . wrap " " ""
+    , ppUrgent          = red    . wrap " " ""
+    -- misc
     , ppOrder           = \[ws, l, _, wins] -> [ws, l, wins]
     , ppExtras          = [logTitles formatFocused formatUnfocused]
     }
   where
-    formatFocused   = wrap (white    "[") (white    "]") . magenta . ppWindow
-    formatUnfocused = wrap (lowWhite "[") (lowWhite "]") . blue    . ppWindow
+    formatFocused   = wrap (grey0 "") (grey0 " ") . purple . ppWindow
+    formatUnfocused = wrap (grey0 "") (grey0 " ") . blue   . ppWindow
 
     -- | Windows should have *some* title, which should not not exceed a
     -- sane length.
     ppWindow :: String -> String
     ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
+    
+    -- | Gruvbox material
+    bg0, bg1, fg0, fg1, red, orange, yellow, green, aqua, blue, purple :: String -> String
+    -- backgrounds
+    bg0    = xmobarColor "#1d2021" ""
+    bg1    = xmobarColor "#282828" ""
+    -- foregrounds
+    fg0    = xmobarColor "#d4be98" ""
+    fg1    = xmobarColor "#ddc7a1" ""
+    -- greys
+    grey0  = xmobarColor "#7c6f64" ""
+    -- colors
+    red    = xmobarColor "#ea6962" ""
+    orange = xmobarColor "#e78a4e" ""
+    yellow = xmobarColor "#d8a658" ""
+    green  = xmobarColor "#a9b665" ""
+    aqua   = xmobarColor "#89b482" ""
+    blue   = xmobarColor "#7daea3" ""
+    purple = xmobarColor "#d3869b" ""
 
-    blue, lowWhite, magenta, red, white, yellow :: String -> String
-    magenta  = xmobarColor "#ff79c6" ""
-    blue     = xmobarColor "#bd93f9" ""
-    white    = xmobarColor "#f8f8f2" ""
-    yellow   = xmobarColor "#f1fa8c" ""
-    red      = xmobarColor "#ff5555" ""
-    lowWhite = xmobarColor "#bbbbbb" ""
+ppBottom :: PP
+ppBottom = def
+
+-- | The main function
+main :: IO ()
+main = xmonad 
+     . ewmhFullscreen
+     . ewmh
+     . withEasySB (xmobarTop <> xmobarBottom) defToggleStrutsKey 
+     $ myConfig
+
+myConfig = def
+    { modMask            = myModMask
+    , layoutHook         = myLayout
+    , terminal           = myTerminal
+    , borderWidth        = myBorderWidth
+    , normalBorderColor  = myNormalBorderColor
+    , focusedBorderColor = myFocusedBorderColor
+    , workspaces         = myWorkspaces
+    } `additionalKeysP` myKeys
+
 
