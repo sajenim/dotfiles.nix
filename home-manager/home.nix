@@ -36,9 +36,6 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-      (final: prev: {
-        wezterm = inputs.nixpkgs-f2k.packages.${pkgs.system}.wezterm-git;
-      })
     ];
     # Configure your nixpkgs instance
     config = {
