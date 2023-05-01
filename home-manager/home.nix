@@ -11,7 +11,6 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    ./xsession.nix
     ./programs/discocss.nix
     ./programs/git.nix
     ./programs/mangohud.nix
