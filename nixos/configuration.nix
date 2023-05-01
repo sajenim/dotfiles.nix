@@ -191,23 +191,6 @@
       enable = true;
       layout = "au";
       videoDrivers = [ "amdgpu" ];
-
-      # Configure display manager
-      displayManager = {
-        sddm.enable = true;
-        defaultSession = "plasma";
-      };
-      
-      desktopManager = {
-        plasma5.enable = true;
-        session = [{
-          name = "home-manager";
-          start = ''
-            ${pkgs.stdenv.shell} $HOME/.xsession-hm &
-            waitPID=$!
-          '';
-        }];
-      };
     };
   };
 
