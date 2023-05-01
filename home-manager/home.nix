@@ -63,6 +63,8 @@
       # pkgs.unstable
       unstable.prismlauncher
     ];
+
+    file.".xinitrc".source = ./xinitrc;
   };
 
   # Copy user configuration
