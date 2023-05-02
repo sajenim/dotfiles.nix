@@ -11,6 +11,11 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
+
+    # Jasmine's Desktop Environment
+    ./jade/default.nix
+
+    # Programs
     ./programs/discocss.nix
     ./programs/git.nix
     ./programs/mangohud.nix
@@ -60,11 +65,8 @@
     packages = with pkgs; [
       discord
       spotify
-      # pkgs.unstable
-      unstable.prismlauncher
+      prismlauncher
     ];
-
-    file.".xinitrc".source = ./xinitrc;
   };
 
   # Copy user configuration

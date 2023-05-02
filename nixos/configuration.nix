@@ -191,6 +191,7 @@
       enable = true;
       layout = "au";
       videoDrivers = [ "amdgpu" ];
+      displayManager.startx.enable = true;
     };
   };
 
