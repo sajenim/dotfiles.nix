@@ -16,7 +16,7 @@
     ./jade/default.nix
     
     # Configurations
-    ./config/neovim-jsm/default.nix
+    /etc/nixos/config/neovim-jsm/default.nix
 
     # Programs
     ./programs/discocss.nix
