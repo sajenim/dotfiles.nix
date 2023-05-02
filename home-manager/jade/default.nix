@@ -1,20 +1,19 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 
 {
-  imports = [
-    ./xmonad
-  ];
+  imports = [ ];
 
   home.packages = with pkgs; [
     dmenu
     feh
     wezterm
+    xmobar-jsm
   ];
   
-  xdg.configFile = {
-    wezterm = { source = ./wezterm; recursive = true; };
+  xsession.windowManager.xmonad = {
+    enable = true;
+    enableContribAndExtras = true;
+    config = /etc/nixos/home-manager/jade/xmonad-jsm/src/xmonad.hs;
   };
-
-  home.file.".xinitrc".source = ./xinitrc;
 }
 
