@@ -13,7 +13,6 @@
   home.packages = with pkgs; [
     dmenu
     feh
-    wezterm
     xmobar-jsm
   ];
   
