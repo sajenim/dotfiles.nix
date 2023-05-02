@@ -1,6 +1,6 @@
-[submodule "home-manager/jade/xmonad/xmonad-jsm"]
-	path = home-manager/jade/xmonad/xmonad-jsm
-	url = git@github.com:sajenim/xmonad-jsm.git
-[submodule "home-manager/jade/xmobar/xmobar-jsm"]
-	path = home-manager/jade/xmobar/xmobar-jsm
+[submodule "home-manager/jade/xmobar-jsm"]
+	path = home-manager/jade/xmobar-jsm
 	url = git@github.com:sajenim/xmobar-jsm.git
+[submodule "home-manager/jade/xmonad-jsm"]
+	path = home-manager/jade/xmonad-jsm
+	url = git@github.com:sajenim/xmonad-jsm.git
