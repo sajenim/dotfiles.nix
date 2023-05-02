@@ -1,0 +1,36 @@
+[colors]
+background = '#1d2021'
+foreground = '#d4be98'
+selection_bg = '#d4be98'
+selection_fg = '#3c3836'
+cursor_bg = '#d4be98'
+cursor_fg = '#1d2021'
+cursor_border = '#d4be98'
+
+ansi = [
+    '#1d2021',
+    '#ea6962',
+    '#a9b665',
+    '#d8a657',
+    '#7daea3',
+    '#d3869b',
+    '#89b482',
+    '#d4be98',
+]
+
+brights = [
+    '#7c6f64',
+    '#ea6962',
+    '#a9b665',
+    '#d8a657',
+    '#7daea3',
+    '#d3869b',
+    '#89b482',
+    '#d4be98',
+]
+
+[colors.indexed]
+
+[metadata]
+name = 'gruvbox_material_dark_hard'
+origin_url = 'https://gist.github.com/theoriginalstove/89aa16316a756721816886398080dbd6'

@@ -66,12 +66,18 @@
       discord
       spotify
       prismlauncher
+      wezterm
     ];
+    
+    # Setup startx
+    file.".xinitrc".source = ../config/xinitrc;
   };
 
   # Copy user configuration
-  xdg.configFile = { };
-
+  xdg.configFile = { 
+    wezterm = { source = ../config/wezterm; recursive = true; };
+  };
+ 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
