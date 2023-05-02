@@ -1,9 +1,3 @@
-[submodule "home-manager/jade/xmobar-jsm"]
-	path = home-manager/jade/xmobar-jsm
-	url = git@github.com:sajenim/xmobar-jsm.git
-[submodule "home-manager/jade/xmonad-jsm"]
-	path = home-manager/jade/xmonad-jsm
-	url = git@github.com:sajenim/xmonad-jsm.git
 [submodule "config/neovim-jsm"]
 	path = config/neovim-jsm
 	url = git@github.com:sajenim/neovim-jsm.git
