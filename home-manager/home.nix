@@ -14,12 +14,14 @@
 
     # Jasmine's Desktop Environment
     ./jade/default.nix
+    
+    # Configurations
+    ./config/neovim-jsm/default.nix
 
     # Programs
     ./programs/discocss.nix
     ./programs/git.nix
     ./programs/mangohud.nix
-    ./programs/nvim.nix
     ./programs/zsh.nix
   ];
 
