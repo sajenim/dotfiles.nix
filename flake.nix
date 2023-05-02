@@ -12,6 +12,8 @@
 
     # Add any other flake you might need
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
+    xmonad-jsm.url = "github:sajenim/xmonad-jsm";
+    xmobar-jsm.url = "github:sajenim/xmobar-jsm";
 
     # Default branch
     nixpkgs.follows = "nixos-unstable";
