@@ -13,7 +13,7 @@
     # You can also split up your configuration and import pieces of it here:
 
     # Configurations
-    /etc/nixos/config/neovim-jsm/default.nix
+    "${inputs.neovim-jsm}/default.nix"
 
     # Programs
     ./programs/discocss.nix

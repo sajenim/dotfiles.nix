@@ -1,3 +1,0 @@
-[submodule "config/neovim-jsm"]
-	path = config/neovim-jsm
-	url = git@github.com:sajenim/neovim-jsm.git

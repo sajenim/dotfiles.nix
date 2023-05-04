@@ -18,6 +18,12 @@
     xmonad-jsm.url = "github:sajenim/xmonad-jsm";
     xmobar-jsm.url = "github:sajenim/xmobar-jsm";
 
+    # Github repos
+    neovim-jsm = {
+      url = "github:sajenim/neovim-jsm";
+      flake = false;
+    };
+
     # Default branch
     nixpkgs.follows = "nixos-unstable";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
