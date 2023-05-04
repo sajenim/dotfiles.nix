@@ -7,11 +7,14 @@
     stable.url = "github:nixos/nixpkgs/nixos-22.11";
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     # Home manager
     home-manager.url = "github:nix-community/home-manager/master";
 
     # Add any other flake you might need
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
+
+    # My personal flakes
     xmonad-jsm.url = "github:sajenim/xmonad-jsm";
     xmobar-jsm.url = "github:sajenim/xmobar-jsm";
 
