@@ -12,9 +12,6 @@
 
     # You can also split up your configuration and import pieces of it here:
 
-    # Jasmine's Desktop Environment
-    ./jade/default.nix
-    
     # Configurations
     /etc/nixos/config/neovim-jsm/default.nix
 
