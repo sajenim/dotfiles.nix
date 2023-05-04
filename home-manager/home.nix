@@ -64,7 +64,7 @@
     packages = with pkgs; [
       discord
       spotify
-      prismlauncher
+      # prismlauncher https://github.com/NixOS/nixpkgs/issues/229358
       wezterm
     ];
     
