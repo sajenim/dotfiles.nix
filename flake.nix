@@ -19,6 +19,11 @@
     xmobar-jsm.url = "github:sajenim/xmobar-jsm";
 
     # Github repos
+    jade = {
+      url = "github:sajenim/jade";
+      flake = false;
+    };
+
     neovim-jsm = {
       url = "github:sajenim/neovim-jsm";
       flake = false;
