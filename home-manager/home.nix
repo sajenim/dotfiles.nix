@@ -13,6 +13,7 @@
     # You can also split up your configuration and import pieces of it here:
 
     # Configurations
+    "${inputs.jade}/default.nix"
     "${inputs.neovim-jsm}/default.nix"
 
     # Programs
@@ -67,9 +68,6 @@
       # prismlauncher https://github.com/NixOS/nixpkgs/issues/229358
       wezterm
     ];
-    
-    # Setup startx
-    file.".xinitrc".source = ../config/xinitrc;
   };
 
   # Copy user configuration
