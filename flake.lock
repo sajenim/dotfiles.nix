@@ -252,11 +252,11 @@
     "neovim-jsm": {
       "flake": false,
       "locked": {
-        "lastModified": 1683205966,
-        "narHash": "sha256-d8Cuj/gVsGrh4mcQ5HJTmjyXVVuzcdKwHJxKw8zV1i8=",
+        "lastModified": 1683473123,
+        "narHash": "sha256-4sdOzL+n5IXYa8SW/XwRQa7ecrynkpTVNO/hSzyUr5E=",
         "owner": "sajenim",
         "repo": "neovim-jsm",
-        "rev": "fbfc694d1587f0f612f68a97f84582a2b4d50ab3",
+        "rev": "a37dd320cb0ec7dfdabdc04e48ba23c950ee90bc",
         "type": "github"
       },
       "original": {
