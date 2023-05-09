@@ -16,16 +16,20 @@
 
     # My personal flakes
     xmonad-jsm.url = "github:sajenim/xmonad-jsm";
+    # xmonad-jsm.url = "path:/home/sajenim/xmonad-jsm";
     xmobar-jsm.url = "github:sajenim/xmobar-jsm";
+    # xmobar-jsm.url = "path:/home/sajenim/xmobar-jsm";
 
     # Github repos
     jade = {
       url = "github:sajenim/jade";
+      # url = "path:/home/sajenim/Projects/jade";
       flake = false;
     };
 
     neovim-jsm = {
       url = "github:sajenim/neovim-jsm";
+      # url = "path:/home/sajenim/Projects/neovim-jsm";
       flake = false;
     };
 
