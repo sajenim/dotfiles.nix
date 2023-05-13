@@ -82,6 +82,14 @@
             ./nixos/fuchsia/configuration.nix
           ];
         };
+
+        lavender = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            # > Our main nixos configuration file <
+            ./nixos/lavender/configuration.nix
+          ];
+        };
       };
 
       # Standalone home-manager configuration entrypoint
@@ -93,6 +101,14 @@
           modules = [
             # > Our main home-manager configuration file <
             ./home-manager/sajenim.nix
+          ];
+        };
+
+        "admin@lavender" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/admin.nix
           ];
         };
       };
