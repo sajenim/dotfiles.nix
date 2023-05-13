@@ -156,7 +156,7 @@
       freecad openscad
 
       # Misc
-      openrgb protonup-ng
+      openrgb piper protonup-ng
     ];
     
     # Completions for system packages
@@ -191,6 +191,10 @@
       layout = "au";
       videoDrivers = [ "amdgpu" ];
       displayManager.startx.enable = true;
+    };
+
+    ratbagd = {
+      enable = true;
     };
   };
 
