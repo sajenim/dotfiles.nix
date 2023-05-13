@@ -119,6 +119,7 @@
    users.users.admin = {
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     openssh.authorizedKeys.keyFiles = [ ../fuchsia/id_ed25519_sk.pub ];
    };
 
   # List packages installed in system profile. To search, run:
