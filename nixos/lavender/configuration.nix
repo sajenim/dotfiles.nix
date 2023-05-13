@@ -145,6 +145,7 @@
   services.openssh = {
     enable = true;
     permitRootLogin = "no";
+    passwordAuthentication = false;
   };
 
   # Open ports in the firewall.
