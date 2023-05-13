@@ -110,6 +110,12 @@
     domain = "kanto.dev";
     # Connect to networks
     networkmanager.enable = true;
+    # Setup our firewall
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ ];
+      allowedUDPPorts = [ ];
+    };
   };
 
   fonts = {
