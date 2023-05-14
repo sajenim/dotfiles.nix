@@ -2,48 +2,90 @@
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
 { inputs, outputs, lib, config, pkgs, ... }: {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  # You can import other NixOS modules here
+  imports = [ 
+    # If you want to use modules your own flake exports (from modules/nixos):
+    # outputs.nixosModules.example
+
+    # Or modules from other flakes (such as nixos-hardware):
+    # inputs.hardware.nixosModules.common-cpu-amd
+    # inputs.hardware.nixosModules.common-ssd
+
+    # You can also split up your configuration and import pieces of it here:
+
+    # Import your generated (nixos-generate-config) hardware configuration
+    ./hardware-configuration.nix
+  ];
   
   nixpkgs = {
+    # You can add overlays here  
     overlays = [
+      # Add overlays your own flake exports (from overlays and pkgs dir):    
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+
+      # You can also add overlays exported from other flakes:
+      # neovim-nightly-overlay.overlays.default
+
+      # Or define it inline, for example:
+      # (final: prev: {
+      #   hi = final.hello.overrideAttrs (oldAttrs: {
+      #     patches = [ ./change-hello-to-hi.patch ];
+      #   });
+      # })      
     ];
+    # Configure your nixpkgs instance    
     config = {
+      # Disable if you don't want unfree packages    
       allowUnfree = true;
     };
   };
 
   nix = {
-    autoOptimiseStore = true;
     gc = {
+      #Automatically run the garbage collector at a specific time.
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
+   
+    # This will add each flake input as a registry
+    # To make nix commands consistent with your flake
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+
+    # This will additionally add your inputs to the system's legacy channels
+    # Making legacy nix commands consistent as well, awesome!
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+
+    settings = {
+      # Enable flakes and new 'nix' command
+      experimental-features = "nix-command flakes";
+      # Deduplicate and optimize nix store      
+      auto-optimise-store = true;
+    };
+
     # Free up to 1GiB whenever there is less than 100MiB left.
     extraOptions = ''
       min-free = ${toString (100 * 1024 * 1024)}
       max-free = ${toString (1024 * 1024 * 1024)}
     '';
-    
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-    settings = {
-      experimental-features = "nix-command flakes";
-      auto-optimise-store = true;
-    };
   };
 
+  # Select internationalisation properties
+  i18n.defaultLocale = "en_AU.UTF-8";
+  # Set timezone
+  time.timeZone = "Australia/Perth";
+
   boot = {
+    # Kernel to install  
     kernelPackages = pkgs.linuxPackages_rpi4;
-    tmpOnTmpfs = true;
+
+
+    tmp.useTmpfs = true;
     initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
-    # ttyAMA0 is the serial consolee broken out to the GPIO
+    
+    # ttyAMA0 is the serial console broken out to the GPIO
     kernelParams = [
       "8250.nr_uarts=1"
       "console=ttyAMA0,115200"
@@ -51,6 +93,13 @@
       # A lot of GUI programs need this, nearly all wayland applications
       "cma=128M"
     ];
+
+    loader = {
+      # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
+      grub.enable = false;
+      # Enables the generation of /boot/extlinux/extlinux.conf
+      generic-extlinux-compatible.enable = true;
+    };
   };
 
   # Required for the Wireless firmware
@@ -63,39 +112,14 @@
     };
   };
 
-  
+  # Install docker
+  virtualisation.docker = {
+    enable = true;
+    # Reduce container downtime due to daemon crashes
+    liveRestore = false;
+  };
     
     
-  
-  # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
-  boot.loader.grub.enable = false;
-  # Enables the generation of /boot/extlinux/extlinux.conf
-  boot.loader.generic-extlinux-compatible.enable = true;
-
-  # networking.hostName = "nixos"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
-  # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-
   
 
   # Configure keymap in X11
@@ -118,7 +142,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.admin = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "docker" "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
     openssh.authorizedKeys.keyFiles = [ ../fuchsia/id_ed25519_sk.pub ];
   };
@@ -130,6 +154,7 @@
     wget
     git
     home-manager
+    docker-compose
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];
@@ -148,8 +173,10 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-    permitRootLogin = "no";
-    passwordAuthentication = false;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
   };
 
   # Open ports in the firewall.
