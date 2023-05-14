@@ -12,8 +12,12 @@
 
     # You can also split up your configuration and import pieces of it here:
 
+    # Configurations
+    "${inputs.neovim-jsm}/default.nix"
+
     # Programs
     ./programs/git.nix
+    ./programs/zsh.nix
   ];
 
   nixpkgs = {
@@ -51,7 +55,7 @@
     username = "admin";
     homeDirectory = "/home/admin";
     sessionVariables = {
-      EDITOR = "vim";
+      EDITOR = "nvim";
     };
   
     # Install some packages
