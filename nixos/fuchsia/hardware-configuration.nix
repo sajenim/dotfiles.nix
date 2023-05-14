@@ -18,11 +18,6 @@
       fsType = "vfat";
     };
 
-  fileSystems."/drive/3548fbc6-6efd-4ed1-acc1-bd3ffed9d7a7" =
-    { device = "/dev/disk/by-uuid/3548fbc6-6efd-4ed1-acc1-bd3ffed9d7a7";
-      fsType = "ext4";
-    };
-
   fileSystems."/drive/a20b9780-ddcf-414c-bea0-7e003fea4750" =
     { device = "/dev/disk/by-uuid/a20b9780-ddcf-414c-bea0-7e003fea4750";
       fsType = "ext4";
