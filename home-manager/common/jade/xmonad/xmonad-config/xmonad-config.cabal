@@ -1,0 +1,19 @@
+cabal-version:      3.0
+name:               xmonad-config
+version:            0.1.0.0
+synopsis:           A tiling window manager
+description:        my xmonad configuration
+license:            BSD-3-Clause
+author:             sajenim
+maintainer:         its.jassy@pm.me
+build-type:         Simple
+
+executable xmonad-config
+    main-is:          xmonad.hs
+    hs-source-dirs:   src
+    ghc-options:      -Wall
+    build-depends:    base,
+                      xmonad,
+                      xmonad-contrib
+    default-language: Haskell2010
+

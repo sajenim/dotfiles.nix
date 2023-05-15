@@ -2,40 +2,23 @@
   description = "NixOS + Home Manager configuration with flakes";
 
   inputs = {
-    # Nixpkgs branches
-    master.url = "github:nixos/nixpkgs/master";
-    stable.url = "github:nixos/nixpkgs/nixos-22.11";
-    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # Nixpkgs
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    # You can access packages and modules from different nixpkgs revs
+    # at the same time. Here's an working example:    
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.    
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Add any other flake you might need
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
 
-    # My personal flakes
-    xmonad-jsm.url = "github:sajenim/xmonad-jsm";
-    # xmonad-jsm.url = "path:/home/sajenim/xmonad-jsm";
-    xmobar-jsm.url = "github:sajenim/xmobar-jsm";
-    # xmobar-jsm.url = "path:/home/sajenim/xmobar-jsm";
-
-    # Github repos
-    jade = {
-      url = "github:sajenim/jade";
-      # url = "path:/home/sajenim/Projects/jade";
-      flake = false;
-    };
-
-    neovim-jsm = {
-      url = "github:sajenim/neovim-jsm";
-      # url = "path:/home/sajenim/Projects/neovim-jsm";
-      flake = false;
-    };
-
-    # Default branch
-    nixpkgs.follows = "nixos-unstable";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # Developer environments
+    xmonad-config.url = "path:home-manager/common/jade/xmonad/xmonad-config";
+    xmobar-config.url = "path:home-manager/common/jade/xmobar/xmobar-config";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -100,7 +83,7 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main home-manager configuration file <
-            ./home-manager/sajenim.nix
+            ./home-manager/sajenim/home.nix
           ];
         };
 
@@ -108,7 +91,7 @@
           pkgs = nixpkgs.legacyPackages.aarch64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            ./home-manager/admin.nix
+            ./home-manager/admin/home.nix
           ];
         };
       };

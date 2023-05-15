@@ -12,15 +12,15 @@
 
     # You can also split up your configuration and import pieces of it here:
 
-    # Configurations
-    "${inputs.jade}/default.nix"
-    "${inputs.neovim-jsm}/default.nix"
+    # User programs
+    ./programs/discocss
+    ./programs/mangohud
 
-    # Programs
-    ./programs/discocss.nix
-    ./programs/git.nix
-    ./programs/mangohud.nix
-    ./programs/zsh.nix
+    # Common programs
+    ../common/jade
+    ../common/programs/git
+    ../common/programs/zsh
+    ../common/programs/nvim
   ];
 
   nixpkgs = {
@@ -65,16 +65,10 @@
     packages = with pkgs; [
       discord
       spotify
-      # prismlauncher https://github.com/NixOS/nixpkgs/issues/229358
-      wezterm
+      prismlauncher
     ];
   };
 
-  # Copy user configuration
-  xdg.configFile = { 
-    wezterm = { source = ../config/wezterm; recursive = true; };
-  };
- 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
