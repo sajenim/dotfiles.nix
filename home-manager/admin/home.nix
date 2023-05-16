@@ -11,13 +11,9 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-
-    # Configurations
-    "${inputs.neovim-jsm}/default.nix"
-
-    # Programs
-    ./programs/git.nix
-    ./programs/zsh.nix
+    ../common/programs/git
+    ../common/programs/nvim
+    ../common/programs/zsh
   ];
 
   nixpkgs = {
@@ -57,12 +53,8 @@
     sessionVariables = {
       EDITOR = "nvim";
     };
-  
-    # Install some packages
   };
 
-  # Copy user configuration
- 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
