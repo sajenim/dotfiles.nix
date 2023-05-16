@@ -6,7 +6,7 @@
     autoStart = true;
     image = "ghcr.io/benphelps/homepage:latest";
     volumes = [
-      "/srv/homepage/config:/app/config"
+      "/srv/homepage:/app/config"
     ];
     ports = [ "3000:3000" ];
   };

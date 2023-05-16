@@ -13,16 +13,24 @@
 
     # You can also split up your configuration and import pieces of it here:
 
-    # Containers
+    # Homepage
     ./containers/homepage.nix
-    ./containers/pihole.nix
 
-    # Media server containers
-    ./containers/jellyfin.nix
+    # Multimedia
+    ./containers/plex.nix
     ./containers/sonarr.nix
     ./containers/radarr.nix
-    ./containers/prowlarr.nix
+    ./containers/overseerr.nix
+
+    # DevOps
+    ./containers/gitea.nix
+    ./containers/code-server.nix
+
+    # Documents & Files
     ./containers/qbittorrent.nix
+
+    # Utilities
+    ./containers/pihole.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
