@@ -13,6 +13,12 @@
 
     # You can also split up your configuration and import pieces of it here:
 
+    # Containers
+    ./containers/homepage.nix
+    ./containers/jellyfin.nix
+    ./containers/sonarr.nix
+    ./containers/radarr.nix
+
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
@@ -80,10 +86,6 @@
   boot = {
     # Kernel to install  
     kernelPackages = pkgs.linuxPackages_rpi4;
-
-
-    tmp.useTmpfs = true;
-    initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
     
     # ttyAMA0 is the serial console broken out to the GPIO
     kernelParams = [
@@ -100,83 +102,65 @@
       # Enables the generation of /boot/extlinux/extlinux.conf
       generic-extlinux-compatible.enable = true;
     };
+
+    # Mount a tmpfs on /tmp during boot
+    tmpOnTmpfs = true;
   };
 
-  # Required for the Wireless firmware
-  hardware.enableRedistributableFirmware = true;
+  hardware = {
+    # Required for the Wireless firmware
+    enableRedistributableFirmware = true;
+  };
   
   networking = {
     hostName = "lavender";
+    domain = "kanto.dev";
     networkmanager = {
       enable = true;
     };
   };
-
-  # Install docker
-  virtualisation.docker = {
-    enable = true;
-    # Reduce container downtime due to daemon crashes
-    liveRestore = false;
-  };
-    
-    
   
+  environment = {
+    systemPackages = with pkgs; [
+      # System tools
+      vim wget git home-manager
+      
+      # Developer tools
+      docker-compose
 
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = {
-  #   "eurosign:e";
-  #   "caps:escape" # map caps to escape.
-  # };
+      arion docker-client
+    ];
+    
+    # Completions for system packages
+    pathsToLink = [ "/share/zsh" ];
+  };
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  programs = {
+    zsh.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
+ 
+  # List services that you want to enable:
+  services = {
+    # Enable the OpenSSH daemon.
+    openssh = {
+      enable = true;
+      permitRootLogin = "no";
+      passwordAuthentication = false;
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.admin = {
     isNormalUser = true;
-    extraGroups = [ "docker" "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "docker" "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keyFiles = [ ../fuchsia/id_ed25519_sk.pub ];
-  };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    home-manager
-    docker-compose
-  ];
-
-  environment.pathsToLink = [ "/share/zsh" ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.zsh.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-    };
   };
 
   # Open ports in the firewall.
@@ -185,11 +169,6 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -197,6 +176,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-
 }
 
