@@ -15,6 +15,9 @@
 
     # Containers
     ./containers/homepage.nix
+    ./containers/pihole.nix
+
+    # Media server containers
     ./containers/jellyfin.nix
     ./containers/sonarr.nix
     ./containers/radarr.nix
