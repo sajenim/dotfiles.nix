@@ -18,6 +18,8 @@
     ./containers/jellyfin.nix
     ./containers/sonarr.nix
     ./containers/radarr.nix
+    ./containers/prowlarr.nix
+    ./containers/qbittorrent.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
