@@ -6,7 +6,7 @@
     autoStart = true;
     image = "lscr.io/linuxserver/code-server:latest";
     volumes = [
-      "/srv/code-server:/config"
+      "/srv/containers/code-server:/config"
     ];
     ports = [ "8443:8443" ];
   };

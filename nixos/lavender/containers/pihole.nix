@@ -6,8 +6,8 @@
     autoStart = true;
     image = "pihole/pihole:latest";
     volumes = [
-      "/srv/pihole/etc-pihole:/etc/pihole"
-      "/srv/pihole/etc-dnsmasq.d:/etc/dnsmasq.d"
+      "/srv/containers/pihole/etc-pihole:/etc/pihole"
+      "/srv/containers/pihole/etc-dnsmasq.d:/etc/dnsmasq.d"
     ];
     ports = [ 
       "53:53/tcp"

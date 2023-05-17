@@ -6,7 +6,7 @@
     autoStart = true;
     image = "gitea/gitea:latest";
     volumes = [
-      "/srv/gitea:/data"
+      "/srv/containers/gitea:/data"
       "/etc/localtime:/etc/localtime:ro"
     ];
     ports = [

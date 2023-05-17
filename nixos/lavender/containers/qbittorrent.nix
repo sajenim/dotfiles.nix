@@ -6,7 +6,7 @@
     autoStart = true;
     image = "cr.hotio.dev/hotio/qbittorrent";
     volumes = [
-      "/srv/qbittorrent:/config"
+      "/srv/containers/qbittorrent:/config"
       "/srv/media:/media"
     ];
     ports = [ "8080:8080" ];
