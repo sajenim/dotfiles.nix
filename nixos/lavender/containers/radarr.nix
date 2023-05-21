@@ -7,7 +7,7 @@
     image = "cr.hotio.dev/hotio/radarr";
     volumes = [
       "/srv/containers/radarr:/config"
-      "/srv/media:/media"
+      "/srv/data:/data"
     ];
     ports = [ "7878:7878" ];
   };

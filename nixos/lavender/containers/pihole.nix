@@ -8,14 +8,15 @@
     volumes = [
       "/srv/containers/pihole/etc-pihole:/etc/pihole"
       "/srv/containers/pihole/etc-dnsmasq.d:/etc/dnsmasq.d"
+      "/srv/containers/pihole/secrets:/secrets"
     ];
     ports = [ 
       "53:53/tcp"
       "53:53/udp"
-      "80:80/tcp"
+      "8181:80/tcp"
     ];
     environment = {
-      WEBPASSWORD = "";
+      WEBPASSWORD_FILE = "/secrets/admin-password";
       DNSMASQ_LISTENING = "all";
     };
   };

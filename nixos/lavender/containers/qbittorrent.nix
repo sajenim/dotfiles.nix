@@ -4,11 +4,14 @@
   # Qbittorrent
   virtualisation.oci-containers.containers."qbittorrent" = {
     autoStart = true;
-    image = "cr.hotio.dev/hotio/qbittorrent";
+    image = "cr.hotio.dev/hotio/qbittorrent:release";
     volumes = [
       "/srv/containers/qbittorrent:/config"
-      "/srv/media:/media"
+      "/srv/data/torrents:/data/torrents"
     ];
-    ports = [ "8080:8080" ];
+    ports = [ 
+      "8383:8080"
+      "32372:32372"
+    ];
   };
 }

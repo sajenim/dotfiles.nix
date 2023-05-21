@@ -7,7 +7,7 @@
     image = "lscr.io/linuxserver/plex:latest";
     volumes = [
       "/srv/containers/plex:/config"
-      "/srv/media:/media"
+      "/srv/data/media:/data/media:ro"
     ];
     ports = [ "32400:32400" ];
   };
