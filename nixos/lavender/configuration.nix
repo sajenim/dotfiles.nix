@@ -16,15 +16,17 @@
     # Homepage
     ./containers/homepage.nix
 
+    # Reverse proxy
+    ./containers/traefik.nix
+
+    # Website
+    ./containers/nginx.nix
+
     # Multimedia
     ./containers/plex.nix
     ./containers/sonarr.nix
     ./containers/radarr.nix
-    ./containers/overseerr.nix
-
-    # DevOps
-    ./containers/gitea.nix
-    ./containers/code-server.nix
+    ./containers/prowlarr.nix
 
     # Documents & Files
     ./containers/qbittorrent.nix
@@ -136,12 +138,7 @@
   environment = {
     systemPackages = with pkgs; [
       # System tools
-      vim wget git home-manager
-      
-      # Developer tools
-      docker-compose
-
-      arion docker-client
+      vim wget git home-manager tree ranger
     ];
     
     # Completions for system packages
