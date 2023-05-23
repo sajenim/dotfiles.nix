@@ -43,6 +43,13 @@
   };
 
   nix = {
+    gc = {
+      # Automatically run the garbage collector an a specified time.
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+
     # This will add each flake input as a registry
     # To make nix commands consistent with your flake
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
