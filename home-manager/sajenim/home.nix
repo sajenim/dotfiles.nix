@@ -13,7 +13,7 @@
     # You can also split up your configuration and import pieces of it here:
 
     # User programs
-    ./programs/discocss
+    ./programs/discord
     ./programs/mangohud
 
     # Common programs
@@ -63,7 +63,6 @@
   
     # Install some packages
     packages = with pkgs; [
-      discord
       spotify
       prismlauncher
     ];
