@@ -14,7 +14,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Add any other flake you might need
-    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
 
     # Developer environments
     xmonad-config.url = "path:home-manager/common/jade/xmonad/xmonad-config";
