@@ -17,7 +17,7 @@
     ./programs/mangohud
 
     # Common programs
-    ../common/jade
+    ../common/desktop
     ../common/programs/git
     ../common/programs/zsh
     ../common/programs/nvim
