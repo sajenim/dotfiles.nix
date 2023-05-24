@@ -12,27 +12,7 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # You can also split up your configuration and import pieces of it here:
-
-    # Homepage
-    ./containers/homepage.nix
-
-    # Reverse proxy
-    ./containers/traefik.nix
-
-    # Website
-    ./containers/nginx.nix
-
-    # Multimedia
-    ./containers/plex.nix
-    ./containers/sonarr.nix
-    ./containers/radarr.nix
-    ./containers/prowlarr.nix
-
-    # Documents & Files
-    ./containers/qbittorrent.nix
-
-    # Utilities
-    ./containers/pihole.nix
+    ./containers
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -100,8 +80,7 @@
 
   boot = {
     # Kernel to install  
-    kernelPackages = pkgs.linuxPackages_rpi4;
-    
+    kernelPackages = pkgs.linuxPackages_rpi4;    
     # ttyAMA0 is the serial console broken out to the GPIO
     kernelParams = [
       "8250.nr_uarts=1"
