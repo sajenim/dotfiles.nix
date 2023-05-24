@@ -11,6 +11,7 @@
     # Enable extra features
     enableAutosuggestions = true;
     enableCompletion = true;
+    enableSyntaxHighlighting = true;
     dotDir = ".config/zsh";
     
     # Commands that should be added to to top of '.zshrc'
@@ -26,15 +27,13 @@
       la = "ls -a";
       ll = "ls -l";
       tt = "wezterm cli set-tab-title ";
-      uh = "home-manager switch --flake .#sajenim@fuchsia";
-      us = "sudo nixos-rebuild switch --flake .#fuchsia";
     };
 
     # An attribute set that adds to named directory hash table
     dirHashes = {
       # QMK Keymaps
-      km-crkbd = "$HOME/Projects/keyboards/qmk_keymaps/keyboards/crkbd/keymaps/sajenim";
-      km-kchrn = "$HOME/Projects/keyboards/qmk_keymaps/keyboards/keychron/q4/ansi_v2/keymaps/sajenim";
+      crkbd = "$HOME/Projects/keyboards/qmk_keymaps/keyboards/crkbd/keymaps/sajenim";
+      kchrn = "$HOME/Projects/keyboards/qmk_keymaps/keyboards/keychron/q4/ansi_v2/keymaps/sajenim";
     };
  
     # Install plugins
