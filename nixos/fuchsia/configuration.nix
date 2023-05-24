@@ -115,14 +115,12 @@
   networking = {
     hostName = "fuchsia";
     domain = "kanto.dev";
-    # Connect to networks
     networkmanager.enable = true;
-    # Open ports in the firewall.
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
-    };
+    # firewall = {
+    #   enable = true;
+    #   allowedTCPPorts = [ ];
+    #   allowedUDPPorts = [ ];
+    # };
   };
 
   fonts = {
@@ -227,7 +225,6 @@
   # Users
   users.users.sajenim = {
       isNormalUser = true;
-      description = "Jasmine Marie Wilson";
       extraGroups = [ "audio" "docker" "networkmanager" "wheel" ];
       shell = pkgs.zsh;
   };
