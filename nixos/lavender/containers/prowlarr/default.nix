@@ -7,7 +7,7 @@
     image = "cr.hotio.dev/hotio/prowlarr";
     volumes = [
       "/srv/containers/prowlarr:/config"
-      "/srv/media:/media"
+      "/srv/data:/data"
     ];
     ports = [ "9696:9696" ];
   };

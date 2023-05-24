@@ -7,7 +7,7 @@
     image = "ghcr.io/benphelps/homepage:latest";
     volumes = [
       "/srv/containers/homepage:/app/config"
-      "/srv/media:/srv/media:ro"
+      "/srv/data:/srv/data:ro"
     ];
     ports = [ "3000:3000" ];
   };
