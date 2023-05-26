@@ -21,6 +21,9 @@
     # Documents & Files
     ./qbittorrent
 
+    # Game servers
+    ./minecraft
+
     # Reverse proxy
     ./traefik
   ];
