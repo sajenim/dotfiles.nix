@@ -16,6 +16,7 @@
     ./sonarr
     ./radarr
     ./prowlarr
+    ./recyclarr
 
     # Documents & Files
     ./qbittorrent
