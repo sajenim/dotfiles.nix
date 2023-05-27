@@ -16,8 +16,8 @@
     # Add any other flake you might need
 
     # Developer environments
-    xmonad-config.url = "path:home-manager/common/jade/xmonad/xmonad-config";
-    xmobar-config.url = "path:home-manager/common/jade/xmobar/xmobar-config";
+    xmonad-config.url = "path:home-manager/common/desktop/xmonad/xmonad-config";
+    xmobar-config.url = "path:home-manager/common/desktop/xmobar/xmobar-config";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
