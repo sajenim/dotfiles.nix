@@ -63,6 +63,7 @@
   
     # Install some packages
     packages = with pkgs; [
+      bitwarden
       spotify
       prismlauncher
     ];
