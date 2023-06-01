@@ -20,7 +20,7 @@
 
     # Documents & Files
     ./qbittorrent
-    ./vaultwarden
+    ./bitwarden
 
     # Game servers
     ./minecraft
