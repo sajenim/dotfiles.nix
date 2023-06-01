@@ -148,7 +148,8 @@
       curl git glxinfo home-manager htop ranger trash-cli tree unrar unzip vim wget zip
       
       # Developer tools
-      docker-compose ghc cabal-install
+      docker-compose ghc cabal-install go
+      unstable.hugo
 
       # QMK firmware
       qmk vial
