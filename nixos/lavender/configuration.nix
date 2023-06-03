@@ -89,16 +89,12 @@
       # A lot of GUI programs need this, nearly all wayland applications
       "cma=128M"
     ];
-
     loader = {
       # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
       grub.enable = false;
       # Enables the generation of /boot/extlinux/extlinux.conf
       generic-extlinux-compatible.enable = true;
     };
-
-    # Mount a tmpfs on /tmp during boot
-    tmpOnTmpfs = true;
   };
 
   hardware = {
@@ -142,10 +138,12 @@
     # Enable the OpenSSH daemon.
     openssh = {
       enable = true;
-      # Disable root login.
-      permitRootLogin = "no";
-      # Disable password login (Require keys).
-      passwordAuthentication = false;
+      settings = {
+        # Disable root login.
+        PermitRootLogin = "no";
+        # Disable password login (Require keys).
+        PasswordAuthentication = false;
+      };
     };
   };
 
