@@ -6,7 +6,7 @@
     # Language servers
     clang-tools             # C, C++, Objective C/C++, OpenCL, CUDA, and RenderScript
     haskell-language-server # Haskell
-    # lua-language-server     # Lua
+    lua-language-server     # Lua
     nil                     # Nix
   ];
 
