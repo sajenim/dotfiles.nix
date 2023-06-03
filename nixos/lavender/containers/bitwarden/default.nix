@@ -10,7 +10,7 @@
     ];
     ports = [ "8484:8080" ];
     environmentFiles = [
-      ./settings.env
+      /etc/nixos/nixos/lavender/containers/bitwarden/settings.env
     ];
   };
 }
