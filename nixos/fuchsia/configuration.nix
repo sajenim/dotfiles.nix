@@ -202,6 +202,13 @@
       enable = true;
       layout = "au";
       videoDrivers = [ "amdgpu" ];
+      libinput = {
+        enable = true;
+        mouse = {
+          # Disable mouse acceleration.
+          accelProfile = "flat";
+        };
+      };
       displayManager.startx.enable = true;
     };
 
