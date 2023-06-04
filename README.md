@@ -5,9 +5,13 @@
 My [NixOS](https://nixos.org/) and [Home-Manager](https://github.com/nix-community/home-manager) config files.
 Based upon [Misterio77's starter configs](https://github.com/Misterio77/nix-starter-configs).
 
-My other configs:
-* [neovim](https://github.com/sajenim/neovim-jsm)
-* [xmonad](https://github.com/sajenim/xmonad-jsm)
+**My other configs:**
+* [neovim](https://github.com/sajenim/neovim-config)
+* [wezterm](https://github.com/sajenim/wezterm-config)
+
+**Development environments:**
+* [xmobar](https://github.com/sajenim/xmobar-config)
+* [xmonad](https://github.com/sajenim/xmonad-config)
 
 Alternatively [jade](https://github.com/sajenim/jade) provides the plumbing for a desktop environment like experience.  
 To be used as a simple home-manager import.
@@ -15,29 +19,6 @@ To be used as a simple home-manager import.
 > This repo is often neglected and doesn't necesarrily follow best practices.  
 > I recommend only using this repo for inspiration and instead use this
 > [boilerplate](https://github.com/Misterio77/nix-starter-configs/tree/main/standard)
-
-## Structure
-
-    .
-    ├── flake.lock                          # Pinned dependencies.
-    ├── flake.nix                           # Entrypoint for hosts and home configurations.
-    ├── nixpkgs.nix                         # A nixpkgs instance.
-    ├── shell.nix                           # Shell for bootstrapping.
-    ├── assets                              # Various assets.
-    ├── config                              # Legacy configuration files.
-    ├── home-manager                        # Home Manager configurations.
-    │   ├── user.nix                        # User configuration.
-    │   ├── programs                        # Program configurations.
-    │   └── services                        # Service configurations.
-    ├── modules                             # Modules I haven't upstreamed yet.
-    │   ├── home-manager                    # Reuseable Home Manager modules.
-    │   └── nixos                           # Reuseable NixOS modules.
-    ├── nixos                               # NixOS configurations.
-    │   └── hostname                        # Directory per host.
-    │       ├── configuration.nix           # Server configuration.
-    │       └── hardware-configuration.nix  # Generated hardware configuration.
-    ├── overlays                            # Patches and version overides.
-    └── pkgs                                # Custom packages.
 
 ## Installation
 
@@ -53,6 +34,27 @@ To be used as a simple home-manager import.
 
     # Apply the user configuration
     home-manager switch --flake .#user@hostname
+
+## Self hosted services
+Services are hosted on a Raspberry Pi 4 Model B with podman containers.  
+Volume backups are performed with BorgBackup.
+
+**Networking:**
+* pihole
+* traefik
+
+**Media stack:**
+* plex
+* sonarr
+* radarr
+* prowlarr
+* recyclarr
+
+**Miscellaneous:**
+* homepage
+* bitwarden
+* qbittorrent
+* minecraft
 
 ## FAQ
 * **What is nix?**  
