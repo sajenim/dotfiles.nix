@@ -3,7 +3,6 @@
 {
   imports = [
     ./homepage
-    ./nginx
     ./pihole
     ./plex
     ./sonarr
