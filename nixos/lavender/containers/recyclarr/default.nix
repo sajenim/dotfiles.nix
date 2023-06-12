@@ -8,5 +8,6 @@
     volumes = [
       "/srv/containers/recyclarr:/config"
     ];
+    extraOptions = [ "--pull=newer" ];
   };
 }

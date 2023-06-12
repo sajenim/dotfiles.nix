@@ -19,6 +19,7 @@
       WEBPASSWORD_FILE = "/secrets/admin-password";
       DNSMASQ_LISTENING = "all";
     };
+    extraOptions = [ "--pull=newer" ];
   };
 }
 

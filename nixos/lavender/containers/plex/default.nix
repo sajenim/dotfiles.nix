@@ -10,5 +10,6 @@
       "/srv/data/media:/data/media:ro"
     ];
     ports = [ "32400:32400" ];
+    extraOptions = [ "--pull=newer" ];
   };
 }

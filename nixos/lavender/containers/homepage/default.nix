@@ -10,5 +10,6 @@
       "/srv/data:/srv/data:ro"
     ];
     ports = [ "3000:3000" ];
+    extraOptions = [ "--pull=newer" ];
   };
 }
