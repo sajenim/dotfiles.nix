@@ -168,7 +168,11 @@
       freecad openscad
 
       # Misc
-      openrgb piper protonup-ng
+      openrgb protonup-ng
+
+      # Mouse
+      libratbag
+      piper
     ];
     
     # Completions for system packages
