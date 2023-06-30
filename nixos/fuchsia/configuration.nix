@@ -146,7 +146,7 @@
     systemPackages = with pkgs; [
       # System tools
       curl git glxinfo home-manager htop ranger trash-cli tree unrar unzip vim wget zip
-      
+
       # Developer tools
       docker-compose ghc cabal-install go
       unstable.hugo
@@ -164,8 +164,7 @@
       gimp inkscape krita
 
       # Modelling
-      # blender (build failure on unstable)
-      freecad openscad
+      blender freecad openscad cura
 
       # Misc
       openrgb protonup-ng
