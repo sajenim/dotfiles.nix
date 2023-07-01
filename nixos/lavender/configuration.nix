@@ -14,6 +14,9 @@
     # You can also split up your configuration and import pieces of it here:
     ./containers
 
+    # Import common configurations
+    ../common/system-tools.nix
+
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
@@ -114,11 +117,6 @@
   };
   
   environment = {
-    systemPackages = with pkgs; [
-      # System tools
-      vim wget git home-manager tree ranger
-    ];
-    
     # Completions for system packages
     pathsToLink = [ "/share/zsh" ];
   };

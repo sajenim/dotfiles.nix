@@ -13,6 +13,9 @@
 
     # You can also split up your configuration and import pieces of it here:
 
+    # Import common configurations
+    ../common/system-tools.nix
+
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
@@ -144,16 +147,6 @@
 
     # Install packages, prefix with 'unstable.' to use overlay
     systemPackages = with pkgs; [
-      # System tools
-      curl git glxinfo home-manager htop ranger trash-cli tree unrar unzip vim wget zip
-
-      # Developer tools
-      docker-compose ghc cabal-install go
-      unstable.hugo
-
-      # QMK firmware
-      qmk vial
-
       # Code editors
       emacs vscode
 
@@ -170,8 +163,7 @@
       openrgb protonup-ng
 
       # Mouse
-      libratbag
-      piper
+      libratbag piper
     ];
     
     # Completions for system packages
