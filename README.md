@@ -22,12 +22,11 @@ To be used as a simple home-manager import.
 
 ## Installation
 
-    # Clone the configuration files and link them into the NixOS directory
+    # Clone the configuration files
     git clone https://github.com/sajenim/dotfiles.nix.git
-    ln -s ~/dotfiles.nix/ /etc/nixos
 
     # We must be in the repo to access the flake
-    cd /etc/nixos
+    cd ~/dotfiles.nix
 
     # Apply the system configuration
     sudo nixos-rebuild switch --flake .#hostname
