@@ -12,6 +12,7 @@
       vim     # editor
       ranger  # console file manager
       htop    # system monitor
+      scrot   # screenshot
 
       # HTTP
       curl    # transfer dato to/from server
