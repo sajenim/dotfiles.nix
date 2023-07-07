@@ -205,11 +205,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-9yA3EWDaaAmIpotcyodU2TOU9hiKU6mGhx1CDmqab2o=",
-        "path": "home-manager/common/desktop/xmobar/xmobar-config",
+        "path": "home-manager/common/desktop/xmobar",
         "type": "path"
       },
       "original": {
-        "path": "home-manager/common/desktop/xmobar/xmobar-config",
+        "path": "home-manager/common/desktop/xmobar",
         "type": "path"
       }
     },
@@ -222,11 +222,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-E4BkxlATBwtD2VV2R9RU27T7ih7NCvif/n50RV6mgiY=",
-        "path": "home-manager/common/desktop/xmonad/xmonad-config",
+        "path": "home-manager/common/desktop/xmonad",
         "type": "path"
       },
       "original": {
-        "path": "home-manager/common/desktop/xmonad/xmonad-config",
+        "path": "home-manager/common/desktop/xmonad",
         "type": "path"
       }
     }

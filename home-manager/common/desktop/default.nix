@@ -19,7 +19,7 @@
   xsession.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
-    config = ./xmonad/xmonad-config/src/xmonad.hs;
+    config = ./xmonad/src/xmonad.hs;
   };
 
   home.file.".xinitrc".source = ./xinitrc;
