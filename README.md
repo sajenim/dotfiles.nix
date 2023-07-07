@@ -5,17 +5,6 @@
 My [NixOS](https://nixos.org/) and [Home-Manager](https://github.com/nix-community/home-manager) config files.
 Based upon [Misterio77's starter configs](https://github.com/Misterio77/nix-starter-configs).
 
-**My other configs:**
-* [neovim](https://github.com/sajenim/neovim-config)
-* [wezterm](https://github.com/sajenim/wezterm-config)
-
-**Development environments:**
-* [xmobar](https://github.com/sajenim/xmobar-config)
-* [xmonad](https://github.com/sajenim/xmonad-config)
-
-Alternatively [jade](https://github.com/sajenim/jade) provides the plumbing for a desktop environment like experience.  
-To be used as a simple home-manager import.
-
 > This repo is often neglected and doesn't necesarrily follow best practices.  
 > I recommend only using this repo for inspiration and instead use this
 > [boilerplate](https://github.com/Misterio77/nix-starter-configs/tree/main/standard)
@@ -34,6 +23,14 @@ To be used as a simple home-manager import.
     # Apply the user configuration
     home-manager switch --flake .#user@hostname
 
+## Applications
+Main programs that create my desktop experience.
+
+* neovim
+* wezterm
+* xmonad
+* xmobar
+
 ## Self hosted services
 Services are hosted on a Raspberry Pi 4 Model B with podman containers.  
 Volume backups are performed with BorgBackup.
@@ -51,7 +48,6 @@ Volume backups are performed with BorgBackup.
 
 **Miscellaneous:**
 * homepage
-* bitwarden
 * qbittorrent
 * minecraft
 
@@ -69,4 +65,4 @@ simply by listing them inside a flake.nix file.
 * [Misterio77/nix-starter-configs](https://github.com/Misterio77/nix-starter-configs)
 ### Other Configs
 * [fortuneteller2k/nix-config](https://github.com/fortuneteller2k/nix-config)
-* [javacafe01/dotnix](https://github.com/javacafe01/dotnix)
+* [javacafe01/nix-config](https://github.com/javacafe01/nix-config)
