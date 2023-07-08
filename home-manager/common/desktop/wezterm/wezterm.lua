@@ -90,12 +90,18 @@ end
 config.keys = {
   -- Tabs
   { key = 't', mods = 'ALT',      action = act.SpawnTab 'CurrentPaneDomain',        },
-  { key = 'w', mods = "ALT|CTRL", action = act.CloseCurrentTab { confirm = false }, },
+  { key = 'w', mods = 'ALT|CTRL', action = act.CloseCurrentTab { confirm = false }, },
 
   -- Panes
   { key = 'v', mods = 'ALT', action = act.SplitVertical    { domain  = 'CurrentPaneDomain' }, },
   { key = 'h', mods = 'ALT', action = act.SplitHorizontal  { domain  = 'CurrentPaneDomain' }, },
-  { key = 'x', mods = "ALT", action = act.CloseCurrentPane { confirm = false               }, },
+  -- Adjust Size
+  { key = 'LeftArrow',  mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Left',  5 }},
+  { key = 'RightArrow', mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Right', 5 }},
+  { key = 'DownArrow',  mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Down',  5 }},
+  { key = 'UpArrow',    mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Up',    5 }},
+  -- Close
+  { key = 'x', mods = "ALT", action = act.CloseCurrentPane { confirm = false }, },
 
   -- Navigation
   { key = 'LeftArrow',  mods = 'ALT', action = act.ActivateTabRelative(-1)       },
