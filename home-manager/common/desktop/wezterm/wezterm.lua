@@ -57,20 +57,20 @@ config.window_padding = {
 config.use_fancy_tab_bar            = false
 config.enable_tab_bar               = true
 config.hide_tab_bar_if_only_one_tab = false
-config.tab_bar_at_bottom            = true
+config.tab_bar_at_bottom            = false
 config.tab_max_width                = 24
 config.show_tab_index_in_tab_bar    = false
 
 -- Colors
 config.colors = {
   tab_bar = {
-    background = '#1d2021',
+    background = '#282828',
     -- style tabs
-    active_tab          = { bg_color = '#1d2021', fg_color = '#d3869b', intensity = 'Bold', italic = false, },
-    inactive_tab        = { bg_color = '#1d2021', fg_color = '#7daea3', intensity = 'Bold', italic = false, },
-    inactive_tab_hover  = { bg_color = '#1d2021', fg_color = '#7daea3', intensity = 'Bold', italic = false, },
-    new_tab             = { bg_color = '#1d2021', fg_color = '#7c6f64', intensity = 'Bold', italic = false, },
-    new_tab_hover       = { bg_color = '#1d2021', fg_color = '#7c6f64', intensity = 'Bold', italic = false, },
+    active_tab          = { bg_color = '#282828', fg_color = '#7daea3', intensity = 'Bold', italic = false, },
+    inactive_tab        = { bg_color = '#282828', fg_color = '#7c6f64', intensity = 'Normal', italic = false, },
+    inactive_tab_hover  = { bg_color = '#282828', fg_color = '#7c6f64', intensity = 'Normal', italic = false, },
+    new_tab             = { bg_color = '#282828', fg_color = '#7c6f64', intensity = 'Normal', italic = false, },
+    new_tab_hover       = { bg_color = '#282828', fg_color = '#7c6f64', intensity = 'Normal', italic = false, },
   }
 }
 
