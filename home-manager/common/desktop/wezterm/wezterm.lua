@@ -108,10 +108,8 @@ config.keys = {
   { key = 'v', mods = 'ALT', action = act.SplitVertical   { domain  = 'CurrentPaneDomain' }, },
   { key = 'h', mods = 'ALT', action = act.SplitHorizontal { domain  = 'CurrentPaneDomain' }, },
   --| Adjust Pane Size
-  { key = 'LeftArrow',  mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Left',  5 } },
-  { key = 'RightArrow', mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Right', 5 } },
-  { key = 'DownArrow',  mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Down',  5 } },
-  { key = 'UpArrow',    mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Up',    5 } },
+  { key = 'PageDown', mods = 'ALT', action = act.AdjustPaneSize { 'Down', 5 } },
+  { key = 'PageUp',   mods = 'ALT', action = act.AdjustPaneSize { 'Up',   5 } },
   --| Pane Navigation
   { key = 'DownArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Next', },
   { key = 'UpArrow',   mods = 'ALT', action = act.ActivatePaneDirection 'Prev', },
