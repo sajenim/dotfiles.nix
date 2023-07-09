@@ -38,14 +38,14 @@ wezterm.on(
 config.check_for_updates = false
 config.show_update_window = false
 
--- Font
+--| Font Configuration
 config.font = wezterm.font 'Fira Code'
 config.font_size = 10.0
 
--- Color scheme
+--| Color scheme
 config.color_scheme = 'gruvbox_material_dark_hard'
 
--- Padding
+--| Padding
 config.window_padding = {
   left   = 20,
   right  = 20,
@@ -59,7 +59,7 @@ config.inactive_pane_hsb = {
   brightness = 1.0,
 }
 
--- Tab bar appearance
+--| Tab Bar Appearance
 config.use_fancy_tab_bar            = false
 config.enable_tab_bar               = true
 config.hide_tab_bar_if_only_one_tab = false
@@ -67,12 +67,14 @@ config.tab_bar_at_bottom            = false
 config.tab_max_width                = 24
 config.show_tab_index_in_tab_bar    = false
 
--- Colors
+--| Colors
 config.colors = {
+
   tab_bar = {
+    --| Tab Bar Colors
     background = '#282828',
-    -- style tabs
-    active_tab          = { bg_color = '#282828', fg_color = '#7daea3', intensity = 'Bold', italic = false, },
+    --| Tab Colors
+    active_tab          = { bg_color = '#282828', fg_color = '#7daea3', intensity = 'Bold',   italic = false, },
     inactive_tab        = { bg_color = '#282828', fg_color = '#7c6f64', intensity = 'Normal', italic = false, },
     inactive_tab_hover  = { bg_color = '#282828', fg_color = '#7c6f64', intensity = 'Normal', italic = false, },
     new_tab             = { bg_color = '#282828', fg_color = '#7c6f64', intensity = 'Normal', italic = false, },
@@ -80,12 +82,12 @@ config.colors = {
   }
 }
 
--- Key Assignments
+--| Key Assignments
 config.disable_default_key_bindings = true
 config.keys = {}
 
 for i = 1, 8 do
-  -- CTRL+ALT + number to activate that tab
+  --| CTRL+ALT + number to activate tab
   table.insert(config.keys, {
     key = tostring(i),
     mods = 'CTRL|ALT',
@@ -94,28 +96,29 @@ for i = 1, 8 do
 end
 
 config.keys = {
-  -- Tabs
-  { key = 't', mods = 'ALT',      action = act.SpawnTab 'CurrentPaneDomain',        },
+  --| Spawn Tab
+  { key = 't', mods = 'ALT', action = act.SpawnTab 'CurrentPaneDomain', },
+  --| Tab Navigation
+  { key = 'LeftArrow',  mods = 'ALT', action = act.ActivateTabRelative(-1) },
+  { key = 'RightArrow', mods = 'ALT', action = act.ActivateTabRelative(1)  },
+  --| Close Tab
   { key = 'w', mods = 'ALT|CTRL', action = act.CloseCurrentTab { confirm = false }, },
 
-  -- Panes
-  { key = 'v', mods = 'ALT', action = act.SplitVertical    { domain  = 'CurrentPaneDomain' }, },
-  { key = 'h', mods = 'ALT', action = act.SplitHorizontal  { domain  = 'CurrentPaneDomain' }, },
-  -- Adjust Size
-  { key = 'LeftArrow',  mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Left',  5 }},
-  { key = 'RightArrow', mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Right', 5 }},
-  { key = 'DownArrow',  mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Down',  5 }},
-  { key = 'UpArrow',    mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Up',    5 }},
-  -- Close
+  --| Split Panes
+  { key = 'v', mods = 'ALT', action = act.SplitVertical   { domain  = 'CurrentPaneDomain' }, },
+  { key = 'h', mods = 'ALT', action = act.SplitHorizontal { domain  = 'CurrentPaneDomain' }, },
+  --| Adjust Pane Size
+  { key = 'LeftArrow',  mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Left',  5 } },
+  { key = 'RightArrow', mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Right', 5 } },
+  { key = 'DownArrow',  mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Down',  5 } },
+  { key = 'UpArrow',    mods = 'ALT|CTRL', action = act.AdjustPaneSize { 'Up',    5 } },
+  --| Pane Navigation
+  { key = 'DownArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Next', },
+  { key = 'UpArrow',   mods = 'ALT', action = act.ActivatePaneDirection 'Prev', },
+  --| Close Pane
   { key = 'x', mods = "ALT", action = act.CloseCurrentPane { confirm = false }, },
 
-  -- Navigation
-  { key = 'LeftArrow',  mods = 'ALT', action = act.ActivateTabRelative(-1)       },
-  { key = 'RightArrow', mods = 'ALT', action = act.ActivateTabRelative(1)        },
-  { key = 'DownArrow',  mods = 'ALT', action = act.ActivatePaneDirection 'Next', },
-  { key = 'UpArrow',    mods = 'ALT', action = act.ActivatePaneDirection 'Prev', },
-
-  -- Copy Mode / Clipboard
+  --| Copy Mode / Clipboard
   { key = 'X', mods = 'CTRL', action = act.ActivateCopyMode,                         },
   { key = 'C', mods = 'CTRL', action = act.CopyTo    'ClipboardAndPrimarySelection', },
   { key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard',                    },
