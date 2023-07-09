@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
+{ ... }:
 
 {
   services.picom = {
@@ -8,7 +8,6 @@
     settings = {
       corner-radius = 10;
       rounded-corners-exclude = [
-        # "window_type = 'normal'"
         "window_type = 'dock'"
       ];
     };

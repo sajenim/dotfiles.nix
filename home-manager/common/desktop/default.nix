@@ -1,7 +1,9 @@
 { inputs, pkgs, ... }:
 
 {
-  imports = [ ];
+  imports = [
+    ./picom.nix
+  ];
 
   nixpkgs.overlays = [
     (final: prev: {
