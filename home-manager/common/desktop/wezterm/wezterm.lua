@@ -53,6 +53,12 @@ config.window_padding = {
   bottom = 0,
 }
 
+--| Style Inactive Panes
+config.inactive_pane_hsb = {
+  saturation = 1.0,
+  brightness = 1.0,
+}
+
 -- Tab bar appearance
 config.use_fancy_tab_bar            = false
 config.enable_tab_bar               = true
