@@ -8,9 +8,7 @@ import XMonad.Actions.CycleWS
 
 -- Hooks
 import XMonad.Hooks.EwmhDesktops
-
--- Layouts
-import XMonad.Layout.ThreeColumns
+import XMonad.Hooks.ManageDocks
 
 -- Layout modifiers
 import XMonad.Layout.Spacing
@@ -75,14 +73,13 @@ myKeys =
     ]
 
 -- | Layouts
-myLayout = tiled ||| threeCol ||| full
+myLayout = tiled ||| full
   where
     -- Add a configurable amount of space around windows.
-    gaps     = spacingRaw False (Border 50 50 50 50) True (Border 10 10 10 10) True
+    gaps     = spacingRaw False (Border 10 10 10 10) True (Border 10 10 10 10) True
     -- Our layouts
-    tiled    = renamed [Replace "Spacing Tiled"]        . gaps $ Tall nmaster delta ratio
-    threeCol = renamed [Replace "Spacing Three Column"] . gaps $ ThreeColMid nmaster delta ratio
-    full     = renamed [Replace "Fullscreen"]                  $ noBorders Full
+    tiled    = renamed [Replace "Spacing Tiled"] . avoidStruts . gaps $ Tall nmaster delta ratio
+    full     = renamed [Replace "Fullscreen"]    $ noBorders Full
     -- Layout settings
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
@@ -138,7 +135,7 @@ main :: IO ()
 main = xmonad
      . ewmhFullscreen
      . ewmh
-     . withEasySB (xmobarTop) defToggleStrutsKey
+     . withSB (xmobarTop)
      $ myConfig
 
 myConfig = def
