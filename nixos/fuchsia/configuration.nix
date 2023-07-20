@@ -147,6 +147,9 @@
 
     # Install packages, prefix with 'unstable.' to use overlay
     systemPackages = with pkgs; [
+      # Audio
+      pulsemixer
+
       # Code editors
       emacs vscode
 
