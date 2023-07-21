@@ -1,7 +1,7 @@
 #/bin/bash
 
 # Setup our monitors
-xrandr --output HDMI-A-0 --mode 1920x1080 --output DisplayPort-0 --mode 2560x1440 --right-of HDMI-A-0
+xrandr --output HDMI-A-0 --rotate right --mode 1920x1080 --output DisplayPort-0 --mode 2560x1440 --left-of HDMI-A-0
 
 # Apply our wallpaper
 feh --bg-scale ~/dotfiles.nix/assets/chinatown.png
