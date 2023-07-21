@@ -8,7 +8,7 @@ config = defaultConfig
   , additionalFonts = [ "Symbols Nerd Font 2048-em 24" ]
   , bgColor         = bg1
   , fgColor         = fg0
-  , position        = Static { xpos = 1920, ypos = 0, width = 2560, height = 24 }
+  , position        = Static { xpos = 0, ypos = 0, width = 2560, height = 24 }
   -- commands to run
   , commands =
       [ Run $ XPropertyLog "_XMONAD_LOG_1"
