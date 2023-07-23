@@ -12,12 +12,14 @@
 
     # You can also split up your configuration and import pieces of it here:
 
+    # User services
+    ./services/picom
+
     # User programs
     ./programs/discord
     ./programs/mangohud
 
     # Common programs
-    ../common/desktop
     ../common/programs/git
     ../common/programs/zsh
     ../common/programs/nvim
@@ -63,11 +65,32 @@
   
     # Install some packages
     packages = with pkgs; [
+      # Stable user programs
       bitwarden
+      dmenu
+      feh
       spotify
       prismlauncher
+      xmobar
+      # Unstable user programs
+      unstable.wezterm
     ];
   };
+
+  # Setup our window manager
+  xsession.windowManager.xmonad = {
+    enable = true;
+    enableContribAndExtras = true;
+    config = ../../pkgs/xmonad-config/src/xmonad.hs;
+  };
+
+  # Copy some configuration files to $XDG_CONFIG_HOME
+  xdg.configFile = {
+    wezterm = { source = ./programs/wezterm/config; recursive = true; };
+  };
+  
+  # Setup our desktop environment
+  home.file.".xinitrc".source = ./xinitrc;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
