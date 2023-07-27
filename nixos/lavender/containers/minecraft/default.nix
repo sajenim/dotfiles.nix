@@ -12,6 +12,5 @@
     environment = {
       MEMORYSIZE = "1G";
     };
-    extraOptions = [ "--pull=newer" ];
   };
 }

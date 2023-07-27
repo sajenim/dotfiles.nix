@@ -10,6 +10,5 @@
       "/srv/data:/data"
     ];
     ports = [ "9696:9696" ];
-    extraOptions = [ "--pull=newer" ];
   };
 }

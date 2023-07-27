@@ -148,7 +148,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.admin = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "podman" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keyFiles = [ ../fuchsia/id_ed25519_sk.pub ];
   };

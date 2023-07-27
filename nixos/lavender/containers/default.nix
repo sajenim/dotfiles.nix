@@ -1,6 +1,7 @@
 { ... }:
 
 {
+  # Import our containers.
   imports = [
     ./homepage
     ./pihole
@@ -13,4 +14,7 @@
     ./minecraft
     ./traefik
   ];
+
+  # Set docker as container implementation.
+  virtualisation.oci-containers.backend = "docker";
 }
