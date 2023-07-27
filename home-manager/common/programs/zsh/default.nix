@@ -51,6 +51,7 @@
    
     # Extra commands that should be added to '.zshrc'
     initExtra = ''
+      eval "$(direnv hook zsh)"
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       PROMPT='%F{blue}%n %F{cyan}%~ %F{red}♥ %f';
     '';

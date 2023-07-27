@@ -14,10 +14,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Add any other flake you might need
-
-    # Development environments
-    xmonad-config.url = "path:home-manager/common/desktop/xmonad";
-    xmobar-config.url = "path:home-manager/common/desktop/xmobar";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
