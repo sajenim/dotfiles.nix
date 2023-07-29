@@ -20,5 +20,6 @@
       CF_API_EMAIL_FILE = "/secrets/cf-api-email";
       CF_API_KEY_FILE = "/secrets/cf-api-key";
     };
+    extraOptions = ["--network=host"];
   };
 }
