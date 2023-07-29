@@ -109,11 +109,11 @@
     hostName = "lavender";
     domain = "kanto.dev";
     networkmanager.enable = true;
-    # firewall = {
-    #   enable = true;
-    #   allowedTCPPorts = [ ];
-    #   allowedUDPPorts = [ ];
-    # };
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 80 443 32400 32372 ];
+      allowedUDPPorts = [ 80 443 32400 32372 ];
+    };
   };
   
   environment = {
