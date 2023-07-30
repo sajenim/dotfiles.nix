@@ -111,8 +111,20 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 80 443 32400 32372 ];
-      allowedUDPPorts = [ 80 443 32400 32372 ];
+      allowedTCPPorts = [
+        53    # pihole-FTL  (DNS)
+        80    # traefik     (HTTP)
+        443   # traefik     (HTTPS)
+        32400 # plex
+        32372 # qbittorrent
+      ];
+      allowedUDPPorts = [
+        53    # pihole-FTL  (DNS)
+        80    # traefik     (HTTP)
+        443   # traefik     (HTTPS)
+        32400 # plex
+        32372 # qbittorrent
+      ];
     };
   };
   

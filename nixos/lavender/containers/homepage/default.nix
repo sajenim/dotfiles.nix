@@ -10,7 +10,6 @@
       "/srv/data:/srv/data:ro"
       "/var/run/docker.sock:/var/run/docker.sock" # pass local proxy
     ];
-    ports = [ "3000:3000" ];
     extraOptions = ["--network=host"];
   };
 }

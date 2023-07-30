@@ -11,11 +11,6 @@
       "/srv/containers/traefik/letsencrypt:/letsencrypt"
       "/srv/containers/traefik/secrets:/secrets"
     ];
-    ports = [
-      "80:80"
-      "443:443"
-      "8080:8080"
-    ];
     environment = {
       CF_API_EMAIL_FILE = "/secrets/cf-api-email";
       CF_API_KEY_FILE = "/secrets/cf-api-key";

@@ -8,5 +8,6 @@
     volumes = [
       "/srv/containers/recyclarr:/config"
     ];
+    extraOptions = ["--network=media-stack"];
   };
 }

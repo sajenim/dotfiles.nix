@@ -10,5 +10,6 @@
       "/srv/data:/data"
     ];
     ports = [ "8989:8989" ];
+    extraOptions = ["--network=media-stack"];
   };
 }

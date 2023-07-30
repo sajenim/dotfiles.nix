@@ -10,5 +10,6 @@
       "/srv/data:/data"
     ];
     ports = [ "9696:9696" ];
+    extraOptions = ["--network=media-stack"];
   };
 }

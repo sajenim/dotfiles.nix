@@ -11,9 +11,9 @@
       "/srv/containers/pihole/secrets:/secrets"
     ];
     ports = [ 
-      "53:53/tcp"
-      "53:53/udp"
-      "8181:80/tcp"
+      "192.168.1.100:53:53/tcp"   # pihole-FTL (DNS)
+      "192.168.1.100:53:53/udp"   # pihole-FTL (DNS)
+      "192.168.1.100:8181:80/tcp" # lighttpd   (HTTP)
     ];
     environment = {
       WEBPASSWORD_FILE = "/secrets/admin-password";
