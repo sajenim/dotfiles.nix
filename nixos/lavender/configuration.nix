@@ -11,14 +11,17 @@
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
-    # You can also split up your configuration and import pieces of it here:
-    ./containers
-
     # Import common configurations
     ../common/system-tools.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+
+    # Setup our 3D printer
+    ./printer
+
+    # Import our docker containers
+    ./containers
   ];
   
   nixpkgs = {
@@ -129,6 +132,12 @@
   };
   
   environment = {
+    # Install packages, prefix with 'unstable' to use overlay.
+    systemPackages = with pkgs; [
+      libraspberrypi
+      raspberrypi-eeprom
+    ];
+
     # Completions for system packages
     pathsToLink = [ "/share/zsh" ];
   };
