@@ -47,4 +47,7 @@
       port = 4624;
     }];
   };
+
+  # Allow uploads > 1MB to fluidd
+  services.nginx.clientMaxBodySize = "1000m";
 }
