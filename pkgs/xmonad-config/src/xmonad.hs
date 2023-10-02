@@ -133,6 +133,7 @@ ppTop = def
 -- | The main function
 main :: IO ()
 main = xmonad
+     . docks
      . ewmhFullscreen
      . ewmh
      . withSB (xmobarTop)
