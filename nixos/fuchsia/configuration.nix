@@ -77,6 +77,8 @@
   boot = {
     # Kernel to install
     kernelPackages = pkgs.linuxPackages_latest;
+    # Parameters added to the kernel command line
+    kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
     # Autoload stage 2 modules
     kernelModules = [ "i2c-dev" "i2c-piix4" ];
     # Autoload stage 1 modules
@@ -165,8 +167,8 @@
       # Misc
       openrgb protonup-ng
 
-      # Mouse
-      libratbag piper
+      # Hardware
+      corectrl libratbag piper
     ];
     
     # Completions for system packages
