@@ -71,6 +71,7 @@
       feh
       spotify
       prismlauncher
+      runelite
       xmobar
       # Unstable user programs
       unstable.wezterm
