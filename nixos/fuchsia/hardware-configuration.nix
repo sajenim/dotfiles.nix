@@ -9,17 +9,17 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4698c618-908f-4e50-aee2-bc35e6bdedf9";
+    { device = "/dev/disk/by-uuid/08e24fe4-91d3-4966-83a5-2f1668f2ce0f";
       fsType = "ext4";
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/35A6-4C27";
+    { device = "/dev/disk/by-uuid/B5A4-2D13";
       fsType = "vfat";
     };
 
-  fileSystems."/drive/a20b9780-ddcf-414c-bea0-7e003fea4750" =
-    { device = "/dev/disk/by-uuid/a20b9780-ddcf-414c-bea0-7e003fea4750";
+  fileSystems."/home/sajenim/Games" =
+    { device = "/dev/disk/by-uuid/58097403-9b5b-4cee-b9d1-e3d5fde1a364";
       fsType = "ext4";
     };
 
