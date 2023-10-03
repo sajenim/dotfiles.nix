@@ -69,6 +69,7 @@
       bitwarden
       dmenu
       feh
+      gamemode
       spotify
       prismlauncher
       runelite
