@@ -5,6 +5,8 @@
     enable = true;
     package = pkgs.unstable.mangohud;
     settings = {
+      # Performance
+      fps_limit = 60;
       # GPU
       gpu_temp = true;
       gpu_junction_temp = true;
