@@ -86,6 +86,12 @@
     config = ../../pkgs/xmonad-config/src/xmonad.hs;
   };
 
+  # Copy our personal font collection 
+  home.file.".local/share/fonts" = {
+    recursive = true;
+    source = ../common/fonts;
+  };
+
   # Copy some configuration files to $XDG_CONFIG_HOME
   xdg.configFile = {
     wezterm = { source = ./programs/wezterm/config; recursive = true; };
