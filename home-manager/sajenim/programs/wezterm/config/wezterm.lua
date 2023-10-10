@@ -39,7 +39,7 @@ config.check_for_updates = false
 config.show_update_window = false
 
 --| Font Configuration
-config.font = wezterm.font 'Fira Code'
+config.font = wezterm.font 'Fisa Code'
 config.font_size = 10.0
 
 --| Color scheme
