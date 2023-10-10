@@ -44,6 +44,7 @@
       cmp_luasnip            # Snippets source for nvim-cmp
       luasnip                # Snippets plugin
 
+    package = pkgs.neovim-nightly;
       # Misc
       vim-shellcheck         # Static analysis tool for shell scripts
       markdown-preview-nvim  # Preview markdown in browser
