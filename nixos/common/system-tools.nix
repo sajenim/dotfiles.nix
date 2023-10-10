@@ -13,6 +13,7 @@
       ranger  # console file manager
       htop    # system monitor
       scrot   # screenshot
+      direnv  # load environment
 
       # HTTP
       curl    # transfer dato to/from server
