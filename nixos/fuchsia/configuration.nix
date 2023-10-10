@@ -137,7 +137,6 @@
       inconsolata
       iosevka
       jetbrains-mono
-      nerdfonts
     ];
   };
 
