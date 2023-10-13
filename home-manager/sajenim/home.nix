@@ -18,6 +18,7 @@
     # User programs
     ./programs/discord
     ./programs/mangohud
+    ./programs/rofi
 
     # Common programs
     ../common/programs/git
@@ -67,7 +68,6 @@
     packages = with pkgs; [
       # Stable user programs
       bitwarden
-      dmenu
       feh
       gamemode
       spotify

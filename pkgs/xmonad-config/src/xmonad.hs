@@ -36,7 +36,7 @@ myWorkspaces         = ["code", "chat", "web", "games", "misc"]
 myKeys =
     -- launching and killing programs
     [ ("M-n"            , spawn myTerminal                 ) -- %! Launch terminal
-    , ("M-e"            , spawn "dmenu_run"                ) -- %! Launch dmenu
+    , ("M-e"            , spawn "rofi -show run"           ) -- %! Launch rofi
     , ("M-C-w"          , kill                             ) -- %! Close the focused window
     -- layouts
     , ("M-<Space>"      , sendMessage NextLayout           ) -- %! Rotate through the available layout algorithms
