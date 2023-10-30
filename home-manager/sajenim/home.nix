@@ -74,6 +74,7 @@
       prismlauncher
       runelite
       xmobar
+      super-slicer-latest
       # Unstable user programs
       unstable.wezterm
     ];
