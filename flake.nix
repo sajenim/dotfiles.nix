@@ -64,6 +64,14 @@
           ];
         };
 
+        viridian = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            # > Our main nixos configuration file <
+            ./nixos/viridian/configuration.nix
+          ];
+        };
+
         lavender = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [

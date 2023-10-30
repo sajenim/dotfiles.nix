@@ -5,7 +5,6 @@
   imports = [
     ./homepage
     ./pihole
-    ./plex
     ./sonarr
     ./radarr
     ./prowlarr
