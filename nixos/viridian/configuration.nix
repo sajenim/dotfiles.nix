@@ -20,6 +20,12 @@
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
+    # Import common configurations
+    ../common/system-tools.nix
+
+    # Import our docker containers
+    ./containers
+
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
@@ -50,6 +56,13 @@
   };
 
   nix = {
+    gc = {
+      # Automatically run the garbage collector an a specified time.
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
     registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
@@ -66,7 +79,28 @@
     };
   };
 
-  networking.hostName = "viridian";
+  networking = {
+    hostName = "viridian";
+    domain = "kanto.dev";
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        53    # pihole-FTL  (DNS)
+        80    # traefik     (HTTP)
+        443   # traefik     (HTTPS)
+        8096  # jellyfin
+        32372 # qbittorrent
+      ];
+      allowedUDPPorts = [
+        53    # pihole-FTL  (DNS)
+        80    # traefik     (HTTP)
+        443   # traefik     (HTTPS)
+        8096  # jellyfin
+        32372 # qbittorrent
+      ];
+    };
+  };
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -76,10 +110,13 @@
     };
   };
 
+  programs.zsh.enable = true;
+
   users.users = {
     admin = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "docker" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" ];
+      shell = pkgs.zsh;
       openssh.authorizedKeys.keyFiles = [ ../fuchsia/id_ed25519_sk.pub ];
     };
   };
@@ -89,9 +126,9 @@
   services.openssh = {
     enable = true;
     # Forbid root login through SSH.
-    permitRootLogin = "no";
+    settings.PermitRootLogin = "no";
     # Use keys only. Remove if you want to SSH using password (not recommended)
-    passwordAuthentication = false;
+    settings.PasswordAuthentication = false;
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
