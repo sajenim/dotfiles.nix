@@ -11,9 +11,11 @@
     ./recyclarr
     ./qbittorrent
     ./minecraft
+    ./jellyfin
     ./traefik
   ];
 
   # Set docker as container implementation.
   virtualisation.oci-containers.backend = "docker";
 }
+
