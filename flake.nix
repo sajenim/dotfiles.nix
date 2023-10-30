@@ -16,7 +16,7 @@
     };
 
     # Add any other flake you might need
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    #neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -100,6 +100,14 @@
             ./home-manager/admin/home.nix
           ];
         };
+
+        "admin@viridian" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+	        extraSpecialArgs = { inherit inputs outputs; };
+	        modules = [
+	          ./home-manager/admin/home.nix
+	        ];
+	      };
       };
     };
 }
