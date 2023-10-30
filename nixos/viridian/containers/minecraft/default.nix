@@ -3,14 +3,16 @@
 {
   # Minecraft
   virtualisation.oci-containers.containers."minecraft" = {
-    autoStart = true;
-    image = "marctv/minecraft-papermc-server:latest";
+    image = "itzg/minecraft-server";
+    ports = [
+      "25565:25565"
+    ];
     volumes = [
       "/srv/containers/minecraft:/data"
     ];
-    ports = [ "25565:25565" ];
     environment = {
-      MEMORYSIZE = "1G";
+      EULA = "TRUE";
     };
+    autoStart = true;
   };
 }
