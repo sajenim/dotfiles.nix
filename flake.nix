@@ -17,6 +17,7 @@
 
     # Add any other flake you might need
     #neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    agenix.url = "github:ryantm/agenix";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -84,28 +85,28 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "sajenim@fuchsia" = home-manager.lib.homeManagerConfiguration {
+        "erika@fuchsia" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main home-manager configuration file <
-            ./home-manager/sajenim/home.nix
+            ./home-manager/erika/home.nix
           ];
         };
 
-        "admin@lavender" = home-manager.lib.homeManagerConfiguration {
+        "sabrina@lavender" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            ./home-manager/admin/home.nix
+            ./home-manager/sabrina/home.nix
           ];
         };
 
-        "admin@viridian" = home-manager.lib.homeManagerConfiguration {
+        "sabrina@viridian" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
 	        extraSpecialArgs = { inherit inputs outputs; };
 	        modules = [
-	          ./home-manager/admin/home.nix
+	          ./home-manager/sabrina/home.nix
 	        ];
 	      };
       };
