@@ -48,8 +48,8 @@
 
   home = {
     # Setup our user environment
-    username = "admin";
-    homeDirectory = "/home/admin";
+    username = "sabrina";
+    homeDirectory = "/home/sabrina";
     sessionVariables = {
       EDITOR = "nvim";
     };
