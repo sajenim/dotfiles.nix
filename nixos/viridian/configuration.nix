@@ -215,7 +215,9 @@
       sabrina = {
         isNormalUser = true;
         extraGroups = [ "networkmanager" "wheel" "media" ];
-        openssh.authorizedKeys.keyFiles = [ ../fuchsia/id_ed25519_sk.pub ];
+        openssh.authorizedKeys.keyFiles = [
+          ../../home-manager/erika/id_ed25519_sk.pub
+        ];
         shell = pkgs.zsh;
       };
     };
