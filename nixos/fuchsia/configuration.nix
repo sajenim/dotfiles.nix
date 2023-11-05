@@ -230,7 +230,7 @@
   };
 
   # Users
-  users.users.sajenim = {
+  users.users.erika = {
       isNormalUser = true;
       extraGroups = [ "audio" "docker" "networkmanager" "wheel" ];
       shell = pkgs.zsh;

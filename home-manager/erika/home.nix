@@ -60,8 +60,8 @@
 
   home = {
     # Setup our user environment
-    username = "sajenim";
-    homeDirectory = "/home/sajenim";
+    username = "erika";
+    homeDirectory = "/home/erika";
     sessionVariables = {
       EDITOR = "nvim";
     };
@@ -69,7 +69,6 @@
     # Install some packages
     packages = with pkgs; [
       # Stable user programs
-      bitwarden
       feh
       gamemode
       spotify
