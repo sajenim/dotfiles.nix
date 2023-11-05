@@ -18,7 +18,7 @@
       fsType = "vfat";
     };
 
-  fileSystems."/home/sajenim/Games" =
+  fileSystems."/home/erika/Games" =
     { device = "/dev/disk/by-uuid/58097403-9b5b-4cee-b9d1-e3d5fde1a364";
       fsType = "ext4";
     };
