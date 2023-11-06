@@ -84,6 +84,20 @@
     };
   };
 
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+    };
+    kernel.sysctl = {
+      # Allow listening on TCP & UDP ports below 1024
+      "net.ipv4.ip_unprivileged_port_start" = 0;
+    };
+  };
+
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
@@ -115,20 +129,6 @@
         5624  # sajenim.dev (HTTPD)
         32372 # qbittorrent
       ];
-    };
-  };
-
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
-    };
-    kernel.sysctl = {
-      # Allow listening on TCP & UDP ports below 1024
-      "net.ipv4.ip_unprivileged_port_start" = 0;
     };
   };
 
