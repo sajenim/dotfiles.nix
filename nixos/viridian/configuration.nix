@@ -90,13 +90,14 @@
         53    # adguardhome (DNS)
         80    # traefik     (HTTP)
         443   # traefik     (HTTPS)
+        5624  # sajenim.dev (HTTPD)
         32372 # qbittorrent
-
       ];
       allowedUDPPorts = [
         53    # adguardhome (DNS)
         80    # traefik     (HTTP)
         443   # traefik     (HTTPS)
+        5624  # sajenim.dev (HTTPD)
         32372 # qbittorrent
       ];
     };
@@ -141,6 +142,20 @@
       settings.PermitRootLogin = "no";
       # Use keys only. Remove if you want to SSH using password (not recommended)
       settings.PasswordAuthentication = false;
+    };
+
+    # Web server
+    httpd = {
+      enable = true;
+      adminAddr = "its.jassy@pm.me";
+      virtualHosts."sajenim.dev" = {
+        documentRoot = "/var/www/sajenim.dev";
+        listen = [{
+          ip = "192.168.1.102";
+          port = 5624;
+          ssl = false;
+        }];
+      };
     };
 
     # Privacy protection center
@@ -194,15 +209,16 @@
     # Sandbox game developed by Mojang Studios
     minecraft-server = {
       enable = true;
+      package = pkgs.unstable.minecraft-server;
       openFirewall = true;
       dataDir = "/var/lib/minecraft";
       declarative = true;
       serverProperties = {
         gamemode = "survival";
-        level-name = "kanto";
+        level-name = "kanto.dev";
         difficulty = "easy";
-        server-port = 43000;
-        motd = "A Caterpie May Change Into A Butterfree, But The Heart That Beats Inside Remains The Same.";
+        server-port = 25565;
+        motd = "Welcome to our little private place!";
       };
       eula = true;
     };
@@ -216,7 +232,7 @@
         isNormalUser = true;
         extraGroups = [ "networkmanager" "wheel" "media" ];
         openssh.authorizedKeys.keyFiles = [
-          ../../home-manager/erika/id_ed25519_sk.pub
+          ../../home-manager/sajenim/id_ed25519_sk.pub
         ];
         shell = pkgs.zsh;
       };
