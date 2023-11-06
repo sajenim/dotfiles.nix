@@ -96,6 +96,16 @@
       # Connect requests to services
       http = {
         routers = {
+          # Static site / blog with hugo and httpd
+          httpd = {
+            rule = "Host(`sajenim.dev`)";
+            entryPoints = [
+              "websecure"
+            ];
+            middlewares = [ ];
+            service = "httpd";
+          };
+
           # Central control system
           home-assistant = {
             rule = "Host(`kanto.dev`)";
@@ -156,6 +166,9 @@
 
         # How to reach the actual services
         services = {
+          httpd.loadBalancer.servers = [
+            { url = "http://192.168.1.102:5624"; }
+          ];
           home-assistant.loadBalancer.servers = [
             { url = "http://192.168.1.102:8123"; }
           ];
