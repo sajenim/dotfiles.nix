@@ -56,6 +56,14 @@
   # Enable home-manager
   programs = {
     home-manager.enable = true;
+    ssh = {
+      enable = true;
+      matchBlocks = {
+        "viridian" = {
+          hostname = "192.168.1.102";
+        };
+      };
+    };
   };
 
   home = {
