@@ -1,6 +1,11 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  environment.systemPackages = [
+    # Required for hardware acceleration
+    pkgs.jellyfin-ffmpeg
+  ];
+
   services = {
     # Volunteer-built media solution that puts you in control of your media
     jellyfin = {

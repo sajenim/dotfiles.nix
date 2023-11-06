@@ -53,6 +53,10 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      packageOverrides = pkgs: {
+        # enable vaapi on OS-level
+        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+      };
     };
   };
 
@@ -78,6 +82,17 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
     };
+  };
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+      intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
+    ];
   };
 
   networking = {
