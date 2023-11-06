@@ -237,17 +237,6 @@
         shell = pkgs.zsh;
       };
     };
-
-    # Additional groups to create.
-    groups = {
-      media.members = [
-        "jellyfin"
-        "sonarr"
-        "radarr"
-        "lidarr"
-        "qbittorrent"
-      ];
-    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

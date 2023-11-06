@@ -37,5 +37,19 @@
       port = 8080;
     };
   };
+
+  # Add our services to relevant groups
+  users.groups = {
+    media.members = [
+      "jellyfin"
+      "sonarr"
+      "radarr"
+      "lidarr"
+      "qbittorrent"
+    ];
+    render.members = [
+      "jellyfin"
+    ];
+  };
 }
 
