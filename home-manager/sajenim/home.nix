@@ -60,8 +60,8 @@
 
   home = {
     # Setup our user environment
-    username = "erika";
-    homeDirectory = "/home/erika";
+    username = "sajenim";
+    homeDirectory = "/home/sajenim";
     sessionVariables = {
       EDITOR = "nvim";
     };
