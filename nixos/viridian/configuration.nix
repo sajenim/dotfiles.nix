@@ -25,7 +25,9 @@
 
     # Import services
     ./services/traefik
-    ./services/media-stack
+
+    # Import containers
+    ./containers/media-stack
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -239,13 +241,16 @@
     };
   };
 
+  # Virtualisation
+  virtualisation.docker.enable = true;
+
   # Configure your system-wide user settings (groups, etc), add more users as needed.
   users = {
     users = {
       # System administator
       sabrina = {
         isNormalUser = true;
-        extraGroups = [ "networkmanager" "wheel" "media" ];
+        extraGroups = [ "networkmanager" "wheel" "media" "docker" ];
         openssh.authorizedKeys.keyFiles = [
           ../../home-manager/sajenim/id_ed25519_sk.pub
         ];
