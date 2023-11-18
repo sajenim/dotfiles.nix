@@ -121,14 +121,12 @@
         53    # adguardhome (DNS)
         80    # traefik     (HTTP)
         443   # traefik     (HTTPS)
-        5624  # sajenim.dev (HTTPD)
         32372 # qbittorrent
       ];
       allowedUDPPorts = [
         53    # adguardhome (DNS)
         80    # traefik     (HTTP)
         443   # traefik     (HTTPS)
-        5624  # sajenim.dev (HTTPD)
         32372 # qbittorrent
       ];
     };
