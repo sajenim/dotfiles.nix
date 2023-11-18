@@ -27,7 +27,9 @@
     ./services/traefik
 
     # Import containers
+    ./containers/dashboard
     ./containers/media-stack
+    ./containers/microbin
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
