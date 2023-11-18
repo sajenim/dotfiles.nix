@@ -5,7 +5,9 @@
 
   imports = [
     "${inputs.nixpkgs-unstable}/nixos/modules/services/web-servers/traefik.nix"
-    ./media-stack.nix
+    ./routers.nix
+    ./middleware.nix
+    ./services.nix
   ];
 
   age.secrets.traefik = {
@@ -13,6 +15,13 @@
     file = inputs.self + /secrets/traefik.age;
     owner = "traefik";
     group = "traefik";
+  };
+
+  systemd.services.traefik.serviceConfig = {
+    User = "traefik";
+    Group = "traefik";
+    LogsDirectory = "traefik";
+    LogsDirectoryMode = "0750";
   };
 
   # Reverse proxy and load balancer for HTTP and TCP-based applications
@@ -31,6 +40,22 @@
         insecure = false;
         # Enable the dashboard
         dashboard = true;
+      };
+
+      log = {
+        filePath = "/var/log/traefik/traefik.log";
+        level = "INFO";
+      };
+      accessLog = {
+        filePath = "/var/log/traefik/access.log";
+      };
+
+      # Install plugins
+      experimental.plugins = {
+        geoblock = {
+          moduleName = "github.com/PascalMinder/geoblock";
+          version = "v0.2.7";
+        };
       };
 
       # Network entry points into Traefik
@@ -89,97 +114,6 @@
       serversTransport = {
         insecureSkipVerify = true;
       };
-    };
-
-    # Fully dynamic routing configuration
-    dynamicConfigOptions = {
-      # Connect requests to services
-      http = {
-        routers = {
-          # Static site / blog with hugo and httpd
-          httpd = {
-            rule = "Host(`sajenim.dev`)";
-            entryPoints = [
-              "websecure"
-            ];
-            middlewares = [ ];
-            service = "httpd";
-          };
-
-          # Central control system
-          home-assistant = {
-            rule = "Host(`kanto.dev`)";
-            entryPoints = [ 
-              "websecure"
-            ];
-            middlewares = [ 
-              "internal"
-            ];
-            service = "home-assistant";
-          };
-
-          # Traefik dashboard
-          traefik-dashboard = {
-            rule = "Host(`traefik.kanto.dev`)";
-            entryPoints = [
-              "websecure"
-            ];
-            middlewares = [
-              "internal"
-            ];
-            service = "api@internal";
-          };
-
-          # Adguard Home
-          adguard-home = {
-            rule = "Host(`adguard.kanto.dev`)";
-            entryPoints = [
-              "websecure"
-            ];
-            middlewares = [
-              "internal"
-            ];
-            service = "adguard-home";
-          };
-
-          # Minecraft
-          minecraft = {
-            rule = "Host(`mc.kanto.dev`)";
-            entryPoints = [
-              "websecure"
-            ];
-            middlewares = [
-              "internal"
-            ];
-            service = "minecraft";
-          };
-        };
-
-        # Tweaking the requests
-        middlewares = {
-          # Restrict access to internal networks
-          internal.ipwhitelist.sourcerange = [
-            "127.0.0.1/32"    # localhost
-            "192.168.1.1/24"  # lan
-          ];
-        };
-
-        # How to reach the actual services
-        services = {
-          httpd.loadBalancer.servers = [
-            { url = "http://192.168.1.102:5624"; }
-          ];
-          home-assistant.loadBalancer.servers = [
-            { url = "http://192.168.1.102:8123"; }
-          ];
-          adguard-home.loadBalancer.servers = [
-            { url = "http://192.168.1.102:3000"; }
-          ];
-          minecraft.loadBalancer.servers = [
-            { url = "http://192.168.1.102:25565"; }
-          ];
-        };
-      };        
     };
   };
 }
