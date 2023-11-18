@@ -234,6 +234,7 @@
         difficulty = "easy";
         server-port = 25565;
         motd = "Welcome to our little private place!";
+        level-seed = "-3675652194237789176";
       };
       eula = true;
     };
