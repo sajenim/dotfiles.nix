@@ -9,20 +9,20 @@
       ports = [
         "8096:8096/tcp" # HTTP traffic
         "8920:8920/tcp" # HTTPS traffic
-        "1900:1900/udp" # Service auto-discovery
+        # "1900:1900/udp" # Service auto-discovery
         "7359:7359/udp" # Client auto-discovery
       ];
       volumes = [
         # Media library
         "/data/media:/media:ro"
         # Container data
-        "/srv/jellyfin/config:/config:rw"
-        "/srv/jellyfin/cache:/cache:rw"
+        "/var/lib/jellyfin/config:/config:rw"
+        "/var/lib/jellyfin/cache:/cache:rw"
       ];
       extraOptions = [
         "--group-add=303"
         "--device=/dev/dri/renderD128:/dev/dri/renderD128"
-        "--network=host"
+        "--network=media-stack"
       ];
     };
     # PVR for Usenet and BitTorrent users
@@ -36,7 +36,7 @@
         # Media library
         "/data:/data:rw"
         # Container data
-        "/srv/sonarr:/config:rw"
+        "/var/lib/sonarr:/config:rw"
       ];
       extraOptions = [
         "--network=media-stack"
@@ -53,7 +53,7 @@
         # Media library
         "/data:/data:rw"
         # Container data
-        "/srv/radarr:/config:rw"
+        "/var/lib/radarr:/config:rw"
       ];
       extraOptions = [
         "--network=media-stack"
@@ -62,7 +62,7 @@
     # # Music collection manager for Usenet and BitTorrent users
     lidarr = {
       autoStart = true;
-      image = "ghcr.io/hotio/lidarr:nightly-2.0.2.377";
+      image = "ghcr.io/hotio/lidarr:nightly-2.0.2.3782";
       ports = [
         "8686:8686/tcp" # WebUI
       ];
@@ -70,7 +70,7 @@
         # Media library
         "/data:/data:rw"
         # Container data
-        "/srv/lidarr:/config:rw"
+        "/var/lib/lidarr:/config:rw"
       ];
       extraOptions = [
         "--network=media-stack"
@@ -85,7 +85,7 @@
       ];
       volumes = [
         # Container data
-        "/srv/prowlarr:/config:rw"
+        "/var/lib/prowlarr:/config:rw"
       ];
       extraOptions = [
         "--network=media-stack"
@@ -96,7 +96,7 @@
       autoStart = true;
       image = "ghcr.io/hotio/recyclarr:6.0";
       volumes = [
-        "/srv/recyclarr:/config"
+        "/var/lib/recyclarr:/config"
       ];
       extraOptions = [
         "--network=media-stack"
@@ -113,7 +113,20 @@
       volumes = [
         # Seedbox
         "/data/torrents:/data/torrents:rw"
-        "/srv/qbittorrent:/config:rw"
+        "/var/lib/qbittorrent:/config:rw"
+      ];
+      extraOptions = [
+        "--network=media-stack"
+      ];
+    };
+    jellyseerr = {
+      autoStart = true;
+      image = "ghcr.io/hotio/jellyseerr";
+      ports = [
+        "5055:5055/tcp" # WebUI
+      ];
+      volumes = [
+        "/var/lib/jellyseerr:/config"
       ];
       extraOptions = [
         "--network=media-stack"
