@@ -14,5 +14,6 @@ in
   {
     "traefik.age".publicKeys = users ++ hosts;
     "microbin.age".publicKeys = users ++ hosts;
+    "wireguard.age".publicKeys = users ++ hosts;
   }
   
