@@ -14,12 +14,12 @@
     };
 
     microbin = {
-      rule = "Host(`bin.sajenim.dev`)";
+      rule = "Host(`bin.kanto.dev`)";
       entryPoints = [
         "websecure"
       ];
       middlewares = [
-        "geoblock"
+        "internal"
       ];
       service = "microbin";
     };
@@ -30,7 +30,7 @@
         "websecure"
       ];
       middlewares = [ 
-        "internal"
+        "admin"
       ];
       service = "homarr";
     };
@@ -41,7 +41,7 @@
         "websecure"
       ];
       middlewares = [
-        "internal"
+        "admin"
       ];
       service = "api@internal";
     };
@@ -52,7 +52,7 @@
         "websecure"
       ];
       middlewares = [
-        "internal"
+        "admin"
       ];
       service = "adguard-home";
     };
@@ -63,7 +63,7 @@
         "websecure"
       ];
       middlewares = [
-        "internal"
+        "admin"
       ];
       service = "home-assistant";
     };
@@ -85,7 +85,7 @@
         "websecure"
       ];
       middlewares = [
-        "geoblock"
+        "internal"
       ];
       service = "jellyfin";
     };
@@ -96,7 +96,7 @@
         "websecure"
       ];
       middlewares = [
-        "internal"
+        "admin"
       ];
       service = "sonarr";
     };
@@ -107,7 +107,7 @@
         "websecure"
       ];
       middlewares = [
-        "internal"
+        "admin"
       ];
       service = "radarr";
     };
@@ -118,7 +118,7 @@
         "websecure"
       ];
       middlewares = [
-        "internal"
+        "admin"
       ];
       service = "lidarr";
     };
@@ -129,7 +129,7 @@
         "websecure"
       ];
       middlewares = [
-        "internal"
+        "admin"
       ];
       service = "prowlarr";
     };
@@ -140,13 +140,13 @@
         "websecure"
       ];
       middlewares = [
-        "internal"
+        "admin"
       ];
       service = "qbittorrent";
     };
 
     jellyseerr = {
-      rule ="Host(`jellyseerr.kanto.dev`)";
+      rule ="Host(`js.kanto.dev`)";
       entryPoints = [
         "websecure"
       ];
