@@ -11,7 +11,7 @@ return {
       'MunifTanjim/nui.nvim',
     },
     keys = {
-      { '/', '<cmd>Neotree reveal<cr>', desc = 'Neotree' },
+      { '\\', '<cmd>Neotree reveal<cr>', desc = 'Neotree' },
     },
     opts = {
       close_if_last_window = true,
