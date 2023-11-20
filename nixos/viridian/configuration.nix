@@ -95,6 +95,11 @@
     };
   };
 
+# Select internationalisation properties
+  i18n.defaultLocale = "en_AU.UTF-8";
+  # Set timezone
+  time.timeZone = "Australia/Perth";
+
   boot = {
     loader = {
       systemd-boot.enable = true;
