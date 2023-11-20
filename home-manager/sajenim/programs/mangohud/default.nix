@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.mangohud = {
