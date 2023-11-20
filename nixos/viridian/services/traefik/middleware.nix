@@ -25,7 +25,7 @@
       logApiRequests = "false";
       # Application programming interface
       api = "https://get.geojs.io/v1/ip/country/{ip}";
-      apiTimeoutMs = "500";
+      apiTimeoutMs = "750";
       # Max size of least recently used cache
       cacheSize = "25";
       # List of countries to allow access
