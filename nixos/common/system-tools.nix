@@ -14,6 +14,7 @@
       htop    # system monitor
       scrot   # screenshot
       direnv  # load environment
+      jq      # JSON processor
 
       # HTTP
       curl    # transfer dato to/from server
