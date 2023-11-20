@@ -82,6 +82,7 @@
       spotify
       prismlauncher
       runelite
+      jellyfin-media-player
       xmobar
       super-slicer-latest
       # Unstable user programs
