@@ -48,6 +48,7 @@
       };
       accessLog = {
         filePath = "/var/log/traefik/access.log";
+        format = "json";
       };
 
       # Install plugins
