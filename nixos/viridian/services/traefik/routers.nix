@@ -146,7 +146,7 @@
     };
 
     jellyseerr = {
-      rule ="Host(`js.kanto.dev`)";
+      rule = "Host(`js.kanto.dev`)";
       entryPoints = [
         "websecure"
       ];

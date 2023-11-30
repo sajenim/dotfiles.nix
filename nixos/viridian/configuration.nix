@@ -91,7 +91,7 @@
     };
   };
 
-# Select internationalisation properties
+  # Select internationalisation properties
   i18n.defaultLocale = "en_AU.UTF-8";
   # Set timezone
   time.timeZone = "Australia/Perth";
@@ -148,6 +148,8 @@
         51820 # Wireguard
       ];
     };
+
+    # Setup our Home network VPN
     wireguard.interfaces = {
       wg0 = {
         # IP address and subnet of the server's end of the tunnel interface
@@ -190,7 +192,6 @@
       inputs.agenix.packages."${system}".default
     ];
   };
-
   programs = {
     zsh.enable = true;
   };
