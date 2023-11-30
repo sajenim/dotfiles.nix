@@ -23,13 +23,9 @@
     # Import common configurations
     ../common/system-tools.nix
 
-    # Import services
-    ./services/traefik
-
-    # Import containers
-    ./containers/dashboard
-    ./containers/media-stack
-    ./containers/microbin
+    # Import services and containers
+    ./services
+    ./containers
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -208,86 +204,6 @@
       settings.PermitRootLogin = "no";
       # Use keys only. Remove if you want to SSH using password (not recommended)
       settings.PasswordAuthentication = false;
-    };
-
-    # Web server
-    httpd = {
-      enable = true;
-      adminAddr = "its.jassy@pm.me";
-      virtualHosts."sajenim.dev" = {
-        documentRoot = "/var/www/sajenim.dev";
-        listen = [{
-          ip = "192.168.1.102";
-          port = 5624;
-          ssl = false;
-        }];
-      };
-    };
-
-    # Privacy protection center
-    adguardhome = {
-      enable = true;
-      openFirewall = true;
-      settings = {
-        # Web interface IP address to listen on.
-        bind_port = 3000;
-        # Web interface IP port to listen on.
-        bind_host = "0.0.0.0";
-        # Custom DNS responses
-        dns.rewrites = [
-          { domain = "kanto.dev";
-            answer = "192.168.1.102";
-          }
-          { domain = "*.kanto.dev";
-            answer = "kanto.dev";
-          }
-        ];
-      };
-    };
-
-    # Home automation that puts local control and privacy first.
-    home-assistant = {
-      enable = true;
-      openFirewall = true;
-      extraComponents = [
-        # Components required to complete the onboarding
-        "esphome"
-        "met"
-        "radio_browser"
-
-        "adguard"
-        "jellyfin"
-      ];
-      config = {
-        # Includes dependencies for a basic setup
-        # https://www.home-assistant.io/integrations/defaultoconfig/
-        default_config = {};
-        http = {
-          use_x_forwarded_for = true;
-          trusted_proxies = [
-            "192.168.1.102"
-          ];
-        };
-      };
-      configDir = "/var/lib/home-assistant";
-    };
-
-    # Sandbox game developed by Mojang Studios
-    minecraft-server = {
-      enable = true;
-      package = pkgs.unstable.minecraft-server;
-      openFirewall = true;
-      dataDir = "/var/lib/minecraft";
-      declarative = true;
-      serverProperties = {
-        gamemode = "survival";
-        level-name = "kanto.dev";
-        difficulty = "easy";
-        server-port = 25565;
-        motd = "Welcome to our little private place!";
-        level-seed = "-3675652194237789176";
-      };
-      eula = true;
     };
   };
 
