@@ -5,4 +5,5 @@
   # List your module files here
   # my-module = import ./my-module.nix;
   qbittorrent = import ./qbittorrent.nix;
+  jellyfin-rpc = import ./jellyfin-rpc.nix;
 }

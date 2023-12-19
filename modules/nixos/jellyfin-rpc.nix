@@ -1,10 +1,32 @@
 { lib, pkgs, config, ... }:
-with lib;                      
+
+with lib;
+
 let
   cfg = config.services.jellyfin-rpc;
-in {
+  UID = 999;
+  GID = 999;
+in
+{
   options.services.jellyfin-rpc = {
     enable = mkEnableOption "jellyfin-rpc service";
+
+    user = mkOption {
+      type = types.str;
+      default = "jellyfin-rpc";
+      description = lib.mdDoc ''
+        User account under which jellyfin-rpc runs.
+      '';
+    };
+
+    group = mkOption {
+      type = types.str;
+      default = "jellyfin-rpc";
+      description = lib.mdDoc ''
+        Group under which jellyfin-rpc runs.
+      '';
+    };
+
     jellyfin.url = mkOption {
       type = types.str;
       default = "https://example.com";
@@ -12,6 +34,7 @@ in {
        Url to jellyfin server.
       '';
     };
+
     jellyfin.apiKey = mkOption {
       type = types.str;
       default = "sadasodsapasdskd";
@@ -19,6 +42,7 @@ in {
         Jellyfin API key, you can get one at http(s)://your_jellyfin_url/web/#!/apikeys.html
       '';
     };
+
     jellyfin.username = mkOption {
       type = types.str;
       default = "my_user";
@@ -26,6 +50,7 @@ in {
         Username used to log in to jellyfin.
       '';
     };
+
     discordApplicationID = mkOption {
       type = types.str;
       default = "1053747938519679018";
@@ -33,6 +58,7 @@ in {
         Discord application ID, you can make one here https://discord.com/developers/applications
       '';
     };
+
     imgurClientID = mkOption {
       type = types.str;
       default = "asdjdjdg394209fdjs093";
@@ -40,6 +66,7 @@ in {
         Imgur Client ID, goto https://api.imgur.com/oauth2/addclient
       '';
     };
+
     package = mkOption {
       type = types.package;
       default = pkgs.jellyfin-rpc;
@@ -52,8 +79,21 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ cfg.package ];
-    xdg.configFile."jellyfin-rpc/main.json".text = ''
+
+    systemd.services.jellyfin-rpc = {
+      description = "jellyfin-rpc service";
+      wantedBy = [ "multi-user.target" ];
+
+      serviceConfig = {
+        Type = "simple";
+        User = cfg.user;
+        Group = cfg.group;
+
+        ExecStart = "${cfg.package}/bin/jellyfin-rpc --config /etc/jellyfin-rpc/main.json";
+      };
+    };
+
+    environment.etc."jellyfin-rpc/main.json".text = ''
       {
           "jellyfin": {
               "url": "${cfg.jellyfin.url}",
@@ -75,24 +115,17 @@ in {
           }
       }
     '';
-    systemd.user.services.jellyfin-rpc = {
-      Unit = {
-        Description = "Jellyfin-RPC";
-      };
-  
-      Install = { WantedBy = [ "multi-user.target" ]; };
-  
-      Service = {
-        ExecStart = concatStringsSep " " ([
-          "${getExe cfg.package}"
-          "--config ${config.xdg.configFile."jellyfin-rpc/main.json".source}"
-        ]);
-        Restart = "always";
-        RestartSec = 3;
+
+    users.users = mkIf (cfg.user == "jellyfin-rpc") {
+      jellyfin-rpc = {
+        group = cfg.group;
+        uid = UID;
       };
     };
-  };
 
-  meta.maintainers = with lib.maintainers; [ sajenim ];
-}
+    users.groups = mkIf (cfg.group == "jellyfin-rpc") {
+      jellyfin-rpc = { gid = GID; };
+    };
+  };
+  }
 
