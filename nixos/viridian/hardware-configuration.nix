@@ -28,6 +28,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/srv/nextcloud" =
+    { device = "/dev/disk/by-uuid/443fcb5a-b814-4d33-8cfb-93f6ff4aca11";
+      fsType = "ext4";
+    };
+
 
   swapDevices = [ ];
 

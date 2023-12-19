@@ -5,6 +5,7 @@
     ./dashboard
     ./microbin
     ./multimedia
+    ./nextcloud
   ];
 }
 
