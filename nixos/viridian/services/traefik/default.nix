@@ -6,7 +6,7 @@
   imports = [
     "${inputs.nixpkgs-unstable}/nixos/modules/services/web-servers/traefik.nix"
     ./routers.nix
-    ./middleware.nix
+    ./middlewares.nix
     ./services.nix
   ];
 

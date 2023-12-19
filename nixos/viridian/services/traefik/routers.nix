@@ -2,17 +2,6 @@
 
 { 
   services.traefik.dynamicConfigOptions.http.routers = {
-    httpd = {
-      rule = "Host(`sajenim.dev`)";
-      entryPoints = [
-        "websecure"
-      ];
-      middlewares = [
-        "geoblock"
-      ];
-      service = "httpd";
-    };
-
     microbin = {
       rule = "Host(`bin.kanto.dev`)";
       entryPoints = [
@@ -154,6 +143,18 @@
         "internal"
       ];
       service = "jellyseerr";
+    };
+
+    nextcloud = {
+      rule = "Host(`nc.kanto.dev`)";
+      entryPoints = [
+        "websecure"
+      ];
+      middlewares = [
+        # "internal"
+        "nextcloud-chain"
+      ];
+      service = "nextcloud";
     };
   };
 }
