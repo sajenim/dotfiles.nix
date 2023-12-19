@@ -23,9 +23,17 @@
     # Import common configurations
     ../common/system-tools.nix
 
-    # Import services and containers
-    ./services
-    ./containers
+    # Import containers
+    ./containers/dashboard
+    ./containers/microbin
+    ./containers/multimedia
+    ./containers/nextcloud
+
+    # Import services
+    ./services/adguardhome
+    ./services/home-assistant
+    ./services/minecraft-server
+    ./services/traefik
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
