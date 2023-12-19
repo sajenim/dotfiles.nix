@@ -155,7 +155,7 @@
       emacs vscode
 
       # Browsers
-      firefox dolphin
+      firefox
 
       # Graphics
       gimp inkscape krita
