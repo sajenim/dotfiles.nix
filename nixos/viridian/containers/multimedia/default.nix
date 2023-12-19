@@ -14,7 +14,7 @@
       ];
       volumes = [
         # Media library
-        "/data/media:/media:ro"
+        "/srv/htpc/media:/media:ro"
         # Container data
         "/var/lib/jellyfin/config:/config:rw"
         "/var/lib/jellyfin/cache:/cache:rw"
@@ -34,7 +34,7 @@
       ];
       volumes = [
         # Media library
-        "/data:/data:rw"
+        "/srv/htpc:/data:rw"
         # Container data
         "/var/lib/sonarr:/config:rw"
       ];
@@ -51,7 +51,7 @@
       ];
       volumes = [
         # Media library
-        "/data:/data:rw"
+        "/srv/htpc:/data:rw"
         # Container data
         "/var/lib/radarr:/config:rw"
       ];
@@ -68,7 +68,7 @@
       ];
       volumes = [
         # Media library
-        "/data:/data:rw"
+        "/srv/htpc:/data:rw"
         # Container data
         "/var/lib/lidarr:/config:rw"
       ];
@@ -112,7 +112,7 @@
       ];
       volumes = [
         # Seedbox
-        "/data/torrents:/data/torrents:rw"
+        "/srv/htpc/torrents:/data/torrents:rw"
         "/var/lib/qbittorrent:/config:rw"
       ];
       extraOptions = [
