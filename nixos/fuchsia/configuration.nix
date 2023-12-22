@@ -130,7 +130,7 @@
 
   fonts = {
     # Install system fonts
-    fonts = with pkgs; [
+    packages = with pkgs; [
       fantasque-sans-mono
       fira-code
       ibm-plex
