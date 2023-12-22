@@ -11,7 +11,9 @@
     # Enable extra features
     enableAutosuggestions = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting = {
+      enable = true;
+    };
     dotDir = ".config/zsh";
     
     # Commands that should be added to to top of '.zshrc'
