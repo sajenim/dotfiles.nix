@@ -23,9 +23,6 @@
     # Aliases
     shellAliases = {
       c  = "clear";
-      hm = "cd ~/";
-      tp = "trash-put";
-      ud = "cd ..";
       la = "ls -a";
       ll = "ls -l";
       tt = "wezterm cli set-tab-title ";
