@@ -3,7 +3,7 @@
 {
   programs.mangohud = {
     enable = true;
-    package = pkgs.unstable.mangohud;
+    package = pkgs.mangohud;
     settings = {
       # Performance
       fps_limit = 60;
