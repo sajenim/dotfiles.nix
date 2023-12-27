@@ -1,6 +1,6 @@
 let
   # Users
-  sabrina = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPn1X4oHniIkR1bEP/KFt70gmtA3tc8UTLd53P9xQzNe";
+  sabrina = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH+aPO/4odcdOtNbjpD1IinQSyO4vW98LcOvSXhwQutZ";
   sajenim = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAXk3P0EcVnSnWnll+m5Vv/s3QyiC73ERNLJmgxnRE1q";
   
   # Hosts
