@@ -170,7 +170,7 @@
       openrgb protonup-ng
 
       # Hardware
-      corectrl libratbag piper
+      libratbag piper
     ];
     
     # Completions for system packages
