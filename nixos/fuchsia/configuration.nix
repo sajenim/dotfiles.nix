@@ -203,13 +203,15 @@
       # Use keys only. Remove if you want to SSH using password (not recommended)
       settings.PasswordAuthentication = false;
     };
-
+    
+    # Our udev rules
     udev.packages = with pkgs; [
       yubikey-personalization
       openrgb
       qmk-udev-rules
     ];
 
+    # Setup our xserver
     xserver = {
       enable = true;
       layout = "au";
@@ -224,9 +226,7 @@
       displayManager.startx.enable = true;
     };
 
-    ratbagd = {
-      enable = true;
-    };
+    ratbagd.enable = true;
   };
 
   # Install docker
