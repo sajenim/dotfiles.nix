@@ -31,6 +31,7 @@
 
     # Import services
     ./services/adguardhome
+    ./services/borgbackup
     ./services/home-assistant
     ./services/minecraft-server
     ./services/traefik
