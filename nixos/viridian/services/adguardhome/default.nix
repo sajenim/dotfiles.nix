@@ -22,6 +22,7 @@
         }
       ];
     };
+    mutableSettings = true;
   };
 }
 
