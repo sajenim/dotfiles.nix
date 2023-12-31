@@ -4,7 +4,7 @@
   virtualisation.oci-containers.containers = {
     nextcloud-aio-mastercontainer = {
       autoStart = true;
-      image = "nextcloud/all-in-one:latest";
+      image = "nextcloud/all-in-one:20231220_153200-latest";
       ports = [
         "8484:8080/tcp" # AIO Interface
       ];
