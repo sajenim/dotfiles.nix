@@ -23,12 +23,12 @@
       fsType = "vfat";
     };
 
-  fileSystems."/srv/htpc" =
+  fileSystems."/mnt/data" =
     { device = "/dev/disk/by-uuid/3548fbc6-6efd-4ed1-acc1-bd3ffed9d7a7";
       fsType = "ext4";
     };
 
-  fileSystems."/srv/nextcloud" =
+  fileSystems."/mnt/backup" =
     { device = "/dev/disk/by-uuid/443fcb5a-b814-4d33-8cfb-93f6ff4aca11";
       fsType = "ext4";
     };

@@ -13,7 +13,7 @@
         "/var/run/docker.sock:/var/run/docker.sock:ro"
       ];
       environment = {
-        NEXTCLOUD_DATADIR = "/srv/nextcloud";
+        NEXTCLOUD_DATADIR = "/mnt/data/nextcloud";
         APACHE_PORT = "11000";
         APACHE_IP_BINDING = "0.0.0.0";
       };
