@@ -163,8 +163,8 @@
       # Graphics
       gimp inkscape krita
 
-      # Modelling
-      blender freecad openscad cura
+      # Printing
+      blender freecad openscad cura prusa-slicer
 
       # Misc
       openrgb protonup-ng
