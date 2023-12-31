@@ -247,7 +247,9 @@
       isNormalUser = true;
       extraGroups = [ "audio" "docker" "networkmanager" "wheel" ];
       shell = pkgs.zsh;
-      openssh.authorizedKeys.keyFiles = inputs.self + /home-manager/sabrina/id_ed25519.pub;
+      openssh.authorizedKeys.keyFiles = [
+        ../../home-manager/sabrina/id_ed25519.pub
+      ];
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
