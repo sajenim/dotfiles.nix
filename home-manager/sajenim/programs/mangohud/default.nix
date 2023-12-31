@@ -26,6 +26,7 @@
       # Miscellaneous
       wine = true;
       gamemode = true;
+      toggle_hud = "F9";
 
       # Hud dimensions
       table_columns = 4;
