@@ -44,7 +44,17 @@
   };
   
   # Enable home-manager
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+    ssh = {
+      enable = true;
+      matchBlocks = {
+        "fuchsia" = {
+          hostname = "192.168.1.101";
+        };
+      };
+    };
+  };
 
   home = {
     # Setup our user environment
