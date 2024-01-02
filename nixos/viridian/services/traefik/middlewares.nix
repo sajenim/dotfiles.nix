@@ -42,24 +42,6 @@
       # Even if an IP stays in the cache for a period of a month, it must be fetch again after a month.
       forceMonthlyUpdate = "true";
     };
-    # Secure headers for nextcloud
-    nextcloud-secure-headers = {
-      headers = {
-        hostsProxyHeaders = [ "X-Forwarded-Host" ];
-        referrerPolicy = "same-origin";
-      };
-    };
-    # Redirect HTTPS
-    https-redirect = {
-      redirectscheme.scheme = "https";
-    };
-    # Nextcloud chain
-    nextcloud-chain = {
-      chain.middlewares = [
-        "https-redirect"
-        "nextcloud-secure-headers"
-      ];
-    };
   };
 }
 

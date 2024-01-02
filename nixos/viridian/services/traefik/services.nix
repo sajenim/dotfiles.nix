@@ -38,9 +38,6 @@
     jellyseerr.loadBalancer.servers = [
       { url = "http://192.168.1.102:5055"; }
     ];
-    nextcloud.loadBalancer.servers = [
-      { url = "http://192.168.1.102:11000"; }
-    ];
   };
 }
 

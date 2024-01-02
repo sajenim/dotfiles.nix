@@ -144,18 +144,6 @@
       ];
       service = "jellyseerr";
     };
-
-    nextcloud = {
-      rule = "Host(`nc.kanto.dev`)";
-      entryPoints = [
-        "websecure"
-      ];
-      middlewares = [
-        # "internal"
-        "nextcloud-chain"
-      ];
-      service = "nextcloud";
-    };
   };
 }
 

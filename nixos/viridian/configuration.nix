@@ -27,7 +27,6 @@
     ./containers/dashboard
     ./containers/microbin
     ./containers/multimedia
-    ./containers/nextcloud
 
     # Import services
     ./services/adguardhome
