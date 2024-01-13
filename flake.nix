@@ -16,8 +16,8 @@
     };
 
     # Add any other flake you might need
-    #neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     agenix.url = "github:ryantm/agenix";
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -60,7 +60,6 @@
         fuchsia = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main nixos configuration file <
             ./nixos/fuchsia/configuration.nix
           ];
         };
@@ -68,7 +67,6 @@
         viridian = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main nixos configuration file <
             ./nixos/viridian/configuration.nix
           ];
         };

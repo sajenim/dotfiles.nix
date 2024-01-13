@@ -15,7 +15,6 @@
     outputs.nixosModules.qbittorrent
 
     # Or modules from other flakes (such as nixos-hardware):
-    inputs.agenix.nixosModules.default
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
@@ -197,7 +196,7 @@
 
     # Install packages, prefix with 'unstable.' to use overlay
     systemPackages = with pkgs; [
-      inputs.agenix.packages."${system}".default
+      agenix.packages."${system}".default
     ];
   };
   programs = {

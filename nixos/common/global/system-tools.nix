@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 
 {
   environment = {
@@ -15,6 +15,7 @@
       scrot   # screenshot
       direnv  # load environment
       jq      # JSON processor
+      git     # version control
 
       # HTTP
       curl    # transfer dato to/from server
