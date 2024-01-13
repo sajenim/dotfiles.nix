@@ -89,6 +89,34 @@
       # Unstable user programs
       unstable.wezterm
     ];
+
+    persistence."/persist/home/sajenim" = {
+      directories = [
+        "Documents"
+        "Downloads"
+        "Games"
+        "Music"
+        "Pictures"
+        "Printer"
+        "Videos"
+
+        ".gnupg"
+        ".ssh"
+        ".github"
+        ".mozilla"
+        ".zsh_history"
+
+        ".local/bin"
+        ".local/share/nix"
+        ".local/share/nvim"
+
+        ".config/discord"
+        ".config/BetterDiscord"
+        ".config/PrusaSlicer"
+        ".config/Yubico"
+      ];
+      allowOther = true;
+    };
   };
 
   # Setup our window manager
