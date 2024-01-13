@@ -4,7 +4,7 @@
 xrandr --output HDMI-A-0 --mode 1920x1080 --output DisplayPort-0 --mode 2560x1440 --right-of HDMI-A-0
 
 # Apply our wallpaper
-feh --bg-center ~/dotfiles.nix/assets/chinatown.png
+feh --bg-center ~/.github/dotfiles.nix/assets/chinatown.png
 
 # Enable our compositor
 picom -b
