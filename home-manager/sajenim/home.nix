@@ -104,6 +104,7 @@
         ".github"
         ".mozilla"
         ".zsh_history"
+        ".runelite"
 
         ".local/bin"
         ".local/share/nix"
