@@ -90,7 +90,7 @@
       enable = true;
       enableSSHSupport = true;
     };
-    fuse.userAllowOther = true;    
+    fuse.userAllowOther = true;
   };
 
   services = {
