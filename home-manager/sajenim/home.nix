@@ -62,7 +62,6 @@
       matchBlocks = {
         "viridian" = {
           hostname = "192.168.1.102";
-          port = 48654;
         };
       };
     };
