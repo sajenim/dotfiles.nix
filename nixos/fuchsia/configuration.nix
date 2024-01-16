@@ -91,6 +91,7 @@
       enableSSHSupport = true;
     };
     fuse.userAllowOther = true;
+    direnv.enable = true;
   };
 
   services = {
