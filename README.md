@@ -11,17 +11,27 @@ Based upon [Misterio77's starter configs](https://github.com/Misterio77/nix-star
 
 ## Installation
 
-    # Clone the configuration files
-    git clone https://github.com/sajenim/dotfiles.nix.git
+    # Prepare disks, create an EFI System partition and Linux Filesystem partition
+    fdisk /dev/nvme0n1
 
-    # We must be in the repo to access the flake
-    cd ~/dotfiles.nix
+    # Create our filesystems
+    mkfs.fat -F32 -n ESP /dev/nvme0n1p1
+    mkfs.btrfs -L ${hostname} /dev/nvme0n1p2
+    
+    # Create our subvolumes
+    mount /dev/nvme0n1p2 /mnt/btrfs
+    btrfs subvolume create /mnt/btrfs/{root,nix,persist,swap}
+    umount /mnt/btrfs
 
-    # Apply the system configuration
-    sudo nixos-rebuild switch --flake .#hostname
+    # Prepare for installation
+    mount -o compress=zstd,subvol={root,nix,persist,swap} /dev/nvme0n1p2 /mnt/{nix,persist,swap}
+    mount /dev/nvme0n1p1 /mnt/boot
 
-    # Apply the user configuration
-    home-manager switch --flake .#user@hostname
+    # Clone the configuration files and enter repo
+    git clone https://github.com/sajenim/dotfiles.nix.git && cd dotfiles.nix
+
+    # Install our system configuration
+    nixos-install --flake .#hostname
 
 ## Applications
 Main programs that create my desktop experience.
