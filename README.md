@@ -9,6 +9,8 @@ Based upon [Misterio77's starter configs](https://github.com/Misterio77/nix-star
 > I recommend only using this repo for inspiration and instead use this
 > [boilerplate](https://github.com/Misterio77/nix-starter-configs/tree/main/standard)
 
+![screenshot](assets/2024-01-18-224416_4480x1440_scrot.png)
+
 ## Installation
 
     # Prepare disks, create an EFI System partition and Linux Filesystem partition
@@ -32,34 +34,6 @@ Based upon [Misterio77's starter configs](https://github.com/Misterio77/nix-star
 
     # Install our system configuration
     nixos-install --flake .#hostname
-
-## Applications
-Main programs that create my desktop experience.
-
-* neovim
-* wezterm
-* xmonad
-* xmobar
-
-## Self hosted services
-Services are hosted on a Raspberry Pi 4 Model B with podman containers.  
-Volume backups are performed with BorgBackup.
-
-**Networking:**
-* pihole
-* traefik
-
-**Media stack:**
-* plex
-* sonarr
-* radarr
-* prowlarr
-* recyclarr
-
-**Miscellaneous:**
-* homepage
-* qbittorrent
-* minecraft
 
 ## FAQ
 * **What is nix?**  
