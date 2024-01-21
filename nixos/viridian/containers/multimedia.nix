@@ -25,6 +25,7 @@
         "--network=media-stack"
       ];
     };
+
     # PVR for Usenet and BitTorrent users
     sonarr = {
       autoStart = true;
@@ -42,6 +43,7 @@
         "--network=media-stack"
       ];
     };
+
     # Movie collection manager for Usenet and BitTorrent users
     radarr = {
       autoStart = true;
@@ -59,6 +61,7 @@
         "--network=media-stack"
       ];
     };
+
     # # Music collection manager for Usenet and BitTorrent users
     lidarr = {
       autoStart = true;
@@ -76,6 +79,7 @@
         "--network=media-stack"
       ];
     };
+
     # Indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps.
     prowlarr = {
       autoStart = true;
@@ -91,6 +95,7 @@
         "--network=media-stack"
       ];
     };
+
     # Automatically synchronize recommended settings from the TRaSH guides to your Sonarr/Radarr instances
     recyclarr = {
       autoStart = true;
@@ -102,6 +107,7 @@
         "--network=media-stack"
       ];
     };
+
     # # Open-source software alternative to µTorrent
     qbittorrent = {
       autoStart = true;
@@ -119,6 +125,8 @@
         "--network=media-stack"
       ];
     };
+
+    # Request management
     jellyseerr = {
       autoStart = true;
       image = "ghcr.io/hotio/jellyseerr";
@@ -133,6 +141,19 @@
       ];
     };
   };
-  virtualisation.oci-containers.backend = "docker";
+
+  environment.persistence."/persist" = {
+    directories = [
+      "/var/lib/jellyfin/config"
+      "/var/lib/jellyfin/cache"
+      "/var/lib/sonarr"
+      "/var/lib/radarr"
+      "/var/lib/lidarr"
+      "/var/lib/prowlarr"
+      "/var/lib/recyclarr"
+      "/var/lib/qbittorrent"
+      "/var/lib/jellyseerr"
+    ];
+  };
 }
 

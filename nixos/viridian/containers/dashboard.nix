@@ -21,4 +21,12 @@
       ];
     };
   };
+
+  environment.persistence."/persist" = {
+    directories = [ 
+      "/var/lib/homarr/configs"
+      "/var/lib/homarr/icons"
+      "/var/lib/homarr/data"
+    ];
+  };
 }
