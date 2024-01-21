@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   nixpkgs.overlays = [
@@ -16,4 +16,9 @@
     enable = true;
     source = ./config/custom.css;
   };
+
+  home.persistence."/persist/home/sajenim".directories = [
+    ".config/discord"
+    ".config/BetterDiscord"
+  ];
 }

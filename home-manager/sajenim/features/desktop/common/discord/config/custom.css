@@ -1,5 +1,5 @@
 :root {
-  --font-primary: Fira Code;
+  --font-primary: Fisa Code;
 
   /* Gruvbox Material Dark Hard */
   --fg0: #d4be98;
@@ -22,6 +22,7 @@
   --interactive-normal: var(--grey0);
   --interactive-active: var(--grey0);
   --channel-icon: var(--grey0);
+  --channeltextarea-background: var(--bg0_66);
 
   --scrollbar-auto-thumb: var(--grey0);
   --scrollbar-auto-track: var(--bg1);
@@ -33,35 +34,8 @@
   --background-secondary: var(--bg0_66);
   --background-secondary-alt: var(--bg0_33);
   --background-tertiary: var(--bg1);
-  --background-message-hover: var(--bg1);
-  --background-mentioned: var(--bg1);
+  --background-message-hover: var(--bg0_33);
+  --background-mentioned: var(--bg0_66);
   --bg-overlay-selected: var(--bg1);
-}
-
-/* Message Box */
-.scrollableContainer-15eg7h {
-  background-color: var(--bg1);
-}
-.slateTextArea-27tjG0 {
-  color: var(--grey0);
-}
-
-/* Search Box */
-.search-39IXmY {
-  display: none;
-}
-
-/* Add a Server + Explore Public Servers */
-.circleIconButton-1VxDrg {
-  color: var(--grey0);
-}
-/* Remove: Nitro, Gif, Stickers, Emoji buttons */
-.buttons-uaqb-5 {
-  display: none;
-}
-
-/* Remove: New Message Bar */
-.newMessagesBar-1hF-9G {
-  display: none;
 }
 

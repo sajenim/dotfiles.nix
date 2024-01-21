@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -31,8 +31,8 @@
     # An attribute set that adds to named directory hash table
     dirHashes = {
       # QMK Keymaps
-      crkbd = "$HOME/Github/qmk_keymaps/keyboards/crkbd/keymaps/sajenim";
-      kchrn = "$HOME/Github/qmk_keymaps/keyboards/keychron/q4/ansi_v2/keymaps/sajenim";
+      crkbd = "$HOME/.github/qmk_keymaps/keyboards/crkbd/keymaps/sajenim";
+      kchrn = "$HOME/.github/qmk_keymaps/keyboards/keychron/q4/ansi_v2/keymaps/sajenim";
     };
  
     # Install plugins
