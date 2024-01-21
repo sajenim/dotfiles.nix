@@ -4,10 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    # You can access packages and modules from different nixpkgs revs
-    # at the same time. Here's an working example:    
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.    
 
     # Home manager
     home-manager = {
@@ -17,6 +14,10 @@
 
     # Add any other flake you might need
     agenix.url = "github:ryantm/agenix";
+    agenix-rekey = {
+      url = "github:oddlama/agenix-rekey";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     impermanence.url = "github:nix-community/impermanence";
   };
 
@@ -54,6 +55,13 @@
       # These are usually stuff you would upstream into home-manager
       homeManagerModules = import ./modules/home-manager;
 
+      # Expose the necessary information in your flake so agenix-rekey
+      # knows where it has too look for secrets and paths.
+      agenix-rekey = inputs.agenix-rekey.configure {
+        userFlake = self;
+        nodes = self.nixosConfigurations;
+      };
+
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
@@ -70,41 +78,22 @@
             ./nixos/viridian/configuration.nix
           ];
         };
-
-        lavender = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main nixos configuration file <
-            ./nixos/lavender/configuration.nix
-          ];
-        };
       };
 
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
         "sajenim@fuchsia" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main home-manager configuration file <
-            ./home-manager/sajenim/home.nix
+            ./home-manager/sajenim/fuchsia.nix
           ];
         };
 
-        "sabrina@lavender" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home-manager/sabrina/home.nix
-          ];
-        };
-
-        "sabrina@viridian" = home-manager.lib.homeManagerConfiguration {
+        "sajenim@viridian" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
 	        extraSpecialArgs = { inherit inputs outputs; };
 	        modules = [
-	          ./home-manager/sabrina/home.nix
+	          ./home-manager/sabrina/viridian.nix
 	        ];
 	      };
       };
