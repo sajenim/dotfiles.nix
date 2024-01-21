@@ -12,7 +12,7 @@
 
   age.secrets.traefik = {
     # Environment variables for cloudflare dns challenge
-    file = inputs.self + /secrets/traefik.age;
+    rekeyFile = ./environment.age;
     owner = "traefik";
     group = "traefik";
   };
@@ -134,6 +134,17 @@
         insecureSkipVerify = true;
       };
     };
+  };
+
+  # Persist our traefik data & logs
+  environment.persistence."/persist" = {
+    directories = [
+      "/var/lib/traefik"
+    ];
+    files = [
+      "/var/log/traefik/traefik.log"
+      "/var/log/traefik/access.log"
+    ];
   };
 }
 
