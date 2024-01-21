@@ -11,7 +11,6 @@
     userEmail = "its.jassy@pm.me";
     extraConfig = {
       init.defaultBranch = "main";
-      gpg.format = "ssh";
       core.sshCommand = "~/.ssh/github_sk.pub";
       user.signingkey = "~/.ssh/signing_sk.pub";
     };
