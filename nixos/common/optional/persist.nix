@@ -1,6 +1,10 @@
-{ ... }:
+{ inputs, ... }:
 
 {
+  imports = [
+    inputs.impermanence.nixosModules.impermanence
+  ];
+
   # Files and directories we with to keep between reboots
   environment.persistence."/persist" = {
     hideMounts = true;
@@ -19,4 +23,5 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
   };
+  programs.fuse.userAllowOther = true;
 }

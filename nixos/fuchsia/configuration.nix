@@ -1,12 +1,11 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
-    inputs.impermanence.nixosModules.impermanence
-    inputs.home-manager.nixosModules.home-manager
-
     ../common/global
     ../common/users/sajenim
+    ../common/optional/key.nix
+    ../common/optional/steam.nix
 
     ./hardware-configuration.nix
   ];
@@ -48,55 +47,13 @@
     networkmanager.enable = true;
   };
 
-  fonts = {
-    packages = with pkgs; [
-      fantasque-sans-mono
-      fira-code
-      ibm-plex
-      inconsolata
-      iosevka
-      jetbrains-mono
-    ];
-  };
-
-  environment = {
-    # Symlink /bin/sh to POSIX-Complient shell
-    binsh = "${pkgs.bash}/bin/bash";
-    shells = with pkgs; [ zsh ];
-    # Install packages, prefix with 'unstable.' to use overlay
-    systemPackages = with pkgs; [
-      # Audio
-      pulsemixer
-      # Code editors
-      emacs vscode
-      # Browsers
-      firefox
-      # Graphics
-      gimp inkscape krita
-      # Printing
-      blender freecad openscad prusa-slicer
-      # Misc
-      openrgb protonup-ng
-      # Hardware
-      libratbag piper
-    ];
-    # Completions for system packages
-    pathsToLink = [ "/share/zsh" ];
-  };
-
   programs = {
     zsh.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    fuse.userAllowOther = true;
     direnv.enable = true;
   };
 
   services = {
     udev.packages = with pkgs; [
-      yubikey-personalization
       openrgb
       qmk-udev-rules
     ];
@@ -113,16 +70,12 @@
       displayManager.startx.enable = true;
     };
     ratbagd.enable = true;
+    pcscd.enable = true;
   };
 
   virtualisation.docker = {
     enable = true;
     liveRestore = false;
-  };
-
-  security.pam.services = {
-    login.u2fAuth = true;
-    sudo.u2fAuth = true;
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

@@ -1,14 +1,21 @@
-{ outputs, ... }:
+{ inputs, outputs, ... }:
 
 {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
+    inputs.agenix.nixosModules.default
+    inputs.agenix-rekey.nixosModules.default
+    ./age.nix
+    ./env.nix
     ./nix.nix
     ./ssh.nix
-    ./system-tools.nix
   ];
 
   nixpkgs = {
     overlays = [
+      # Overlays exported from other flakes
+      inputs.agenix-rekey.overlays.default
+      # Overlays our own flake exports
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages

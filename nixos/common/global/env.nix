@@ -2,6 +2,8 @@
 
 {
   environment = {
+    binsh = "${pkgs.bash}/bin/bash";
+    shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
       # Ensure home-manager is on all systems
       home-manager
@@ -25,5 +27,6 @@
       unrar   # extract roshal archive
       unzip   # extract zip archive
     ];
+    pathsToLink = [ "/share/zsh" ];
   };
 }
