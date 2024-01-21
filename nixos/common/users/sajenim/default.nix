@@ -1,6 +1,9 @@
 { inputs, outputs, pkgs, config, ... }:
 
 {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
   users.users.sajenim = {
       isNormalUser = true;
       extraGroups = [ "audio" "docker" "networkmanager" "wheel" ];

@@ -2,9 +2,6 @@
 
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
-    inputs.agenix.nixosModules.default
-    inputs.agenix-rekey.nixosModules.default
     ./age.nix
     ./env.nix
     ./nix.nix

@@ -1,8 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 let
   hostname = config.networking.hostName;
 in
 {
+  imports = [
+    inputs.agenix.nixosModules.default
+    inputs.agenix-rekey.nixosModules.default
+  ];
+
   environment.systemPackages = with pkgs; [
     agenix-rekey
   ];
