@@ -12,6 +12,9 @@
 
   programs.ssh = {
     enable = true;
-    matchBlocks."viridian".hostname = "192.168.1.102";
+    matchBlocks."viridian" = {
+      hostname = "192.168.1.102";
+      identityFile = "/home/sajenim/.ssh/sajenim_sk";
+    };
   };
 }
