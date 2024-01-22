@@ -26,6 +26,7 @@
       la = "ls -a";
       ll = "ls -l";
       tt = "wezterm cli set-tab-title ";
+      deploy-viridian = "nixos-rebuild switch --flake .#viridian --target-host viridian --use-remote-sudo";
     };
 
     # An attribute set that adds to named directory hash table
