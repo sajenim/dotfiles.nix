@@ -22,6 +22,10 @@
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
+      # Additional rights when connecting to the Nix daemon
+      trusted-users = [
+        "sajenim"
+      ];
     };
   };
 }
