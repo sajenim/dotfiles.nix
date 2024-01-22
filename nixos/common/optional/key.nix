@@ -9,12 +9,12 @@
   ];
 
   # GPG and SSH support
-  services.udev.packages = [ pkgs.yubikey-personalization ];
+  # services.udev.packages = [ pkgs.yubikey-personalization ];
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
   # Use our yubikey as a user login or for sudo access 
   security.pam.services = {
