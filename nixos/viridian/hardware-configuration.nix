@@ -24,14 +24,21 @@
     fsType = "vfat";
   };
 
-  fileSystems."/mnt/data" = { 
-    device = "/dev/disk/by-label/data";
+  fileSystems."/srv/multimedia" = { 
+    device = "/dev/disk/by-label/multimedia";
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/backup" = {
-    device = "/dev/disk/by-label/backup";
-    fsType = "ext4";
+  fileSystems."/srv/containers" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "btrfs";
+    options = [ "subvol=containers" "compress=zstd" ];
+  };
+
+  fileSystems."/srv/backup" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "btrfs";
+    options = [ "subvol=backup" "compress=zstd" ];
   };
 
   swapDevices = [ 
