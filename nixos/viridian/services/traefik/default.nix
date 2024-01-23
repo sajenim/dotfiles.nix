@@ -139,12 +139,10 @@
   # Persist our traefik data & logs
   environment.persistence."/persist" = {
     directories = [
-      "/var/lib/traefik"
+      { directory = "/var/lib/traefik"; user = "traefik"; group = "traefik"; }
+      { directory = "/var/log/traefik"; user = "traefik"; group = "traefik"; }
     ];
-    files = [
-      "/var/log/traefik/traefik.log"
-      "/var/log/traefik/access.log"
-    ];
+    hideMounts = true;
   };
 }
 
