@@ -58,6 +58,9 @@
     liveRestore = false;
   };
 
+  # Required for smooth remote deployments
+  security.sudo.wheelNeedsPassword = false;
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 }
