@@ -94,5 +94,17 @@ return {
     end,
     ft = { "markdown" },
   },
+
+  --
+  -- Delete Buffers
+  --
+  {
+    'famiu/bufdelete.nvim',
+    cmd = { 'Bdelete', 'Bwipeout' },
+    keys = {
+      { '<leader>bd', '<cmd>Bdelete<cr>', desc = 'Buffer Delete' },
+      { '<leader>bw', '<cmd>Bwipeout<cr>', desc = 'Buffer Wipeout' },
+    },
+  },
 }
 
