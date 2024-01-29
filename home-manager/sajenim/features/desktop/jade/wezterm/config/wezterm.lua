@@ -45,6 +45,9 @@ config.font_size = 10.0
 --| Color scheme
 config.color_scheme = 'gruvbox_material_dark_hard'
 
+--| Cursor style
+config.default_cursor_style = 'SteadyBar'
+
 --| Padding
 config.window_padding = {
   left   = 10,
