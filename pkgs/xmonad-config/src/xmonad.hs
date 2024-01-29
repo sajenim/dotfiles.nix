@@ -35,43 +35,43 @@ myWorkspaces         = ["code", "chat", "web", "games", "misc"]
 -- | Keybindings
 myKeys =
     -- launching and killing programs
-    [ ("M-n"            , spawn myTerminal                 ) -- %! Launch terminal
-    , ("M-e"            , spawn "rofi -show run"           ) -- %! Launch rofi
-    , ("M-C-w"          , kill                             ) -- %! Close the focused window
+    [ ("M-n"            , spawn myTerminal                          ) -- %! Launch terminal
+    , ("M-e"            , spawn "rofi -modi run,calc -show run"     ) -- %! Launch rofi
+    , ("M-C-w"          , kill                                      ) -- %! Close the focused window
     -- layouts
     , ("M-t"            , sendMessage $ JumpToLayout "Spacing Tiled") -- %! Jump to our tiled layout
     , ("M-m"            , sendMessage $ JumpToLayout "Maximized"    ) -- %! Jump to our maximized layout
     , ("M-f"            , sendMessage $ JumpToLayout "Fullscreen"   ) -- %! Jump to our fullscreen layout
     -- move focus up or down the window stack
-    , ("M-<Down>"       , windows W.focusDown              ) -- %! Move focus to the next window
-    , ("M-<Up>"         , windows W.focusUp                ) -- %! Move focus to the previous window
-    , ("M-<Return>"     , windows W.focusMaster            ) -- %! Move focus to the master window 
+    , ("M-<Down>"       , windows W.focusDown                       ) -- %! Move focus to the next window
+    , ("M-<Up>"         , windows W.focusUp                         ) -- %! Move focus to the previous window
+    , ("M-<Return>"     , windows W.focusMaster                     ) -- %! Move focus to the master window 
     -- modifying the window order
-    , ("M-S-<Down>"     , windows W.swapDown               ) -- %! Swap the focused window with the next window
-    , ("M-S-<Up>"       , windows W.swapUp                 ) -- %! Swap the focused window with the previous window
-    , ("M-S-<Return>"   , windows W.swapMaster             ) -- %! Swap the focused window with the master window
+    , ("M-S-<Down>"     , windows W.swapDown                        ) -- %! Swap the focused window with the next window
+    , ("M-S-<Up>"       , windows W.swapUp                          ) -- %! Swap the focused window with the previous window
+    , ("M-S-<Return>"   , windows W.swapMaster                      ) -- %! Swap the focused window with the master window
     -- resizing the master/slave ratio
-    , ("M-<Page_Up>"    , sendMessage Expand               ) -- %! Expand the master area
-    , ("M-<Page_Down>"  , sendMessage Shrink               ) -- %! Shrink the master area
+    , ("M-<Page_Up>"    , sendMessage Expand                        ) -- %! Expand the master area
+    , ("M-<Page_Down>"  , sendMessage Shrink                        ) -- %! Shrink the master area
     -- number of windows in the master area
-    , ("M-S-<Page_Up>"  , sendMessage (IncMasterN 1)       ) -- %! Increase the number of windows in the master area
-    , ("M-S-<Page_Down>", sendMessage (IncMasterN (-1))    ) -- %! Decrease the number of windows in the master area
+    , ("M-S-<Page_Up>"  , sendMessage (IncMasterN 1)                ) -- %! Increase the number of windows in the master area
+    , ("M-S-<Page_Down>", sendMessage (IncMasterN (-1))             ) -- %! Decrease the number of windows in the master area
     -- floating layer support
     , ("M-<Space>"      , withFocused $ windows . W.sink            ) -- %! Push window back into tiling
     -- workspace navigation
-    , ("M-<Right>"      , moveTo Next hiddenWS             ) -- %! Move focus to the next hidden workspace
-    , ("M-<Left>"       , moveTo Prev hiddenWS             ) -- %! Move focus to the previous hidden workspace
+    , ("M-<Right>"      , moveTo Next hiddenWS                      ) -- %! Move focus to the next hidden workspace
+    , ("M-<Left>"       , moveTo Prev hiddenWS                      ) -- %! Move focus to the previous hidden workspace
     -- move window to workspace
-    , ("M-S-<Right>"    , shiftTo Next hiddenWS            ) -- %! Move focused window to the next hidden workspace
-    , ("M-S-<Left)"     , shiftTo Prev hiddenWS            ) -- %! Move focused window to the previous hidden workspace
+    , ("M-S-<Right>"    , shiftTo Next hiddenWS                     ) -- %! Move focused window to the next hidden workspace
+    , ("M-S-<Left)"     , shiftTo Prev hiddenWS                     ) -- %! Move focused window to the previous hidden workspace
     -- move focus up or down the screen stack
-    , ("M-<End>"        , nextScreen                       ) -- %! Move focus to the next screen
-    , ("M-<Home>"       , prevScreen                       ) -- %! Move focus to the previous screen
+    , ("M-<End>"        , nextScreen                                ) -- %! Move focus to the next screen
+    , ("M-<Home>"       , prevScreen                                ) -- %! Move focus to the previous screen
     -- move windows between screens
-    , ("M-S-<End>"      , shiftNextScreen                  ) -- %! Move focused window to the next screen
-    , ("M-S-<Home>"     , shiftPrevScreen                  ) -- %! Move focused window to the previous screen
+    , ("M-S-<End>"      , shiftNextScreen                           ) -- %! Move focused window to the next screen
+    , ("M-S-<Home>"     , shiftPrevScreen                           ) -- %! Move focused window to the previous screen
     -- quit, or restart
-    , ("M-S-q"          , io exitSuccess                   ) -- %! Quit xmonad
+    , ("M-S-q"          , io exitSuccess                            ) -- %! Quit xmonad
     ]
 
 -- | Layouts
