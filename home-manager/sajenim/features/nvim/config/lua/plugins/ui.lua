@@ -37,7 +37,10 @@ return {
           extensions = {
             'neotree'
           },
-        }
+        },
+        tabline = {
+          lualine_a = {'buffers'},
+        };
       }
     end,
   },
