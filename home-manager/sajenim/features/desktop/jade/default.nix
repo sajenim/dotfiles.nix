@@ -2,8 +2,8 @@
 
 {
   imports = [
+    ./rofi
     ./picom.nix
-    ./rofi.nix
   ];
 
   home.packages = with pkgs; [
