@@ -39,7 +39,9 @@ myKeys =
     , ("M-e"            , spawn "rofi -show run"           ) -- %! Launch rofi
     , ("M-C-w"          , kill                             ) -- %! Close the focused window
     -- layouts
-    , ("M-<Space>"      , sendMessage NextLayout           ) -- %! Rotate through the available layout algorithms
+    , ("M-t"            , sendMessage $ JumpToLayout "Spacing Tiled") -- %! Jump to our tiled layout
+    , ("M-m"            , sendMessage $ JumpToLayout "Maximized"    ) -- %! Jump to our maximized layout
+    , ("M-f"            , sendMessage $ JumpToLayout "Fullscreen"   ) -- %! Jump to our fullscreen layout
     -- move focus up or down the window stack
     , ("M-<Down>"       , windows W.focusDown              ) -- %! Move focus to the next window
     , ("M-<Up>"         , windows W.focusUp                ) -- %! Move focus to the previous window
@@ -55,7 +57,7 @@ myKeys =
     , ("M-S-<Page_Up>"  , sendMessage (IncMasterN 1)       ) -- %! Increase the number of windows in the master area
     , ("M-S-<Page_Down>", sendMessage (IncMasterN (-1))    ) -- %! Decrease the number of windows in the master area
     -- floating layer support
-    , ("M-t"            , withFocused $ windows . W.sink   ) -- %! Push window back into tiling
+    , ("M-<Space>"      , withFocused $ windows . W.sink            ) -- %! Push window back into tiling
     -- workspace navigation
     , ("M-<Right>"      , moveTo Next hiddenWS             ) -- %! Move focus to the next hidden workspace
     , ("M-<Left>"       , moveTo Prev hiddenWS             ) -- %! Move focus to the previous hidden workspace
