@@ -17,6 +17,11 @@
     source = ./config/custom.css;
   };
 
+  home.file.".config/BetterDiscord/plugins/HideChannels.plugin.js" = {
+    enable = true;
+    source = ./plugins/HideChannels.plugin.js;
+  };
+
   home.persistence."/persist/home/sajenim".directories = [
     ".config/discord"
     ".config/BetterDiscord"
