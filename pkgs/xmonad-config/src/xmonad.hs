@@ -75,13 +75,14 @@ myKeys =
     ]
 
 -- | Layouts
-myLayout = tiled ||| full
+myLayout = tiled ||| max ||| full
   where
     -- Add a configurable amount of space around windows.
     gaps     = spacingRaw False (Border 10 10 10 10) True (Border 10 10 10 10) True
     -- Our layouts
     tiled    = renamed [Replace "Spacing Tiled"] . avoidStruts . gaps $ Tall nmaster delta ratio
-    full     = renamed [Replace "Fullscreen"]    $ noBorders Full
+    max      = renamed [Replace "Maximized"    ] . avoidStruts . gaps $ Full
+    full     = renamed [Replace "Fullscreen"   ] . noBorders          $ Full
     -- Layout settings
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
