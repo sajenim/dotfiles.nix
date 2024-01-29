@@ -74,11 +74,11 @@ config.colors = {
     --| Tab Bar Colors
     background = '#282828',
     --| Tab Colors
-    active_tab          = { bg_color = '#282828', fg_color = '#7daea3', intensity = 'Bold',   italic = false, },
-    inactive_tab        = { bg_color = '#282828', fg_color = '#7c6f64', intensity = 'Normal', italic = false, },
-    inactive_tab_hover  = { bg_color = '#282828', fg_color = '#7c6f64', intensity = 'Normal', italic = false, },
-    new_tab             = { bg_color = '#282828', fg_color = '#7c6f64', intensity = 'Normal', italic = false, },
-    new_tab_hover       = { bg_color = '#282828', fg_color = '#7c6f64', intensity = 'Normal', italic = false, },
+    active_tab          = { bg_color = '#282828', fg_color = '#7daea3', intensity = 'Normal', italic = false, },
+    inactive_tab        = { bg_color = '#282828', fg_color = '#a89984', intensity = 'Normal', italic = false, },
+    inactive_tab_hover  = { bg_color = '#282828', fg_color = '#a89984', intensity = 'Normal', italic = false, },
+    new_tab             = { bg_color = '#282828', fg_color = '#a89984', intensity = 'Normal', italic = false, },
+    new_tab_hover       = { bg_color = '#282828', fg_color = '#a89984', intensity = 'Normal', italic = false, },
   }
 }
 
