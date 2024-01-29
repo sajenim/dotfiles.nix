@@ -97,7 +97,7 @@ end
 
 config.keys = {
   --| Spawn Tab
-  { key = 't', mods = 'ALT', action = act.SpawnTab 'CurrentPaneDomain', },
+  { key = 'n', mods = 'ALT', action = act.SpawnTab 'CurrentPaneDomain', },
   --| Tab Navigation
   { key = 'LeftArrow',  mods = 'ALT', action = act.ActivateTabRelative(-1) },
   { key = 'RightArrow', mods = 'ALT', action = act.ActivateTabRelative(1)  },
