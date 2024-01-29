@@ -51,6 +51,9 @@
    
     # Extra commands that should be added to '.zshrc'
     initExtra = ''
+      bindkey -e
+      bindkey ";6C" forward-word
+      bindkey ";6D" backward-word
       eval "$(direnv hook zsh)"
       path+=('/home/sajenim/.local/bin')
       export PATH
