@@ -47,10 +47,10 @@ config.color_scheme = 'gruvbox_material_dark_hard'
 
 --| Padding
 config.window_padding = {
-  left   = 20,
-  right  = 20,
-  top    = 20,
-  bottom = 0,
+  left   = 10,
+  right  = 10,
+  top    = 10,
+  bottom = 10,
 }
 
 --| Style Inactive Panes
