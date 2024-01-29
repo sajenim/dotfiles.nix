@@ -39,6 +39,7 @@
         ".config/Yubico"
         # Application specific data
         ".local/share/PrismLauncher"
+        ".local/share/Jellyfin Media Player"
         # Our user data
         "Documents"
         "Downloads"
