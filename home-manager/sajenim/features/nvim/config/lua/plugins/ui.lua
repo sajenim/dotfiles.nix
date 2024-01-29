@@ -13,9 +13,6 @@ return {
     keys = {
       { '\\', '<cmd>Neotree reveal<cr>', desc = 'Neotree' },
     },
-    opts = {
-      close_if_last_window = true,
-    }
   },
 
 
