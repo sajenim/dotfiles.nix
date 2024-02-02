@@ -51,10 +51,8 @@
    
     # Extra commands that should be added to '.zshrc'
     initExtra = ''
-      bindkey -e
-      bindkey ";6C" forward-word
-      bindkey ";6D" backward-word
       eval "$(direnv hook zsh)"
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       path+=('/home/sajenim/.local/bin')
       export PATH
       PROMPT='%F{blue}%n@%m %F{cyan}%~ %F{red}♥ %f';
