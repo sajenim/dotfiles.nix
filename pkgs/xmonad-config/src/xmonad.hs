@@ -16,7 +16,7 @@ import XMonad.Layout.Renamed
 import XMonad.Layout.NoBorders
 
 -- Utilities
-import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Util.EZConfig (additionalKeys)
 
 -- xmobar dependencies
 import XMonad.Hooks.DynamicLog
@@ -35,43 +35,42 @@ myWorkspaces         = ["code", "chat", "web", "games", "misc"]
 -- | Keybindings
 myKeys =
     -- launching and killing programs
-    [ ("M-n"            , spawn myTerminal                          ) -- %! Launch terminal
-    , ("M-e"            , spawn "rofi -modi run,calc -show run"     ) -- %! Launch rofi
-    , ("M-C-w"          , kill                                      ) -- %! Close the focused window
+    [ ((myModMask,                 xK_n        ), spawn myTerminal                          ) -- %! Launch terminal
+    , ((myModMask,                 xK_e        ), spawn "rofi -modi run,calc -show run"     ) -- %! Launch rofi
+    , ((myModMask .|. controlMask, xK_w        ), kill                                      ) -- %! Close the focused window
+    , ((myModMask .|. shiftMask,   xK_q        ), io exitSuccess                            ) -- %! Quit xmonad
+
     -- layouts
-    , ("M-t"            , sendMessage $ JumpToLayout "Spacing Tiled") -- %! Jump to our tiled layout
-    , ("M-m"            , sendMessage $ JumpToLayout "Maximized"    ) -- %! Jump to our maximized layout
-    , ("M-f"            , sendMessage $ JumpToLayout "Fullscreen"   ) -- %! Jump to our fullscreen layout
-    -- move focus up or down the window stack
-    , ("M-<Down>"       , windows W.focusDown                       ) -- %! Move focus to the next window
-    , ("M-<Up>"         , windows W.focusUp                         ) -- %! Move focus to the previous window
-    , ("M-<Return>"     , windows W.focusMaster                     ) -- %! Move focus to the master window 
-    -- modifying the window order
-    , ("M-S-<Down>"     , windows W.swapDown                        ) -- %! Swap the focused window with the next window
-    , ("M-S-<Up>"       , windows W.swapUp                          ) -- %! Swap the focused window with the previous window
-    , ("M-S-<Return>"   , windows W.swapMaster                      ) -- %! Swap the focused window with the master window
-    -- resizing the master/slave ratio
-    , ("M-<Page_Up>"    , sendMessage Expand                        ) -- %! Expand the master area
-    , ("M-<Page_Down>"  , sendMessage Shrink                        ) -- %! Shrink the master area
-    -- number of windows in the master area
-    , ("M-S-<Page_Up>"  , sendMessage (IncMasterN 1)                ) -- %! Increase the number of windows in the master area
-    , ("M-S-<Page_Down>", sendMessage (IncMasterN (-1))             ) -- %! Decrease the number of windows in the master area
-    -- floating layer support
-    , ("M-<Space>"      , withFocused $ windows . W.sink            ) -- %! Push window back into tiling
-    -- workspace navigation
-    , ("M-<Right>"      , moveTo Next hiddenWS                      ) -- %! Move focus to the next hidden workspace
-    , ("M-<Left>"       , moveTo Prev hiddenWS                      ) -- %! Move focus to the previous hidden workspace
-    -- move window to workspace
-    , ("M-S-<Right>"    , shiftTo Next hiddenWS                     ) -- %! Move focused window to the next hidden workspace
-    , ("M-S-<Left)"     , shiftTo Prev hiddenWS                     ) -- %! Move focused window to the previous hidden workspace
-    -- move focus up or down the screen stack
-    , ("M-<End>"        , nextScreen                                ) -- %! Move focus to the next screen
-    , ("M-<Home>"       , prevScreen                                ) -- %! Move focus to the previous screen
-    -- move windows between screens
-    , ("M-S-<End>"      , shiftNextScreen                           ) -- %! Move focused window to the next screen
-    , ("M-S-<Home>"     , shiftPrevScreen                           ) -- %! Move focused window to the previous screen
-    -- quit, or restart
-    , ("M-S-q"          , io exitSuccess                            ) -- %! Quit xmonad
+    , ((myModMask,                 xK_t        ), sendMessage $ JumpToLayout "Spacing Tiled") -- %! Jump to our tiled layout
+    , ((myModMask,                 xK_m        ), sendMessage $ JumpToLayout "Maximized"    ) -- %! Jump to our maximized layout
+    , ((myModMask,                 xK_f        ), sendMessage $ JumpToLayout "Fullscreen"   ) -- %! Jump to our fullscreen layout
+    , ((myModMask .|. shiftMask,   xK_t        ), withFocused $ windows . W.sink            ) -- %! Push window back into tiling
+
+    -- window stack
+    , ((myModMask,                 xK_Down     ), windows W.focusDown                       ) -- %! Move focus to the next window
+    , ((myModMask,                 xK_Up       ), windows W.focusUp                         ) -- %! Move focus to the previous window
+    , ((myModMask .|. shiftMask,   xK_Down     ), windows W.swapDown                        ) -- %! Swap the focused window with the next window
+    , ((myModMask .|. shiftMask,   xK_Up       ), windows W.swapUp                          ) -- %! Swap the focused window with the previous window
+
+    -- master slave
+    , ((myModMask,                 xK_Return   ), windows W.focusMaster                     ) -- %! Move focus to the master window 
+    , ((myModMask .|. shiftMask,   xK_Return   ), windows W.swapMaster                      ) -- %! Swap the focused window with the master window
+    , ((myModMask,                 xK_Page_Down), sendMessage Shrink                        ) -- %! Shrink the master area
+    , ((myModMask,                 xK_Page_Up  ), sendMessage Expand                        ) -- %! Expand the master area
+    , ((myModMask .|. shiftMask,   xK_Page_Down), sendMessage (IncMasterN 1)                ) -- %! Increase the number of windows in the master area
+    , ((myModMask .|. shiftMask,   xK_Page_Up  ), sendMessage (IncMasterN (-1))             ) -- %! Decrease the number of windows in the master area
+
+    -- workspaces
+    , ((myModMask,                 xK_Right    ), moveTo Next hiddenWS                      ) -- %! Move focus to the next hidden workspace
+    , ((myModMask,                 xK_Left     ), moveTo Prev hiddenWS                      ) -- %! Move focus to the previous hidden workspace
+    , ((myModMask .|. shiftMask,   xK_Right    ), shiftTo Next hiddenWS                     ) -- %! Move focused window to the next hidden workspace
+    , ((myModMask .|. shiftMask,   xK_Left     ), shiftTo Prev hiddenWS                     ) -- %! Move focused window to the previous hidden workspace
+
+    -- monitors
+    , ((myModMask,                 xK_period   ), nextScreen                                ) -- %! Move focus to the next screen
+    , ((myModMask,                 xK_comma    ), prevScreen                                ) -- %! Move focus to the previous screen
+    , ((myModMask .|. shiftMask,   xK_period   ), shiftNextScreen                           ) -- %! Move focused window to the next screen
+    , ((myModMask .|. shiftMask,   xK_comma    ), shiftPrevScreen                           ) -- %! Move focused window to the previous screen
     ]
 
 -- | Layouts
@@ -150,6 +149,6 @@ myConfig = def
     , normalBorderColor  = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
     , workspaces         = myWorkspaces
-    } `additionalKeysP` myKeys
+    } `additionalKeys` myKeys
 
 
