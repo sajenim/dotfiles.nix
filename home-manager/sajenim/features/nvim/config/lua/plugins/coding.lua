@@ -59,6 +59,9 @@ return {
       -- Nix
       lspconfig.nil_ls.setup{}
 
+      -- C
+      lspconfig.clangd.setup{}
+
 
       --
       -- Global mappings
