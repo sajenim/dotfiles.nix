@@ -87,29 +87,16 @@ config.colors = {
 
 --| Key Assignments
 config.disable_default_key_bindings = true
-config.keys = {}
-
-for i = 1, 8 do
-  --| CTRL+ALT + number to activate tab
-  table.insert(config.keys, {
-    key = tostring(i),
-    mods = 'CTRL|ALT',
-    action = act.ActivateTab(i - 1),
-  })
-end
-
 config.keys = {
   --| Spawn Tab
-  { key = 'n', mods = 'ALT', action = act.SpawnTab 'CurrentPaneDomain', },
+  { key = 't', mods = 'ALT', action = act.SpawnTab 'CurrentPaneDomain', },
   --| Tab Navigation
   { key = 'LeftArrow',  mods = 'ALT', action = act.ActivateTabRelative(-1) },
   { key = 'RightArrow', mods = 'ALT', action = act.ActivateTabRelative(1)  },
-  --| Close Tab
-  { key = 'w', mods = 'ALT|CTRL', action = act.CloseCurrentTab { confirm = false }, },
 
   --| Split Panes
   { key = 'v', mods = 'ALT', action = act.SplitVertical   { domain  = 'CurrentPaneDomain' }, },
-  { key = 'h', mods = 'ALT', action = act.SplitHorizontal { domain  = 'CurrentPaneDomain' }, },
+  { key = 's', mods = 'ALT', action = act.SplitHorizontal { domain  = 'CurrentPaneDomain' }, },
   --| Adjust Pane Size
   { key = 'PageDown', mods = 'ALT', action = act.AdjustPaneSize { 'Down', 5 } },
   { key = 'PageUp',   mods = 'ALT', action = act.AdjustPaneSize { 'Up',   5 } },
@@ -117,7 +104,7 @@ config.keys = {
   { key = 'DownArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Next', },
   { key = 'UpArrow',   mods = 'ALT', action = act.ActivatePaneDirection 'Prev', },
   --| Close Pane
-  { key = 'x', mods = "ALT", action = act.CloseCurrentPane { confirm = false }, },
+  { key = 'w', mods = "ALT|CTRL", action = act.CloseCurrentPane { confirm = false }, },
 
   --| Copy Mode / Clipboard
   { key = 'X', mods = 'CTRL', action = act.ActivateCopyMode,                         },
