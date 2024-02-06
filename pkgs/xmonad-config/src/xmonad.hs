@@ -55,10 +55,10 @@ myKeys =
     -- master slave
     , ((myModMask,                 xK_space    ), windows W.focusMaster                     ) -- %! Move focus to the master window 
     , ((myModMask .|. shiftMask,   xK_space    ), windows W.swapMaster                      ) -- %! Swap the focused window with the master window
-    , ((myModMask,                 xK_Page_Down), sendMessage Shrink                        ) -- %! Shrink the master area
-    , ((myModMask,                 xK_Page_Up  ), sendMessage Expand                        ) -- %! Expand the master area
-    , ((myModMask .|. shiftMask,   xK_Page_Down), sendMessage (IncMasterN 1)                ) -- %! Increase the number of windows in the master area
-    , ((myModMask .|. shiftMask,   xK_Page_Up  ), sendMessage (IncMasterN (-1))             ) -- %! Decrease the number of windows in the master area
+    , ((myModMask,                 xK_Page_Up  ), sendMessage Shrink                        ) -- %! Shrink the master area
+    , ((myModMask,                 xK_Page_Down), sendMessage Expand                        ) -- %! Expand the master area
+    , ((myModMask .|. shiftMask,   xK_Page_Up  ), sendMessage (IncMasterN 1)                ) -- %! Increase the number of windows in the master area
+    , ((myModMask .|. shiftMask,   xK_Page_Down), sendMessage (IncMasterN (-1))             ) -- %! Decrease the number of windows in the master area
 
     -- workspaces
     , ((myModMask,                 xK_Right    ), moveTo Next hiddenWS                      ) -- %! Move focus to the next hidden workspace
