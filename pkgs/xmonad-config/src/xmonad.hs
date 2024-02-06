@@ -67,10 +67,10 @@ myKeys =
     , ((myModMask .|. shiftMask,   xK_Left     ), shiftTo Prev hiddenWS                     ) -- %! Move focused window to the previous hidden workspace
 
     -- monitors
-    , ((myModMask,                 xK_period   ), nextScreen                                ) -- %! Move focus to the next screen
-    , ((myModMask,                 xK_comma    ), prevScreen                                ) -- %! Move focus to the previous screen
-    , ((myModMask .|. shiftMask,   xK_period   ), shiftNextScreen                           ) -- %! Move focused window to the next screen
-    , ((myModMask .|. shiftMask,   xK_comma    ), shiftPrevScreen                           ) -- %! Move focused window to the previous screen
+    , ((myModMask,                 xK_End      ), nextScreen                                ) -- %! Move focus to the next screen
+    , ((myModMask,                 xK_Home     ), prevScreen                                ) -- %! Move focus to the previous screen
+    , ((myModMask .|. shiftMask,   xK_End      ), shiftNextScreen                           ) -- %! Move focused window to the next screen
+    , ((myModMask .|. shiftMask,   xK_Home     ), shiftPrevScreen                           ) -- %! Move focused window to the previous screen
     ]
 
 -- | Layouts
