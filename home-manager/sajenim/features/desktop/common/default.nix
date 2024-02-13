@@ -3,5 +3,6 @@
 {
   imports = [
     ./discord
+    ./mpd.nix
   ];
 }
