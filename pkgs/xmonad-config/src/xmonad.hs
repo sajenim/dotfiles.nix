@@ -32,12 +32,14 @@ myNormalBorderColor  = "#282828"
 myFocusedBorderColor = "#282828"
 myWorkspaces         = ["code", "chat", "web", "games", "misc"]
 myLauncher           = "rofi -modi run,calc -show run"
+myScrot              = "scrot -s '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/scrots/'"
 
 -- | Keybindings
 myKeys =
     -- launching and killing programs
     [ ((myModMask,                 xK_n        ), spawn myTerminal                          ) -- %! Launch terminal
     , ((myModMask,                 xK_e        ), spawn myLauncher                          ) -- %! Launch rofi
+    , ((myModMask,                 xK_s        ), spawn myScrot                             ) -- %! Take screenshot
     , ((myModMask .|. controlMask, xK_w        ), kill                                      ) -- %! Close the focused window
     , ((myModMask .|. shiftMask,   xK_q        ), io exitSuccess                            ) -- %! Quit xmonad
 
