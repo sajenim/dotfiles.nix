@@ -23,8 +23,5 @@
   services.mpd-discord-rpc = {
     enable = true;
     package = pkgs.unstable.mpd-discord-rpc;
-    settings = {
-      hosts = [ "192:6600" ];
-    };
   };
 }
