@@ -31,12 +31,13 @@ myBorderWidth        = 5
 myNormalBorderColor  = "#282828"
 myFocusedBorderColor = "#282828"
 myWorkspaces         = ["code", "chat", "web", "games", "misc"]
+myLauncher           = "rofi -modi run,calc -show run"
 
 -- | Keybindings
 myKeys =
     -- launching and killing programs
     [ ((myModMask,                 xK_n        ), spawn myTerminal                          ) -- %! Launch terminal
-    , ((myModMask,                 xK_e        ), spawn "rofi -modi run,calc -show run"     ) -- %! Launch rofi
+    , ((myModMask,                 xK_e        ), spawn myLauncher                          ) -- %! Launch rofi
     , ((myModMask .|. controlMask, xK_w        ), kill                                      ) -- %! Close the focused window
     , ((myModMask .|. shiftMask,   xK_q        ), io exitSuccess                            ) -- %! Quit xmonad
 
