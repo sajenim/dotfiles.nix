@@ -6,7 +6,7 @@
   ];
   users.users.sajenim = {
       isNormalUser = true;
-      extraGroups = [ "audio" "docker" "networkmanager" "wheel" ];
+      extraGroups = [ "audio" "docker" "networkmanager" "wheel" "adbusers" ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keyFiles = [
         "${inputs.self}/home-manager/sajenim/sajenim_sk.pub"

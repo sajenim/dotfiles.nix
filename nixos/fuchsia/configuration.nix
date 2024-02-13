@@ -50,6 +50,7 @@
   programs = {
     zsh.enable = true;
     direnv.enable = true;
+    adb.enable = true;
   };
 
   services = {
