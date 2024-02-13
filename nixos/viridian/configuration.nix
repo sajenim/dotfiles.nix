@@ -36,6 +36,7 @@
         80    # traefik     (HTTP)
         443   # traefik     (HTTPS)
         32372 # qbittorrent
+        6600  # mpd
       ];
       allowedUDPPorts = [
         53    # adguardhome (DNS)
@@ -43,6 +44,7 @@
         443   # traefik     (HTTPS)
         32372 # qbittorrent
         51820 # Wireguard
+        6600  # mpd
       ];
     };
   };
