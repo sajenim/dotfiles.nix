@@ -25,11 +25,12 @@
       # Hardware
       libratbag
       piper
-      # Misc
-      spotify
-      jellyfin-media-player
-      firefox
       pulsemixer
+      # Media
+      ncmpcpp
+      jellyfin-media-player
+      # Misc
+      firefox
     ];
 
     persistence."/persist/home/sajenim" = {
