@@ -9,8 +9,6 @@
     ./services
     ./containers
     ./hardware-configuration.nix
-    
-    outputs.nixosModules.qbittorrent
   ];
 
   boot.kernel.sysctl = {
