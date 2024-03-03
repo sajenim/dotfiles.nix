@@ -17,7 +17,7 @@
     ];
     # Restrict access based on geo-location
     geoblock.plugin.geoblock = {
-      silentStartUp = "true";
+      silentStartUp = "false";
       allowLocalRequests = "true";
       # If set to true will show a log message
       logLocalRequests = "false";
@@ -31,6 +31,9 @@
       # List of countries to allow access
       countries = [
         "AU" # Australia
+        "NZ" # New Zealand
+        "GB" # United Kingdom of Great Britian and Northern Ireland (the)
+        "US" # United States of America (the)
       ];
       # Inverts filter logic
       blackListMode = "false";
