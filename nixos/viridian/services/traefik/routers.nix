@@ -2,15 +2,11 @@
 
 { 
   services.traefik.dynamicConfigOptions.http.routers = {
-    microbin = {
-      rule = "Host(`bin.kanto.dev`)";
       entryPoints = [
         "websecure"
       ];
       middlewares = [
-        "internal"
       ];
-      service = "microbin";
     };
 
     homarr = {
@@ -44,17 +40,6 @@
         "admin"
       ];
       service = "adguard-home";
-    };
-
-    home-assistant = {
-      rule = "Host(`home.kanto.dev`)";
-      entryPoints = [
-        "websecure"
-      ];
-      middlewares = [
-        "admin"
-      ];
-      service = "home-assistant";
     };
 
     minecraft = {

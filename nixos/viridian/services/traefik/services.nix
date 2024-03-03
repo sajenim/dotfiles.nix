@@ -2,14 +2,9 @@
 
 {
   services.traefik.dynamicConfigOptions.http.services = {
-    microbin.loadBalancer.servers = [
-      { url = "http://192.168.1.102:8181"; }
     ];
     homarr.loadBalancer.servers = [
       { url = "http://192.168.1.102:7575"; }
-    ];
-    home-assistant.loadBalancer.servers = [
-      { url = "http://192.168.1.102:8123"; }
     ];
     adguard-home.loadBalancer.servers = [
       { url = "http://192.168.1.102:3000"; }
