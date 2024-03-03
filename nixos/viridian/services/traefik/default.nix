@@ -44,7 +44,7 @@
 
       log = {
         filePath = "/var/log/traefik/traefik.log";
-        level = "INFO";
+        level = "ERROR";
       };
       accessLog = {
         filePath = "/var/log/traefik/access.log";
@@ -141,6 +141,7 @@
     directories = [
       { directory = "/var/lib/traefik"; user = "traefik"; group = "traefik"; }
       { directory = "/var/log/traefik"; user = "traefik"; group = "traefik"; }
+      { directory = "/plugins-storage"; user = "traefik"; group = "traefik"; }
     ];
     hideMounts = true;
   };
