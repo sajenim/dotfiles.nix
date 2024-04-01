@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  imports = [
+    ./amdgpu-clocks.nix
+  ];
+}
