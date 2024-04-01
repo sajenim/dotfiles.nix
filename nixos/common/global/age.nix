@@ -19,6 +19,8 @@ in
     rekey.hostPubkey = ../../${hostname}/ssh_host_ed25519_key.pub;
     # Where we store the rekeyed secrets
     rekey.cacheDir = "/var/tmp/agenix-rekey/\"$UID\"";
+    # All rekeyed secrets for each host will be collected in a derivation which copies them to the nix store when it is built
+    rekey.storageMode = "derivation";
   };
   # Required to persist `/var/tmp/agenix-rekey`
   environment.persistence."/persist".directories = [
