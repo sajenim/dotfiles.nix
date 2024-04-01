@@ -28,15 +28,12 @@
       apiTimeoutMs = "750";
       # Max size of least recently used cache
       cacheSize = "25";
-      # List of countries to allow access
+      # List of countries to block access
       countries = [
-        "AU" # Australia
-        "NZ" # New Zealand
-        "GB" # United Kingdom of Great Britian and Northern Ireland (the)
-        "US" # United States of America (the)
+        "RU" # Russian Federation (the)
       ];
       # Inverts filter logic
-      blackListMode = "false";
+      blackListMode = "true";
       # Unknown Countries (IPs with no country association)
       allowUnknownCountries = "false";
       unknownCountryApiResponse = "nil";
