@@ -27,6 +27,7 @@
       piper
       pulsemixer
       # Media
+      mpc-cli
       ncmpcpp
       jellyfin-media-player
       # Misc
