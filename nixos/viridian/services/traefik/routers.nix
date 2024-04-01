@@ -2,17 +2,6 @@
 
 { 
   services.traefik.dynamicConfigOptions.http.routers = {
-    blog = {
-      rule = "Host(`sajenim.dev`)";
-      entryPoints = [
-        "websecure"
-      ];
-      middlewares = [
-        "geoblock"
-      ];
-      service = "blog";
-    };
-
     homarr = {
       rule = "Host(`kanto.dev`)";
       entryPoints = [ 
