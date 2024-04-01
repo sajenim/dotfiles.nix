@@ -7,6 +7,7 @@
     ../common/optional/key.nix
     ../common/optional/steam.nix
 
+    ./services
     ./hardware-configuration.nix
   ];
 
