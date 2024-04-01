@@ -38,6 +38,7 @@
       ];
       files = [
         ".zsh_history"
+        ".local/share/direnv"
       ];
       allowOther = true;
     };
