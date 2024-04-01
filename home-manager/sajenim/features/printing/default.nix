@@ -5,8 +5,9 @@
     packages = with pkgs; [
       blender
       freecad
+      kicad
       openscad
-      prusa-slicer
+      unstable.prusa-slicer
     ];
     persistence."/persist/home/sajenim" = {
       directories = [
