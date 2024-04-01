@@ -109,6 +109,9 @@ config.keys = {
   --| Copy Mode / Clipboard
   { key = 'X', mods = 'CTRL', action = act.ActivateCopyMode,                         },
   { key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard',                    },
+
+  --| This lets us unify delete word across programs
+  { key = 'Backspace', mods = 'CTRL', action = act.SendKey {key = 'w', mods = 'CTRL'} },
 }
 
 return config
