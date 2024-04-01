@@ -108,7 +108,6 @@ config.keys = {
 
   --| Copy Mode / Clipboard
   { key = 'X', mods = 'CTRL', action = act.ActivateCopyMode,                         },
-  { key = 'C', mods = 'CTRL', action = act.CopyTo    'ClipboardAndPrimarySelection', },
   { key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard',                    },
 }
 
