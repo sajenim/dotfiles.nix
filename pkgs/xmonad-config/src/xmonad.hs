@@ -18,6 +18,9 @@ import XMonad.Layout.NoBorders
 -- Utilities
 import XMonad.Util.EZConfig (additionalKeys)
 
+-- This file is generated based on X.org includes. It contains the keysyms for XF86.
+import Graphics.X11.ExtraTypes.XF86
+
 -- xmobar dependencies
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
@@ -33,6 +36,8 @@ myFocusedBorderColor = "#282828"
 myWorkspaces         = ["code", "chat", "web", "games", "misc"]
 myLauncher           = "rofi -modi run,calc -show run"
 myScrot              = "scrot -s '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/scrots/'"
+volDown              = "pactl set-sink-volume @DEFAULT_SINK@ -10%"
+volUp                = "pactl set-sink-volume @DEFAULT_SINK@ +10%"
 
 -- | Keybindings
 myKeys =
@@ -42,6 +47,14 @@ myKeys =
     , ((myModMask,                 xK_s        ), spawn myScrot                             ) -- %! Take screenshot
     , ((myModMask .|. controlMask, xK_w        ), kill                                      ) -- %! Close the focused window
     , ((myModMask .|. shiftMask,   xK_q        ), io exitSuccess                            ) -- %! Quit xmonad
+
+    -- multimedia
+    , ((noModMask, xF86XK_AudioPlay            ), spawn "mpc toggle"                        ) -- %! Play/Pause music
+    , ((noModMask, xF86XK_AudioStop            ), spawn "mpc stop"                          ) -- %! Stop music
+    , ((noModMask, xF86XK_AudioNext            ), spawn "mpc next"                          ) -- %! Next track
+    , ((noModMask, xF86XK_AudioPrev            ), spawn "mpc prev"                          ) -- %! Previous track
+    , ((noModMask, xF86XK_AudioLowerVolume     ), spawn volDown                             ) -- %! Volume down
+    , ((noModMask, xF86XK_AudioRaiseVolume     ), spawn volUp                               ) -- %! Volume up
 
     -- layouts
     , ((myModMask,                 xK_t        ), sendMessage $ JumpToLayout "Spacing Tiled") -- %! Jump to our tiled layout
