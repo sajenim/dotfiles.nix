@@ -22,6 +22,11 @@
     source = ./plugins/HideChannels.plugin.js;
   };
 
+  home.file.".config/BetterDiscord/plugins/RemoveBlockedUsers.plugin.js" = {
+    enable = true;
+    source = ./plugins/RemoveBlockedUsers.plugin.js;
+  };
+
   home.persistence."/persist/home/sajenim".directories = [
     ".config/discord"
     ".config/BetterDiscord"
