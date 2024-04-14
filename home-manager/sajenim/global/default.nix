@@ -35,10 +35,10 @@
 
         ".local/bin"
         ".local/share/nix"
+        ".local/share/direnv"
       ];
       files = [
         ".zsh_history"
-        ".local/share/direnv"
       ];
       allowOther = true;
     };
