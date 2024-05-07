@@ -74,6 +74,17 @@
       };
       displayManager.startx.enable = true;
     };
+
+    # Get up and running with large language models locally.
+    ollama = {
+      enable = true;
+      package = pkgs.unstable.ollama;
+      acceleration = "rocm";
+      # environmentVariables = {
+      #  HSA_OVERRIDE_GFX_VERSION = "10.3.0";
+      # };
+    };
+
     # Enable a few other services.
     ratbagd.enable = true;
     pcscd.enable = true;
