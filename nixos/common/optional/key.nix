@@ -4,13 +4,18 @@
   environment.systemPackages = with pkgs; [
     # Enables files to be encrypted to age identities stored on YubiKeys
     age-plugin-yubikey
-    # Cryptfile
+    # Setup dm-crypt managed device-mapper mappings.
     cryptsetup
-    # Yubikey can be used as a smart card for secure encryption
-    gnupg
     # Configure your YubiKey via the command line
     yubikey-manager
   ];
+
+  # Manage secret (private) keys.
+  programs.gnupg.agent = {
+    enable = true;
+    # Fix: invalid time when using keytocard
+    pinentryFlavor = "gtk2";
+  };
 
   # Use our yubikey as a user login or for sudo access 
   security.pam.services = {
