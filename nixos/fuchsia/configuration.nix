@@ -55,10 +55,13 @@
   };
 
   services = {
+    # Enable necessary udev rules.
     udev.packages = with pkgs; [
       openrgb
       qmk-udev-rules
     ];
+
+    # Setup our display server.
     xserver = {
       enable = true;
       layout = "au";
@@ -71,10 +74,12 @@
       };
       displayManager.startx.enable = true;
     };
+    # Enable a few other services.
     ratbagd.enable = true;
     pcscd.enable = true;
   };
 
+  # Use docker instead of podman for our containers.
   virtualisation.docker = {
     enable = true;
     liveRestore = false;
