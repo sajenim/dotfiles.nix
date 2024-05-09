@@ -36,7 +36,7 @@
     };
 
     minecraft = {
-      rule = "Host(`mc.kanto.dev`)";
+      rule = "Host(`minecraft.kanto.dev`)";
       entryPoints = [
         "websecure"
       ];
@@ -47,7 +47,7 @@
     };
 
     jellyfin = {
-     rule = "Host(`jf.kanto.dev`)";
+     rule = "Host(`jellyfin.kanto.dev`)";
       entryPoints = [
         "websecure"
       ];
@@ -113,7 +113,7 @@
     };
 
     jellyseerr = {
-      rule = "Host(`js.kanto.dev`)";
+      rule = "Host(`jellyseerr.kanto.dev`)";
       entryPoints = [
         "websecure"
       ];
