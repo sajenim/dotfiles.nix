@@ -122,6 +122,17 @@
       ];
       service = "jellyseerr";
     };
+
+    microbin = {
+      rule = "Host(`bin.kanto.dev`)";
+      entryPoints = [
+        "websecure"
+      ];
+      middlewares = [
+        "internal"
+      ];
+      service = "microbin";
+    };
   };
 }
 

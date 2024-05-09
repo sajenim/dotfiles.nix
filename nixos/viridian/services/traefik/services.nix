@@ -32,6 +32,9 @@
     jellyseerr.loadBalancer.servers = [
       { url = "http://192.168.1.102:5055"; }
     ];
+    microbin.loadBalancer.servers = [
+      { url = "http://192.168.1.102:8181"; }
+    ];
   };
 }
 
