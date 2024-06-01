@@ -2,10 +2,6 @@
 
 ![nixos-logo](assets/nixos-official-logo.png)
 
-> ### ⚠️ Migrated to Forejo
->
-> This project has [migrated to forgejo](https://git.sajenim.dev/jasmine/dotfiles.nix).
-
 My [NixOS](https://nixos.org/) and [Home-Manager](https://github.com/nix-community/home-manager) config files.
 Based upon [Misterio77's starter configs](https://github.com/Misterio77/nix-starter-configs).
 
