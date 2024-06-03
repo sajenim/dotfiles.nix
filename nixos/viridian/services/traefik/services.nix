@@ -2,6 +2,9 @@
 
 {
   services.traefik.dynamicConfigOptions.http.services = {
+    forgejo.loadBalancer.servers = [
+      { url = "http://192.168.1.102:3131"; }
+    ];
     homarr.loadBalancer.servers = [
       { url = "http://192.168.1.102:7575"; }
     ];

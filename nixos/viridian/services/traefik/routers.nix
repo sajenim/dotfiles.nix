@@ -2,6 +2,17 @@
 
 { 
   services.traefik.dynamicConfigOptions.http.routers = {
+    forgejo = {
+      rule = "Host(`git.sajenim.dev`)";
+      entryPoints = [
+        "websecure"
+      ];
+      middlewares = [
+        "geoblock"
+      ];
+      service = "forgejo";
+    };
+
     homarr = {
       rule = "Host(`kanto.dev`)";
       entryPoints = [ 
