@@ -12,13 +12,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Add any other flake you might need
+    # Flakes our configuration is dependent on.
     agenix.url = "github:ryantm/agenix";
     agenix-rekey = {
       url = "github:oddlama/agenix-rekey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
+
+    # Add any other flake you might need.
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
