@@ -271,22 +271,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1717372969,
-        "narHash": "sha256-cyFuF5+g59NjOAkx7+oUrQfzzvWwzJvZTMTsl85JgJk=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "0fc0a545f5efbc7dbc3bbd6a2ec8280bff01d73e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1685801374,
@@ -387,7 +371,6 @@
         "impermanence": "impermanence",
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_3",
-        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
