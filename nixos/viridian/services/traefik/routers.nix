@@ -2,6 +2,17 @@
 
 { 
   services.traefik.dynamicConfigOptions.http.routers = {
+    httpd = {
+      rule = "Host(`sajenim.dev`)";
+      entryPoints = [
+        "websecure"
+      ];
+      middlewares = [
+        "geoblock"
+      ];
+      service = "httpd";
+    };
+
     forgejo = {
       rule = "Host(`git.sajenim.dev`)";
       entryPoints = [
@@ -113,7 +124,7 @@
     };
 
     qbittorrent = {
-      rule = "Host(`qbittorrent.kanto.dev`)";
+      rule = "Host(`torrent.kanto.dev`)";
       entryPoints = [
         "websecure"
       ];
@@ -143,6 +154,17 @@
         "internal"
       ];
       service = "microbin";
+    };
+
+    ender1 = {
+      rule = "Host(`e1.kanto.dev`)";
+      entryPoints = [
+        "websecure"
+      ];
+      middlewares = [
+        "admin"
+      ];
+      service = "ender1";
     };
   };
 }

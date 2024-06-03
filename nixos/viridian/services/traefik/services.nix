@@ -2,9 +2,15 @@
 
 {
   services.traefik.dynamicConfigOptions.http.services = {
+    # sajenim.dev
+    httpd.loadBalancer.servers = [
+      { url = "http://192.168.1.102:5624"; }
+    ];
     forgejo.loadBalancer.servers = [
       { url = "http://192.168.1.102:3131"; }
     ];
+
+    # kanto.dev
     homarr.loadBalancer.servers = [
       { url = "http://192.168.1.102:7575"; }
     ];
@@ -37,6 +43,9 @@
     ];
     microbin.loadBalancer.servers = [
       { url = "http://192.168.1.102:8181"; }
+    ];
+    ender1.loadBalancer.servers = [
+      { url = "http://192.168.1.103:80"; }
     ];
   };
 }
