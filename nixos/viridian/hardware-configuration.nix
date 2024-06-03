@@ -1,5 +1,7 @@
 { config, lib, ... }:
-
+let
+  hostname = config.networking.hostName;
+in
 {
   imports = [
     ../common/optional/ephemeral-btrfs.nix
@@ -30,9 +32,15 @@
   };
 
   fileSystems."/srv/containers" = {
-    device = "/dev/disk/by-label/data";
+    device = "/dev/disk/by-label/${hostname}";
     fsType = "btrfs";
     options = [ "subvol=containers" "compress=zstd" ];
+  };
+
+  fileSystems."/srv/services" = {
+    device = "/dev/disk/by-label/${hostname}";
+    fsType = "btrfs";
+    options = [ "subvol=services" "compress=zstd" ];
   };
 
   fileSystems."/srv/shares" = {
