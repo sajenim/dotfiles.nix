@@ -11,7 +11,7 @@
   ];
 
   age.secrets.traefik = {
-    # Environment variables for cloudflare dns challenge
+    # Environment variables for porkbun dns challenge
     rekeyFile = ./environment.age;
     owner = "traefik";
     group = "traefik";
@@ -73,24 +73,6 @@
         # Hypertext Transfer Protocol Secure
         websecure = {
           address = ":443";
-          # Trust cloudflares forwarded header information
-          forwardedHeaders.trustedIPs = [
-            "173.245.48.0/20"
-            "103.21.244.0/22"
-            "103.22.200.0/22"
-            "103.31.4.0/22"
-            "141.101.64.0/18"
-            "108.162.192.0/18"
-            "190.93.240.0/20"
-            "188.114.96.0/20"
-            "197.234.240.0/22"
-            "198.41.128.0/17"
-            "162.158.0.0/15"
-            "172.64.0.0/13"
-            "131.0.72.0/22"
-            "104.16.0.0/13"
-            "104.24.0.0/14"
-          ];
           # Requests wildcard SSL certs for our services
           http.tls = {
             certResolver = "lets-encrypt";
@@ -121,7 +103,7 @@
           caServer = "https://acme-v02.api.letsencrypt.org/directory";
           # Use a DNS-01 ACME challenge
           dnsChallenge = {
-            provider = "cloudflare";
+            provider = "porkbun";
             resolvers = [
               "1.1.1.1:53"
               "8.8.8.8:53"
