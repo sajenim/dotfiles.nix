@@ -4,6 +4,7 @@
   imports = [
     ../common/global
     ../common/users/sajenim
+    ../common/users/spectre
     ../common/optional/wireguard
 
     ./services
