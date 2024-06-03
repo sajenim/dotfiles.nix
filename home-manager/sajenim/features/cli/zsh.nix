@@ -25,6 +25,8 @@
     # Aliases
     shellAliases = {
       c  = "clear";
+      r  = "cd ~/.repositories";
+      p  = "cd ~/.print";
       la = "ls -a";
       ll = "ls -l";
       tt = "wezterm cli set-tab-title ";
