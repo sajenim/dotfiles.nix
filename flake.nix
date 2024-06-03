@@ -93,7 +93,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
 	        extraSpecialArgs = { inherit inputs outputs; };
 	        modules = [
-	          ./home-manager/sabrina/viridian.nix
+	          ./home-manager/sajenim/viridian.nix
 	        ];
 	      };
       };
