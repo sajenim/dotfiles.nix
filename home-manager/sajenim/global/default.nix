@@ -28,8 +28,6 @@
 
     persistence."/persist/home/sajenim" = {
       directories = [
-        ".backup"
-        ".github"
         ".gnupg"
         ".ssh"
 

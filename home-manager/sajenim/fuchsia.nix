@@ -37,6 +37,9 @@
     persistence."/persist/home/sajenim" = {
       directories = [
         ".mozilla"
+        # Hidden user data
+        ".repositories"
+        ".print"
         # Mutable configurations
         ".config/Yubico"
         # Application specific data
@@ -48,7 +51,6 @@
         "Games"
         "Music"
         "Pictures"
-        "Printer"
         "Videos"
       ];
     };
