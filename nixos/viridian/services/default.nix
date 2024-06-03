@@ -7,5 +7,6 @@
     ./borgbackup.nix
     ./forgejo.nix
     ./mpd.nix
+    ./samba.nix
   ];
 }
