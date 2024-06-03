@@ -4,8 +4,8 @@
   imports = [
     ../common/global
     ../common/users/sajenim
+    ../common/users/sajenim/steam
     ../common/optional/key.nix
-    ../common/optional/steam.nix
 
     ./services
     ./hardware-configuration.nix
