@@ -14,7 +14,7 @@
   programs.gnupg.agent = {
     enable = true;
     # Fix: invalid time when using keytocard
-    pinentryFlavor = "gtk2";
+    pinentryPackage = pkgs.pinentry-curses;
   };
 
   # Use our yubikey as a user login or for sudo access 

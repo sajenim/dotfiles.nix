@@ -3,9 +3,11 @@
 {
   imports = [
     ../common/global
+
     ../common/users/sajenim
     ../common/users/sajenim/samba
     ../common/users/sajenim/steam
+
     ../common/optional/key.nix
 
     ./services
@@ -65,26 +67,26 @@
     # Setup our display server.
     xserver = {
       enable = true;
-      layout = "au";
+      xkb.layout = "au";
       videoDrivers = [ "amdgpu" ];
-      libinput = {
-        enable = true;
-        mouse = {
-          accelProfile = "flat";
-        };
-      };
       displayManager.startx.enable = true;
     };
 
-    # Get up and running with large language models locally.
-    ollama = {
+    libinput = {
       enable = true;
-      package = pkgs.unstable.ollama;
-      acceleration = "rocm";
-      # environmentVariables = {
-      #  HSA_OVERRIDE_GFX_VERSION = "10.3.0";
-      # };
+      mouse = { accelProfile = "flat"; };
     };
+
+
+    # Get up and running with large language models locally.
+    # ollama = {
+    #   enable = true;
+    #   package = pkgs.unstable.ollama;
+    #   acceleration = "rocm";
+    #   # environmentVariables = {
+    #   #  HSA_OVERRIDE_GFX_VERSION = "10.3.0";
+    #   # };
+    # };
 
     # Enable a few other services.
     ratbagd.enable = true;

@@ -20,5 +20,6 @@
     users = {
       sajenim = import "${inputs.self}/home-manager/sajenim/${config.networking.hostName}.nix";
     };
+    backupFileExtension = "bak";
   };
 }
