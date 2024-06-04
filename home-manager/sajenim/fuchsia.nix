@@ -41,6 +41,8 @@
         ".repositories"
         ".print"
         # Mutable configurations
+        ".config/htop"
+        ".config/lazygit"
         ".config/Yubico"
         # Application specific data
         ".local/share/PrismLauncher"
