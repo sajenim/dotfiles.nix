@@ -41,7 +41,7 @@
 
   services.traefik.dynamicConfigOptions.http.services = {
     microbin.loadBalancer.servers = [
-      { url = "http://192.168.1.102:8181"; }
+      { url = "http://127.0.0.1:8181"; }
     ];
   };
 }

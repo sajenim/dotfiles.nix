@@ -90,7 +90,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.services = {
     minecraft.loadBalancer.servers = [
-      { url = "http://192.168.1.102:25565"; }
+      { url = "http://127.0.0.1:25565"; }
     ];
   };
 }

@@ -33,7 +33,7 @@
   
   services.traefik.dynamicConfigOptions.http.services = {
     prowlarr.loadBalancer.servers = [
-      { url = "http://192.168.1.102:9696"; }
+      { url = "http://127.0.0.1:9696"; }
     ];
   };
 }

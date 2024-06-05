@@ -37,7 +37,7 @@
 
   services.traefik.dynamicConfigOptions.http.services = {
     homarr.loadBalancer.servers = [
-      { url = "http://192.168.1.102:7575"; }
+      { url = "http://127.0.0.1:7575"; }
     ];
   };
 }

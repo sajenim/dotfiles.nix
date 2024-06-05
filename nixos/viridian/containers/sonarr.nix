@@ -36,7 +36,7 @@
 
   services.traefik.dynamicConfigOptions.http.services = {
     sonarr.loadBalancer.servers = [
-      { url = "http://192.168.1.102:8989"; }
+      { url = "http://127.0.0.1:8989"; }
     ];
   };
 }

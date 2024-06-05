@@ -33,7 +33,7 @@
 
   services.traefik.dynamicConfigOptions.http.services = {
     adguard-home.loadBalancer.servers = [
-      { url = "http://192.168.1.102:3000"; }
+      { url = "http://127.0.0.1:3000"; }
     ];
   };
 }
