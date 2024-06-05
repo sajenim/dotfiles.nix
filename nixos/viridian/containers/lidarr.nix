@@ -20,4 +20,24 @@
       ];
     };
   };
+
+  services.traefik.dynamicConfigOptions.http.routers = {
+    lidarr = {
+      rule = "Host(`lidarr.kanto.dev`)";
+      entryPoints = [
+        "websecure"
+      ];
+      middlewares = [
+        "admin"
+      ];
+      service = "lidarr";
+    };
+  };
+
+  services.traefik.dynamicConfigOptions.http.services = {
+    lidarr.loadBalancer.servers = [
+      { url = "http://192.168.1.102:8686"; }
+    ];
+  };
 }
+

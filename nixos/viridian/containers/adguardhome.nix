@@ -18,4 +18,23 @@
       ];
     };
   };
+  services.traefik.dynamicConfigOptions.http.routers = {
+    adguard-home = {
+      rule = "Host(`adguard.kanto.dev`)";
+      entryPoints = [
+        "websecure"
+      ];
+      middlewares = [
+        "admin"
+      ];
+      service = "adguard-home";
+    };
+  };
+
+  services.traefik.dynamicConfigOptions.http.services = {
+    adguard-home.loadBalancer.servers = [
+      { url = "http://192.168.1.102:3000"; }
+    ];
+  };
 }
+

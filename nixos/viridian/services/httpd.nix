@@ -12,5 +12,24 @@
       adminAddr = "its.jassy@pm.me";
     };
   };
+
+  services.traefik.dynamicConfigOptions.http.routers = {
+    httpd = {
+      rule = "Host(`sajenim.dev`)";
+      entryPoints = [
+        "websecure"
+      ];
+      middlewares = [
+        "geoblock"
+      ];
+      service = "httpd";
+    };
+  };
+
+  services.traefik.dynamicConfigOptions.http.services = {
+    httpd.loadBalancer.servers = [
+      { url = "http://192.168.1.102:5624"; }
+    ];
+  };
 }
 

@@ -74,4 +74,24 @@ in
     # https://account.mojang.com/documents/minecraft_eula
     eula = true;
   };
+
+  services.traefik.dynamicConfigOptions.http.routers = {
+    minecraft = {
+      rule = "Host(`minecraft.kanto.dev`)";
+      entryPoints = [
+        "websecure"
+      ];
+      middlewares = [
+        "internal"
+      ];
+      service = "minecraft";
+    };
+  };
+
+  services.traefik.dynamicConfigOptions.http.services = {
+    minecraft.loadBalancer.servers = [
+      { url = "http://192.168.1.102:25565"; }
+    ];
+  };
 }
+

@@ -17,4 +17,24 @@
       log.LEVEL = "Info";
     };
   };
+
+  services.traefik.dynamicConfigOptions.http.routers = {
+    forgejo = {
+      rule = "Host(`git.sajenim.dev`)";
+      entryPoints = [
+        "websecure"
+      ];
+      middlewares = [
+        "geoblock"
+      ];
+      service = "forgejo";
+    };
+  };
+
+  services.traefik.dynamicConfigOptions.http.services = {
+    forgejo.loadBalancer.servers = [
+      { url = "http://192.168.1.102:3131"; }
+    ];
+  };
 }
+

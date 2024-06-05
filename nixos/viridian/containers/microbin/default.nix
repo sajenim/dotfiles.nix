@@ -25,4 +25,24 @@
       ];
     };
   };
+
+  services.traefik.dynamicConfigOptions.http.routers = {
+    microbin = {
+      rule = "Host(`bin.kanto.dev`)";
+      entryPoints = [
+        "websecure"
+      ];
+      middlewares = [
+        "internal"
+      ];
+      service = "microbin";
+    };
+  };
+
+  services.traefik.dynamicConfigOptions.http.services = {
+    microbin.loadBalancer.servers = [
+      { url = "http://192.168.1.102:8181"; }
+    ];
+  };
 }
+
