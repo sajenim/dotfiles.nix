@@ -3,7 +3,6 @@
 {
   imports = [
     ./adguardhome.nix
-    ./homarr.nix
     ./jellyfin.nix
     ./jellyseerr.nix
     ./lidarr.nix
