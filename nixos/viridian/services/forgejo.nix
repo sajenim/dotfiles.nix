@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   services.forgejo = {
@@ -33,7 +33,7 @@
 
   services.traefik.dynamicConfigOptions.http.services = {
     forgejo.loadBalancer.servers = [
-      { url = "http://127.0.0.1:3131"; }
+      { url = "http://127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}"; }
     ];
   };
 }

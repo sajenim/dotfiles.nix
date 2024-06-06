@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, ... }:
+{ inputs, pkgs, lib, config, ... }:
 let
   modpack = pkgs.fetchPackwizModpack rec {
     version = "c9087bf";
@@ -90,7 +90,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.services = {
     minecraft.loadBalancer.servers = [
-      { url = "http://127.0.0.1:25565"; }
+      { url = "http://127.0.0.1:${toString config.services.minecraft-servers.servers.kanto.serverProperties.server-port}"; }
     ];
   };
 }
