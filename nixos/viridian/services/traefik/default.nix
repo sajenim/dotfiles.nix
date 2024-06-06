@@ -89,6 +89,21 @@
             ];
           };
         };
+        # Used to expose metrics
+        metrics = {
+          address = ":8082";
+        };
+      };
+
+      # Provide metrics for the prometheus backend
+      metrics = {
+        prometheus = {
+          entryPoint = "metrics";
+          buckets = [ "0.1" "0.3" "1.2" "5.0" ];
+          addEntryPointsLabels = true;
+          addRoutersLabels = true;
+          addServicesLabels = true;
+        };
       };
 
       # Retrieve certificates from an ACME server
@@ -117,6 +132,16 @@
       };
     };
   };
+
+  # Scrape our traefik metrics
+  services.prometheus.scrapeConfigs = [
+    {
+      job_name = "traefik";
+      static_configs = [{
+        targets = [ "127.0.0.1:8082" ];
+      }];
+    }
+  ];
 
   # Persist our traefik data & logs
   environment.persistence."/persist" = {
