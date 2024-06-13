@@ -13,5 +13,7 @@
     ./mysql.nix
     ./prometheus.nix
     ./endlessh-go.nix
+    ./promtail.nix
+    ./loki.nix
   ];
 }
