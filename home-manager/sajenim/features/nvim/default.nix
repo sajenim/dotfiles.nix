@@ -19,6 +19,7 @@
       haskell-language-server
       lua-language-server
       clang-tools
+      yaml-language-server
     ];
   };
 

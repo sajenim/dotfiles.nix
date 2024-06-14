@@ -99,6 +99,8 @@ return {
       -- C
       lspconfig.clangd.setup{}
 
+      -- YAML
+      lspconfig.yamlls.setup{}
 
       --
       -- Global mappings
