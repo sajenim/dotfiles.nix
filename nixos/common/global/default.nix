@@ -1,4 +1,4 @@
-{ inputs, outputs, ... }:
+{ outputs, ... }:
 
 {
   imports = [
@@ -10,8 +10,6 @@
 
   nixpkgs = {
     overlays = [
-      # Overlays exported from other flakes
-      inputs.agenix-rekey.overlays.default
       # Overlays our own flake exports
       outputs.overlays.additions
       outputs.overlays.modifications

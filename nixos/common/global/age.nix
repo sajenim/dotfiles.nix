@@ -8,6 +8,10 @@ in
     inputs.agenix-rekey.nixosModules.default
   ];
 
+  nixpkgs.overlays = [
+    inputs.agenix-rekey.overlays.default
+  ];
+
   environment.systemPackages = with pkgs; [
     agenix-rekey
   ];
