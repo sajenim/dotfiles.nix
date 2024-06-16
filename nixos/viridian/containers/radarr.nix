@@ -1,13 +1,15 @@
 { ... }:
-
+let
+  port = "7878";
+in
 {
   virtualisation.oci-containers.containers = {
     # Movie collection manager for Usenet and BitTorrent users
     radarr = {
       autoStart = true;
-      image = "ghcr.io/hotio/radarr:nightly-5.1.3.8237";
+      image = "ghcr.io/hotio/radarr:release-5.6.0.8846";
       ports = [
-        "7878:7878/tcp" # WebUI
+        "${port}:7878/tcp" # WebUI
       ];
       volumes = [
         # Media library
@@ -15,6 +17,10 @@
         # Container data
         "/srv/containers/radarr:/config:rw"
       ];
+      environment = {
+        PUID = "1000";
+        PGID = "100";
+      };
       extraOptions = [
         "--network=media-stack"
       ];
@@ -35,7 +41,7 @@
 
   services.traefik.dynamicConfigOptions.http.services = {
     radarr.loadBalancer.servers = [
-      { url = "http://127.0.0.1:7878"; }
+      { url = "http://127.0.0.1:${port}"; }
     ];
   };
 }

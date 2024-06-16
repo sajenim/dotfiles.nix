@@ -1,13 +1,15 @@
 { ... }:
-
+let
+  port = "8989";
+in
 {
   virtualisation.oci-containers.containers = {
     # PVR for Usenet and BitTorrent users
     sonarr = {
       autoStart = true;
-      image = "ghcr.io/hotio/sonarr:nightly-4.0.0.710";
+      image = "ghcr.io/hotio/sonarr:release-4.0.5.1710";
       ports = [
-        "8989:8989/tcp" # WebUI
+        "${port}:8989/tcp" # WebUI
       ];
       volumes = [
         # Media library
@@ -15,6 +17,10 @@
         # Container data
         "/srv/containers/sonarr:/config:rw"
       ];
+      environment = {
+        PUID = "1000";
+        PGID = "100";
+      };
       extraOptions = [
         "--network=media-stack"
       ];
@@ -36,7 +42,7 @@
 
   services.traefik.dynamicConfigOptions.http.services = {
     sonarr.loadBalancer.servers = [
-      { url = "http://127.0.0.1:8989"; }
+      { url = "http://127.0.0.1:${port}"; }
     ];
   };
 }

@@ -1,18 +1,24 @@
 { ... }:
-
+let
+  port = "9696";
+in
 {
   virtualisation.oci-containers.containers = {
     # Indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps.
     prowlarr = {
       autoStart = true;
-      image = "ghcr.io/hotio/prowlarr:nightly-1.10.3.4070";
+      image = "ghcr.io/hotio/prowlarr:release-1.18.0.4543";
       ports = [
-        "9696:9696/tcp" # WebUI
+        "${port}:9696/tcp" # WebUI
       ];
       volumes = [
         # Container data
         "/srv/containers/prowlarr:/config:rw"
       ];
+      environment = {
+        PUID = "1000";
+        PGID = "100";
+      };
       extraOptions = [
         "--network=media-stack"
       ];
@@ -33,7 +39,7 @@
   
   services.traefik.dynamicConfigOptions.http.services = {
     prowlarr.loadBalancer.servers = [
-      { url = "http://127.0.0.1:9696"; }
+      { url = "http://127.0.0.1:${port}"; }
     ];
   };
 }

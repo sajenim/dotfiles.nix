@@ -1,13 +1,15 @@
 { ... }:
-
+let
+  port = "3000";
+in
 {
   virtualisation.oci-containers.containers = {
     adguardhome = {
       autoStart = true;
-      image = "adguard/adguardhome";
+      image = "adguard/adguardhome:v0.107.51";
       ports = [
         "53:53"     # Plain DNS
-        "3000:3000" # WEBGUI
+        "${port}:3000" # WEBGUI
       ];
       volumes = [
         "/srv/containers/adguardhome/work:/opt/adguardhome/work"
@@ -33,7 +35,7 @@
 
   services.traefik.dynamicConfigOptions.http.services = {
     adguard-home.loadBalancer.servers = [
-      { url = "http://127.0.0.1:3000"; }
+      { url = "http://127.0.0.1:${port}"; }
     ];
   };
 }
