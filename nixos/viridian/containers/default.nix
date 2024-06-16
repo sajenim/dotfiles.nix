@@ -11,6 +11,7 @@
     ./radarr.nix
     ./recyclarr.nix
     ./sonarr.nix
+    ./mealie.nix
     ./microbin
   ];
   virtualisation.oci-containers.backend = "docker";
