@@ -20,6 +20,12 @@
     };
     impermanence.url = "github:nix-community/impermanence";
 
+    # Security enhancement.
+    crowdsec = {
+      url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Add any other flake you might need.
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
