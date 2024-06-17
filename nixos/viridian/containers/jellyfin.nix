@@ -21,12 +21,15 @@ in
         "/srv/containers/jellyfin/config:/config:rw"
         "/srv/containers/jellyfin/cache:/cache:rw"
       ];
+      environment = {
+        PUID = "1000";
+        PGID = "100";
+      };
       extraOptions = [
         "--group-add=303"
         "--device=/dev/dri/renderD128:/dev/dri/renderD128"
         "--network=media-stack"
       ];
-      user = "1000:100";
     };
   };
 
