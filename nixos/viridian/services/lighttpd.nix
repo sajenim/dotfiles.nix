@@ -14,6 +14,7 @@
         "websecure"
       ];
       middlewares = [
+        "crowdsec"
         "geoblock"
       ];
       service = "lighttpd";

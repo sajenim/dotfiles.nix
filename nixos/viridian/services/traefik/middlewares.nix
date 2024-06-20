@@ -1,6 +1,13 @@
-{ ... }:
+{ config, ... }:
 
 {
+  # Crowdsec Local API key for the bouncer.
+  age.secrets.traefik-bouncer-key = {
+    rekeyFile = ../crowdsec/traefik-bouncer-key.age;
+    owner = "traefik";
+    group = "traefik";
+  };
+
   # Attached to the routers, pieces of middleware are a means of tweaking the requests before they are sent to your service
   services.traefik.dynamicConfigOptions.http.middlewares = {
     # Restrict access to admin devices only
@@ -9,12 +16,14 @@
       "192.168.1.101"   # fuchsia
       "10.100.0.2"      # Pixel 6 Pro
     ];
+
     # Restrict access to internal networks
     internal.ipwhitelist.sourcerange = [
       "127.0.0.1/32"    # localhost
       "192.168.1.1/24"  # lan
       "10.100.0.0/24"   # wireguard clients
     ];
+
     # Restrict access based on geo-location
     geoblock.plugin.geoblock = {
       silentStartUp = "false";
@@ -41,6 +50,17 @@
       addCountryHeader = "false";
       # Even if an IP stays in the cache for a period of a month, it must be fetch again after a month.
       forceMonthlyUpdate = "true";
+    };
+
+    # Disable Crowdsec IP checking but apply Crowdsec Appsec checking. This mode is intended to be used when Crowdsec IP checking is applied at the Firewall Level.
+    crowdsec.plugin.bouncer = {
+      enabled = "true";
+      crowdsecMode = "appsec";
+      crowdsecLapiKeyFile = config.age.secrets.traefik-bouncer-key.path; 
+      crowdsecLapiScheme = "http";
+      crowdsecLapiHost = "127.0.0.1:8080";
+      crowdsecAppsecEnabled = "true";
+      crowdsecAppsecHost = "127.0.0.1:7422";
     };
   };
 }

@@ -3,6 +3,7 @@
 {
   imports = [
     ./traefik
+    ./crowdsec
     ./minecraft
     ./borgbackup.nix
     ./forgejo.nix

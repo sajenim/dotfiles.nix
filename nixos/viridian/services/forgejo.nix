@@ -25,6 +25,7 @@
         "websecure"
       ];
       middlewares = [
+        "crowdsec"
         "geoblock"
       ];
       service = "forgejo";

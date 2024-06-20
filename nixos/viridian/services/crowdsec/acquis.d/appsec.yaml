@@ -1,0 +1,6 @@
+listen_addr: 127.0.0.1:7422
+appsec_config: crowdsecurity/appsec-default
+name: traefik
+source: appsec
+labels:
+  type: appsec
