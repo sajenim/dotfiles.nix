@@ -6,7 +6,7 @@ in
   virtualisation.oci-containers.containers = {
     mealie = {
       autoStart = true;
-      image = "ghcr.io/mealie-recipes/mealie:v1.8.0";
+      image = "ghcr.io/mealie-recipes/mealie:v1.9.0";
       ports = [
         "${port}:9000"
       ];
@@ -21,6 +21,8 @@ in
         MAX_WORKERS = "1";
         WEB_CONCURRENCY = "1";
         BASE_URL = "https://mealie.kanto.dev";
+        SECURITY_MAX_LOGIN_ATTEMPTS = "3";
+        SECRURITY_USER_LOCKOUT_TIME = "72";
       };
     };
   };
@@ -32,7 +34,8 @@ in
         "websecure"
       ];
       middlewares = [
-        "internal"
+        "crowdsec"
+        "geoblock"
       ];
       service = "mealie";
     };
