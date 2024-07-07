@@ -6,7 +6,7 @@
     package = pkgs.mangohud;
     settings = {
       # Performance
-      fps_limit = 144;
+      fps_limit = 60;
       # GPU
       gpu_temp = true;
       gpu_junction_temp = true;
