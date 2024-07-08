@@ -23,6 +23,7 @@
       prismlauncher
       runelite
       # Hardware
+      openrgb
       libratbag
       piper
       pulsemixer
