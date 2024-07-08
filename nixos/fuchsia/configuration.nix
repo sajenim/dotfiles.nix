@@ -80,7 +80,6 @@
     # Get up and running with large language models locally.
     ollama = {
       enable = true;
-      package = pkgs.unstable.ollama;
       acceleration = "rocm";
     };
 
