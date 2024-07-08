@@ -3,12 +3,12 @@
 {
   services.mpd = {
     enable = true;
-    musicDirectory = "nfs://192.168.1.102/srv/multimedia/library/music";
+    musicDirectory = "nfs://viridian.kanto.dev/srv/multimedia/library/music";
     dbFile = null;
     extraConfig = ''
       database {
         plugin "proxy"
-        host "192.168.1.102"
+        host "viridian.kanto.dev"
         port "6600"
       }
 

@@ -23,7 +23,7 @@
     statdPort = 4000;
     extraNfsdConfig = '''';
     exports = ''
-      /srv/multimedia/library/music 192.168.1.101(rw,nohide,insecure,no_subtree_check)
+      /srv/multimedia/library/music fuchsia.kanto.dev(rw,nohide,insecure,no_subtree_check)
     '';
   };
   networking.firewall = {
