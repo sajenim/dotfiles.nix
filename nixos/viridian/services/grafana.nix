@@ -41,7 +41,7 @@
         "websecure"
       ];
       middlewares = [
-        "admin"
+        "internal"
       ];
       service = "grafana";
     };

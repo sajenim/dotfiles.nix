@@ -33,7 +33,7 @@ in
         "websecure"
       ];
       middlewares = [
-        "admin"
+        "internal"
       ];
       service = "radarr";
     };
