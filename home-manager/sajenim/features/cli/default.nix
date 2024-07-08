@@ -13,13 +13,13 @@
   programs.ssh = {
     enable = true;
     matchBlocks."viridian" = {
-      hostname = "192.168.20.4";
+      hostname = "viridian.kanto.dev";
       identityFile = "/home/sajenim/.ssh/sajenim_sk";
       port = 62841;
     };
 
     matchBlocks."lavender" = {
-      hostname = "192.168.20.3";
+      hostname = "lavender.kanto.dev";
       identityFile = "/home/sajenim/.ssh/sajenim_sk";
       port = 22;
     };
