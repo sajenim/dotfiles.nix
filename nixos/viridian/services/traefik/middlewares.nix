@@ -44,7 +44,8 @@
       forceMonthlyUpdate = "true";
     };
 
-    # Disable Crowdsec IP checking but apply Crowdsec Appsec checking. This mode is intended to be used when Crowdsec IP checking is applied at the Firewall Level.
+    # Disable Crowdsec IP checking but apply Crowdsec Appsec checking.
+    # This mode is intended to be used when Crowdsec IP checking is applied at the Firewall Level.
     crowdsec.plugin.bouncer = {
       enabled = "true";
       crowdsecMode = "appsec";
