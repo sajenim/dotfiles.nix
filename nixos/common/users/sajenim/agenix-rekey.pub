@@ -1,1 +1,7 @@
+#       Serial: 15895942, Slot: 1
+#         Name: sajenim
+#      Created: Sun, 21 Jan 2024 01:47:27 +0000
+#   PIN policy: Once   (A PIN is required once per session, if set)
+# Touch policy: Always (A physical touch is required for every decryption)
+#    Recipient: age1yubikey1qfszrfps2t3n4tqgkzx8vrydhlna3f2ezd7awzjl9ur0yk5swmp0spw0m7q
 AGE-PLUGIN-YUBIKEY-1S6XLYQYZSH22WXCHDCFRJ
