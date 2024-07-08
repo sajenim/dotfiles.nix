@@ -9,8 +9,8 @@ in
       autoStart = true;
       image = "ghcr.io/hotio/qbittorrent:release-4.6.5";
       ports = [
-        "${port}:8080/tcp"   # WebUI
-        "32372:32372/tcp" # Transport protocol
+        "${port}:8080/tcp"  # WebUI
+        "32372:32372/tcp"   # Transport protocol
       ];
       volumes = [
         # Seedbox
@@ -29,7 +29,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.routers = {
     qbittorrent = {
-      rule = "Host(`torrent.kanto.dev`)";
+      rule = "Host(`qbittorrent.kanto.dev`)";
       entryPoints = [
         "websecure"
       ];
