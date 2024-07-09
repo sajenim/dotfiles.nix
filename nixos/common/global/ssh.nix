@@ -8,7 +8,7 @@
       PasswordAuthentication = false;
       LogLevel = "VERBOSE";
     };
-    ports = [ 62841 ];
+    ports = [ 22 ];
     openFirewall = true;
   };
 

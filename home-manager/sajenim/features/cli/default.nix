@@ -15,7 +15,7 @@
     matchBlocks."viridian" = {
       hostname = "viridian.kanto.dev";
       identityFile = "/home/sajenim/.ssh/sajenim_sk";
-      port = 62841;
+      port = 22;
     };
 
     matchBlocks."lavender" = {
