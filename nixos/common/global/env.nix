@@ -18,6 +18,7 @@
       direnv  # load environment
       jq      # JSON processor
       git     # version control
+      nmap    # network mapper
 
       # HTTP
       curl    # transfer dato to/from server
