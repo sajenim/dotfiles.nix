@@ -13,7 +13,7 @@
       #use sendfile = yes
       #max protocol = smb2
       # note: localhost is the ipv6 localhost ::1
-      hosts allow = 192.168.1.101 192.168.1.108 127.0.0.1 localhost
+      hosts allow = 192.168.20.5 127.0.0.1 localhost
       hosts deny = 0.0.0.0/0
       guest account = nobody
       map to guest = bad user
@@ -47,6 +47,5 @@
     openFirewall = true;
   };
 
-  networking.firewall.enable = true;
-  networking.firewall.allowPing = true;
+  environment.persistence."/persist".directories = [ "/var/lib/samba" ];
 }

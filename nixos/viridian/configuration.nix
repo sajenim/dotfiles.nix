@@ -31,6 +31,7 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
+      allowPing = true;
       allowedTCPPorts = [
         53    # adguardhome (DNS)
         80    # traefik     (HTTP)
