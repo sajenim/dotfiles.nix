@@ -8,5 +8,8 @@
     extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
   };
 
-  services.flatpak.enable = true;
+  services.flatpak = {
+    enable = true;
+    onCalender = "weekly";
+  };
 }
