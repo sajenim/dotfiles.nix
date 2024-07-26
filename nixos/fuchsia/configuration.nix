@@ -58,12 +58,6 @@
   };
 
   services = {
-    # Enable necessary udev rules.
-    udev.packages = with pkgs; [
-      openrgb
-      qmk-udev-rules
-    ];
-
     libinput = {
       enable = true;
       mouse = { accelProfile = "flat"; };
