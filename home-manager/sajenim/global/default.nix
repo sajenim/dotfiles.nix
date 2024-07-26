@@ -32,6 +32,7 @@
         ".ssh"
 
         ".local/bin"
+        ".local/share/flatpak"
         ".local/share/nix"
         ".local/share/direnv"
       ];
