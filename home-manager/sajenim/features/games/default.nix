@@ -3,7 +3,6 @@
 {
   imports = [
     ./mangohud.nix
-    ./runescape.nix
   ];
 
   home = {
