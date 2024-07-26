@@ -57,11 +57,6 @@
     adb.enable = true;
   };
 
-  services = {
-    # Enable a few other services.
-    pcscd.enable = true;
-  };
-
   # Use docker instead of podman for our containers.
   virtualisation.docker = {
     enable = true;
