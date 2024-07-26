@@ -69,12 +69,6 @@
       mouse = { accelProfile = "flat"; };
     };
 
-    # Get up and running with large language models locally.
-    ollama = {
-      enable = true;
-      acceleration = "rocm";
-    };
-
     # Enable a few other services.
     ratbagd.enable = true;
     pcscd.enable = true;
