@@ -10,6 +10,7 @@
 
     ../common/optional/key.nix
 
+    ./programs
     ./services
     ./hardware-configuration.nix
   ];
@@ -49,12 +50,6 @@
   networking = {
     hostName = "fuchsia";
     networkmanager.enable = true;
-  };
-
-  programs = {
-    zsh.enable = true;
-    direnv.enable = true;
-    adb.enable = true;
   };
 
   # Use docker instead of podman for our containers.
