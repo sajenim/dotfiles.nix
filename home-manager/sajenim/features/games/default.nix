@@ -3,6 +3,7 @@
 {
   imports = [
     ./mangohud.nix
+    ./runescape.nix
   ];
 
   home = {
@@ -10,12 +11,6 @@
       gamemode
       protonup-ng
       prismlauncher
-      runelite
     ];
-    persistence."/persist/home/sajenim" = {
-      directories = [
-        ".runelite"
-      ];
-    };
   };
 }
