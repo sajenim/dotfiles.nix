@@ -17,11 +17,6 @@
       gimp
       inkscape
       krita
-      # Games
-      gamemode
-      protonup-ng
-      prismlauncher
-      runelite
       # Hardware
       openrgb
       libratbag
