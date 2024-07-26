@@ -28,7 +28,6 @@
 
     # Add any other flake you might need.
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
