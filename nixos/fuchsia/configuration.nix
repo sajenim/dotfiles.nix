@@ -64,14 +64,6 @@
       qmk-udev-rules
     ];
 
-    # Setup our display server.
-    xserver = {
-      enable = true;
-      xkb.layout = "au";
-      videoDrivers = [ "amdgpu" ];
-      displayManager.startx.enable = true;
-    };
-
     libinput = {
       enable = true;
       mouse = { accelProfile = "flat"; };
