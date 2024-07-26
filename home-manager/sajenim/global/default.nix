@@ -30,7 +30,7 @@
       directories = [
         ".gnupg"
         ".ssh"
-
+        ".var/app"
         ".local/bin"
         ".local/share/flatpak"
         ".local/share/nix"
