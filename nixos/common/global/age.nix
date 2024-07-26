@@ -16,21 +16,13 @@ in
     agenix-rekey
   ];
 
-  age = {
-    # Master identity used for decryption
-    rekey.masterIdentities = [ ../users/sajenim/agenix-rekey.pub ];
+  age.rekey = {
     # Pubkey for rekeying
-    rekey.hostPubkey = ../../${hostname}/ssh_host_ed25519_key.pub;
+    hostPubkey = ../../${hostname}/ssh_host_ed25519_key.pub;
+    # Master identity used for decryption
+    masterIdentities = [ ../users/sajenim/agenix-rekey.pub ];
     # Where we store the rekeyed secrets
-    rekey.cacheDir = "/var/tmp/agenix-rekey/\"$UID\"";
-    # All rekeyed secrets for each host will be collected in a derivation which copies them to the nix store when it is built
-    rekey.storageMode = "derivation";
+    storageMode = "local";
+    localStorageDir = ./. + "/secrets/rekeyed/${config.networking.hostName}";
   };
-  # Required to persist `/var/tmp/agenix-rekey`
-  environment.persistence."/persist".directories = [
-    { directory = "/var/tmp/agenix-rekey"; mode = "1777"; }
-  ];
-  # As user not a trusted-users in our nix.conf
-  # we must add age.rekey.cacheDir as a global extra sandbox path
-  nix.settings.extra-sandbox-paths = [ "/var/tmp/agenix-rekey" ];
 }
