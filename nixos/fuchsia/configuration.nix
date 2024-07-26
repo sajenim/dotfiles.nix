@@ -15,6 +15,7 @@
     ./hardware-configuration.nix
   ];
 
+  /* Boot configuration */
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ 
@@ -25,6 +26,7 @@
     initrd.kernelModules = [ "amdgpu" ];
   };
 
+  /* Hardware configuration */
   hardware = {
     bluetooth = {
       enable = true;
@@ -47,6 +49,7 @@
     };
   };
 
+  /* Networking configuration */
   networking = {
     hostName = "fuchsia";
     networkmanager.enable = true;
