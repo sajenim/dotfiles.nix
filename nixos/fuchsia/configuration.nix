@@ -58,13 +58,7 @@
   };
 
   services = {
-    libinput = {
-      enable = true;
-      mouse = { accelProfile = "flat"; };
-    };
-
     # Enable a few other services.
-    ratbagd.enable = true;
     pcscd.enable = true;
   };
 
