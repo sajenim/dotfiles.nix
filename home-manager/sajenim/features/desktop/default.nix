@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./awesome
     ./discord
     ./rofi
     ./wezterm
@@ -15,6 +14,8 @@
 
   home.packages = with pkgs; [
     feh
+    xmobar
+    xmonad
   ];
 
   home.file = {
