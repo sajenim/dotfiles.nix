@@ -3,10 +3,7 @@
 {
   imports = [
     ./global
-
-    ./features/desktop/common
-    ./features/desktop/jade
-
+    ./features/desktop
     ./features/printing
     ./features/games
   ];

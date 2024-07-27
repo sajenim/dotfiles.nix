@@ -2,14 +2,19 @@
 
 {
   imports = [
+    ./awesome
+    ./discord
     ./rofi
+    ./wezterm
+
+    ./email.nix
+    ./irc.nix
+    ./mpd.nix
     ./picom.nix
   ];
 
   home.packages = with pkgs; [
     feh
-    xmobar
-    unstable.wezterm
   ];
 
   home.file = {
@@ -19,15 +24,4 @@
     };
     ".xinitrc".source = ./xinitrc;
   };
-  
-  xdg.configFile = {
-    wezterm = { source = ./wezterm/config; recursive = true; };
-  };
-
-  xsession.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-    config = "${inputs.self}/pkgs/xmonad-config/src/xmonad.hs";
-  };
 }
-
