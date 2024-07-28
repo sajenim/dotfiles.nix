@@ -45,8 +45,8 @@ myKeys =
     [ ((myModMask,                 xK_n        ), spawn myTerminal                          ) -- %! Launch terminal
     , ((myModMask,                 xK_e        ), spawn myLauncher                          ) -- %! Launch rofi
     , ((myModMask,                 xK_s        ), spawn myScrot                             ) -- %! Take screenshot
-    , ((myModMask .|. controlMask, xK_w        ), kill                                      ) -- %! Close the focused window
-    , ((myModMask .|. shiftMask,   xK_q        ), io exitSuccess                            ) -- %! Quit xmonad
+    , ((myModMask,                 xK_Escape   ), kill                                      ) -- %! Close the focused window
+    , ((myModMask .|. controlMask, xK_Escape   ), io exitSuccess                            ) -- %! Quit xmonad
 
     -- multimedia
     , ((noModMask, xF86XK_AudioPlay            ), spawn "mpc toggle"                        ) -- %! Play/Pause music
@@ -69,8 +69,8 @@ myKeys =
     , ((myModMask .|. shiftMask,   xK_Up       ), windows W.swapUp                          ) -- %! Swap the focused window with the previous window
 
     -- master slave
-    , ((myModMask,                 xK_space    ), windows W.focusMaster                     ) -- %! Move focus to the master window 
-    , ((myModMask .|. shiftMask,   xK_space    ), windows W.swapMaster                      ) -- %! Swap the focused window with the master window
+    , ((myModMask,                 xK_Return   ), windows W.focusMaster                     ) -- %! Move focus to the master window 
+    , ((myModMask .|. shiftMask,   xK_Return   ), windows W.swapMaster                      ) -- %! Swap the focused window with the master window
     , ((myModMask,                 xK_Page_Up  ), sendMessage Shrink                        ) -- %! Shrink the master area
     , ((myModMask,                 xK_Page_Down), sendMessage Expand                        ) -- %! Expand the master area
     , ((myModMask .|. shiftMask,   xK_Page_Up  ), sendMessage (IncMasterN 1)                ) -- %! Increase the number of windows in the master area
