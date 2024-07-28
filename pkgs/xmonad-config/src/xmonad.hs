@@ -57,9 +57,9 @@ myKeys =
     , ((noModMask, xF86XK_AudioRaiseVolume     ), spawn volUp                               ) -- %! Volume up
 
     -- layouts
-    , ((myModMask,                 xK_t        ), sendMessage $ JumpToLayout "Spacing Tiled") -- %! Jump to our tiled layout
-    , ((myModMask,                 xK_m        ), sendMessage $ JumpToLayout "Maximized"    ) -- %! Jump to our maximized layout
-    , ((myModMask,                 xK_f        ), sendMessage $ JumpToLayout "Fullscreen"   ) -- %! Jump to our fullscreen layout
+    , ((myModMask,                 xK_t        ), sendMessage $ JumpToLayout "spacing tiled") -- %! Jump to our tiled layout
+    , ((myModMask,                 xK_m        ), sendMessage $ JumpToLayout "maximized"    ) -- %! Jump to our maximized layout
+    , ((myModMask,                 xK_f        ), sendMessage $ JumpToLayout "fullscreen"   ) -- %! Jump to our fullscreen layout
     , ((myModMask .|. shiftMask,   xK_t        ), withFocused $ windows . W.sink            ) -- %! Push window back into tiling
 
     -- window stack
@@ -95,21 +95,20 @@ myLayout = tiled ||| max ||| full
     -- Add a configurable amount of space around windows.
     gaps     = spacingRaw False (Border 10 10 10 10) True (Border 10 10 10 10) True
     -- Our layouts
-    tiled    = renamed [Replace "Spacing Tiled"] . avoidStruts . gaps $ Tall nmaster delta ratio
-    max      = renamed [Replace "Maximized"    ] . avoidStruts . gaps $ Full
-    full     = renamed [Replace "Fullscreen"   ] . noBorders          $ Full
+    tiled    = renamed [Replace "spacing tiled"] . avoidStruts . gaps $ Tall nmaster delta ratio
+    max      = renamed [Replace "maximized"    ] . avoidStruts . gaps $ Full
+    full     = renamed [Replace "fullscreen"   ] . noBorders          $ Full
     -- Layout settings
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
     delta    = 3/100  -- Percent of screen to increment by when resizing panes
 
 -- | Xmobar
-xmobarTop    = statusBarPropTo "_XMONAD_LOG_1" "xmobar-top"    (pure ppTop)
+xmobarTop = statusBarPropTo "_XMONAD_LOG_1" "xmobar-top" (pure ppTop)
 
 ppTop :: PP
 ppTop = def
     { ppSep             = grey0 " | "
-    , ppTitleSanitize   = xmobarStrip
     -- workspace labels
     , ppCurrent         = purple . wrap " " ""
     , ppVisible         = blue   . wrap " " ""
@@ -117,18 +116,10 @@ ppTop = def
     , ppHiddenNoWindows = grey0  . wrap " " ""
     , ppUrgent          = red    . wrap " " ""
     -- misc
-    , ppOrder           = \[ws, l, _, wins] -> [ws, l, wins]
-    , ppExtras          = [logTitles formatFocused formatUnfocused]
+    , ppLayout          = aqua  . wrap "" ""
+    , ppOrder           = \[ws, l, _] -> [ws, l]
     }
   where
-    formatFocused   = wrap (grey0 "") (grey0 " ") . purple . ppWindow
-    formatUnfocused = wrap (grey0 "") (grey0 " ") . blue   . ppWindow
-
-    -- | Windows should have *some* title, which should not not exceed a
-    -- sane length.
-    ppWindow :: String -> String
-    ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
-    
     -- | Gruvbox material
     bg0, bg1, fg0, fg1, red, orange, yellow, green, aqua, blue, purple :: String -> String
     -- backgrounds
