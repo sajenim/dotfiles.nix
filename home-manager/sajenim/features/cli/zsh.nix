@@ -59,6 +59,8 @@
       eval "$(direnv hook zsh)"
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       path+=('/home/sajenim/.local/bin')
+      bindkey "^[[1;5C" forward-word
+      bindkey "^[[1;5D" backward-word
       export PATH
       PROMPT='%F{blue}%n@%m %F{cyan}%~ %F{red}♥ %f';
     '';
