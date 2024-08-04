@@ -2,7 +2,6 @@
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     ../features/cli
-    ../features/nvim
   ];
 
   nixpkgs = {

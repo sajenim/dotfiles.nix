@@ -28,6 +28,7 @@
 
     # Add any other flake you might need.
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nixvim-config.url = "git+https://git.sajenim.dev/jasmine/nvim.nix.git";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
