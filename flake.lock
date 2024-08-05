@@ -644,11 +644,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1722777823,
-        "narHash": "sha256-3WtxsFjAYar8FOnFJinM6nE9itD3hqJ9erARfSB1WpQ=",
+        "lastModified": 1722819423,
+        "narHash": "sha256-Xa7g/XYxgYQ7I+S3dTya9mZtllJOs08/oWPceQASG54=",
         "ref": "refs/heads/master",
-        "rev": "46b72f24f9c64432a1c25e4010512458ce4f400f",
-        "revCount": 3,
+        "rev": "984254a9c552eb0080a0d58cfb0e9839124ddfb3",
+        "revCount": 4,
         "type": "git",
         "url": "https://git.sajenim.dev/jasmine/nvim.nix.git"
       },
