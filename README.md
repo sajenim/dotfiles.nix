@@ -1,7 +1,5 @@
 # NixOS & Home-Manager Configuration
 
-![nixos-logo](assets/nixos-official-logo.png)
-
 My [NixOS](https://nixos.org/) and [Home-Manager](https://github.com/nix-community/home-manager) config files.
 Based upon [Misterio77's starter configs](https://github.com/Misterio77/nix-starter-configs).
 
@@ -9,7 +7,19 @@ Based upon [Misterio77's starter configs](https://github.com/Misterio77/nix-star
 > I recommend only using this repo for inspiration and instead use this
 > [boilerplate](https://github.com/Misterio77/nix-starter-configs/tree/main/standard)
 
+## Preview
 ![screenshot](assets/2024-01-18-224416_4480x1440_scrot.png)
+
+## Features
+* __Opt-in persistance with ephermeral btrfs.__
+* __Secrets managed with agenix and rekeyed with yubikey.__
+* __Standalone nixvim configuration for neovim.__
+* __Custom haskell packages for xmonad & xmobar.__
+* __Declarative minecraft server with nix-minecraft.__
+* __Borgbackup of mutable service/container data.__
+* __Media server with typical *arr stack.__
+* __FQDN with private DNS for all internal services.__
+* __Crowdsecurity for all public services.__
 
 ## Installation
 ```sh
