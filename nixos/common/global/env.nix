@@ -19,6 +19,8 @@
       jq      # JSON processor
       git     # version control
       nmap    # network mapper
+      xclip   # clipboard
+      ripgrep # searches the current directory for a regex pattern
 
       # HTTP
       curl    # transfer dato to/from server
