@@ -89,7 +89,7 @@ config.colors = {
 config.disable_default_key_bindings = true
 config.keys = {
   --| Spawn Tab
-  { key = 't', mods = 'ALT', action = act.SpawnTab 'CurrentPaneDomain', },
+  { key = 'n', mods = 'ALT', action = act.SpawnTab 'CurrentPaneDomain', },
   --| Tab Navigation
   { key = 'LeftArrow',  mods = 'ALT', action = act.ActivateTabRelative(-1) },
   { key = 'RightArrow', mods = 'ALT', action = act.ActivateTabRelative(1)  },
@@ -104,7 +104,7 @@ config.keys = {
   { key = 'DownArrow', mods = 'ALT', action = act.ActivatePaneDirection 'Next', },
   { key = 'UpArrow',   mods = 'ALT', action = act.ActivatePaneDirection 'Prev', },
   --| Close Pane
-  { key = 'w', mods = "ALT|CTRL", action = act.CloseCurrentPane { confirm = false }, },
+  { key = 'Escape', mods = "ALT", action = act.CloseCurrentPane { confirm = false }, },
 
   --| Copy Mode / Clipboard
   { key = 'X', mods = 'CTRL', action = act.ActivateCopyMode,                         },
