@@ -1,8 +1,6 @@
-{ ... }:
-let
+{...}: let
   port = "8686";
-in
-{
+in {
   virtualisation.oci-containers.containers = {
     # # Music collection manager for Usenet and BitTorrent users
     lidarr = {
@@ -42,8 +40,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.services = {
     lidarr.loadBalancer.servers = [
-      { url = "http://127.0.0.1:${port}"; }
+      {url = "http://127.0.0.1:${port}";}
     ];
   };
 }
-

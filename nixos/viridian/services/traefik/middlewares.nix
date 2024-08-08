@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   # Crowdsec Local API key for the bouncer.
   age.secrets.traefik-bouncer-key = {
     rekeyFile = ../crowdsec/traefik-bouncer-key.age;
@@ -12,7 +10,7 @@
   services.traefik.dynamicConfigOptions.http.middlewares = {
     # Restrict access to internal networks
     internal.ipwhitelist.sourcerange = [
-      "127.0.0.1/32"    # localhost
+      "127.0.0.1/32" # localhost
       "192.168.20.1/24" # lan
     ];
 
@@ -49,7 +47,7 @@
     crowdsec.plugin.bouncer = {
       enabled = "true";
       crowdsecMode = "appsec";
-      crowdsecLapiKeyFile = config.age.secrets.traefik-bouncer-key.path; 
+      crowdsecLapiKeyFile = config.age.secrets.traefik-bouncer-key.path;
       crowdsecLapiScheme = "http";
       crowdsecLapiHost = "127.0.0.1:8080";
       crowdsecAppsecEnabled = "true";
@@ -57,4 +55,3 @@
     };
   };
 }
-

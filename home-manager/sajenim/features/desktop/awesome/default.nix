@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   awesome = pkgs.awesome.overrideAttrs (oa: {
     version = "ad0290bc1aac3ec2391aa14784146a53ebf9d1f0";
     src = pkgs.fetchFromGitHub {
@@ -9,16 +8,18 @@ let
       hash = "sha256-uaskBbnX8NgxrprI4UbPfb5cRqdRsJZv0YXXshfsxFU=";
     };
 
-    patches = [ ];
+    patches = [];
 
     postPatch = ''
       patchShebangs tests/examples/_postprocess.lua
     '';
   });
-in
-{
+in {
   xdg.configFile = {
-    awesome = { source = ./config; recursive = true; };
+    awesome = {
+      source = ./config;
+      recursive = true;
+    };
   };
 
   xsession.windowManager.awesome = {
@@ -26,4 +27,3 @@ in
     package = awesome;
   };
 }
-

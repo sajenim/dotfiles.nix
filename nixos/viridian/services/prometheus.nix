@@ -1,9 +1,7 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   services.prometheus = {
     enable = true;
-    port = 9001;  # Port to listen on.
+    port = 9001; # Port to listen on.
 
     # Valid in all configuration contexts, defaults for other configuration sections.
     globalConfig = {
@@ -14,7 +12,7 @@
     exporters = {
       node = {
         enable = true;
-        enabledCollectors = [ "systemd" "processes" ];
+        enabledCollectors = ["systemd" "processes"];
         port = 9100;
       };
     };
@@ -23,11 +21,12 @@
     scrapeConfigs = [
       {
         job_name = "node";
-        static_configs = [{
-          targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
-        }];
+        static_configs = [
+          {
+            targets = ["127.0.0.1:${toString config.services.prometheus.exporters.node.port}"];
+          }
+        ];
       }
     ];
   };
 }
-

@@ -1,16 +1,18 @@
-{ config, lib, ... }:
-let
-  hostname = config.networking.hostName;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  hostname = config.networking.hostName;
+in {
   imports = [
     ../common/optional/ephemeral-btrfs.nix
   ];
 
   boot = {
     initrd = {
-      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-      kernelModules = [ "kvm-intel" ];
+      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
+      kernelModules = ["kvm-intel"];
     };
     loader = {
       systemd-boot.enable = true;
@@ -21,12 +23,12 @@ in
     };
   };
 
-  fileSystems."/boot" = { 
+  fileSystems."/boot" = {
     device = "/dev/disk/by-label/ESP";
     fsType = "vfat";
   };
 
-  fileSystems."/srv/multimedia" = { 
+  fileSystems."/srv/multimedia" = {
     device = "/dev/disk/by-label/multimedia";
     fsType = "ext4";
   };
@@ -34,30 +36,31 @@ in
   fileSystems."/srv/containers" = {
     device = "/dev/disk/by-label/${hostname}";
     fsType = "btrfs";
-    options = [ "subvol=containers" "compress=zstd" ];
+    options = ["subvol=containers" "compress=zstd"];
   };
 
   fileSystems."/srv/services" = {
     device = "/dev/disk/by-label/${hostname}";
     fsType = "btrfs";
-    options = [ "subvol=services" "compress=zstd" ];
+    options = ["subvol=services" "compress=zstd"];
   };
 
   fileSystems."/srv/shares" = {
     device = "/dev/disk/by-label/data";
     fsType = "btrfs";
-    options = [ "subvol=shares" "compress=zstd" ];
+    options = ["subvol=shares" "compress=zstd"];
   };
 
   fileSystems."/srv/backup" = {
     device = "/dev/disk/by-label/data";
     fsType = "btrfs";
-    options = [ "subvol=backup" "compress=zstd" ];
+    options = ["subvol=backup" "compress=zstd"];
   };
 
-  swapDevices = [ 
-    { device = "/swap/swapfile";
-      size = 16*1024;
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      size = 16 * 1024;
     }
   ];
 

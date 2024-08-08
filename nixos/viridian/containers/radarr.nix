@@ -1,8 +1,6 @@
-{ ... }:
-let
+{...}: let
   port = "7878";
-in
-{
+in {
   virtualisation.oci-containers.containers = {
     # Movie collection manager for Usenet and BitTorrent users
     radarr = {
@@ -41,8 +39,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.services = {
     radarr.loadBalancer.servers = [
-      { url = "http://127.0.0.1:${port}"; }
+      {url = "http://127.0.0.1:${port}";}
     ];
   };
 }
-

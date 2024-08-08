@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   # Setup grafana our grafana instance.
   services.grafana = {
     enable = true;
@@ -24,13 +22,15 @@
 
   # Setup our database for grafana.
   services.mysql = {
-    ensureUsers = [{
-      name = "grafana";
-      ensurePermissions = {
-        "grafana.*" = "ALL PRIVILEGES";
-      };
-    }];
-    ensureDatabases = [ "grafana" ];
+    ensureUsers = [
+      {
+        name = "grafana";
+        ensurePermissions = {
+          "grafana.*" = "ALL PRIVILEGES";
+        };
+      }
+    ];
+    ensureDatabases = ["grafana"];
   };
 
   # Setup our traefik router.
@@ -50,7 +50,7 @@
   # Setup our traefik service.
   services.traefik.dynamicConfigOptions.http.services = {
     grafana.loadBalancer.servers = [
-      { url = "http://127.0.0.1:${toString config.services.grafana.settings.server.http_port}"; }
+      {url = "http://127.0.0.1:${toString config.services.grafana.settings.server.http_port}";}
     ];
   };
 }

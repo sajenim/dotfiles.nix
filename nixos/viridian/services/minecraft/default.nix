@@ -1,5 +1,10 @@
-{ inputs, pkgs, lib, config, ... }:
-let
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   modpack = pkgs.fetchPackwizModpack rec {
     version = "7091175a49";
     url = "https://git.sajenim.dev/jasmine/minecraft-modpack/raw/commit/${version}/pack.toml";
@@ -7,9 +12,8 @@ let
   };
   mcVersion = modpack.manifest.versions.minecraft;
   fabricVersion = modpack.manifest.versions.fabric;
-  serverVersion = lib.replaceStrings [ "." ] [ "_" ] "fabric-${mcVersion}";
-in
-{
+  serverVersion = lib.replaceStrings ["."] ["_"] "fabric-${mcVersion}";
+in {
   imports = [
     inputs.nix-minecraft.nixosModules.minecraft-servers
   ];
@@ -27,7 +31,7 @@ in
       kanto = {
         enable = true;
         # The minecraft server package to use.
-        package = pkgs.fabricServers.${serverVersion}.override { loaderVersion = fabricVersion; }; # Specific fabric loader version.
+        package = pkgs.fabricServers.${serverVersion}.override {loaderVersion = fabricVersion;}; # Specific fabric loader version.
 
         # Allowed players
         whitelist = {
@@ -46,10 +50,10 @@ in
           server-port = 25565;
           white-list = true;
         };
-        
+
         # Things to symlink into this server's data directory.
         symlinks = {
-         "mods" = "${modpack}/mods";
+          "mods" = "${modpack}/mods";
         };
 
         # Things to copy into this server's data directory.
@@ -90,8 +94,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.services = {
     minecraft.loadBalancer.servers = [
-      { url = "http://127.0.0.1:${toString config.services.minecraft-servers.servers.kanto.serverProperties.server-port}"; }
+      {url = "http://127.0.0.1:${toString config.services.minecraft-servers.servers.kanto.serverProperties.server-port}";}
     ];
   };
 }
-

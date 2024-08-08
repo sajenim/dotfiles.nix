@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   services.borgbackup.jobs = {
     containers = {
       paths = [
@@ -33,4 +31,3 @@
     };
   };
 }
-

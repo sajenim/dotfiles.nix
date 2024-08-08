@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   services.picom = {
     enable = true;
     shadow = true;

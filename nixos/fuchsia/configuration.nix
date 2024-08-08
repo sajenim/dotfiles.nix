@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ../common/global
 
@@ -15,18 +13,18 @@
     ./hardware-configuration.nix
   ];
 
-  /* Boot configuration */
+  # Boot configuration
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ 
+    kernelParams = [
       # Enable amdgpu driver sysfs API that allows fine grain control of GPU
       "amdgpu.ppfeaturemask=0xffffffff"
     ];
-    kernelModules = [ "i2c-dev" "i2c-piix4" ];
-    initrd.kernelModules = [ "amdgpu" ];
+    kernelModules = ["i2c-dev" "i2c-piix4"];
+    initrd.kernelModules = ["amdgpu"];
   };
 
-  /* Hardware configuration */
+  # Hardware configuration
   hardware = {
     bluetooth = {
       enable = true;
@@ -49,7 +47,7 @@
     };
   };
 
-  /* Networking configuration */
+  # Networking configuration
   networking = {
     hostName = "fuchsia";
     networkmanager.enable = true;

@@ -1,7 +1,10 @@
-{ inputs, config, pkgs, ... }:
-
 {
-  disabledModules = [ "services/web-servers/traefik.nix" ];
+  inputs,
+  config,
+  pkgs,
+  ...
+}: {
+  disabledModules = ["services/web-servers/traefik.nix"];
 
   imports = [
     "${inputs.nixpkgs-unstable}/nixos/modules/services/web-servers/traefik.nix"
@@ -86,12 +89,14 @@
             # List of domains in our network
             domains = [
               # Internal services
-              { main = "kanto.dev";
-                sans = [ "*.kanto.dev" ];
+              {
+                main = "kanto.dev";
+                sans = ["*.kanto.dev"];
               }
               # Public services
-              { main = "sajenim.dev";
-                sans = [ "*.sajenim.dev" ];
+              {
+                main = "sajenim.dev";
+                sans = ["*.sajenim.dev"];
               }
             ];
           };
@@ -106,7 +111,7 @@
       metrics = {
         prometheus = {
           entryPoint = "metrics";
-          buckets = [ "0.1" "0.3" "1.2" "5.0" ];
+          buckets = ["0.1" "0.3" "1.2" "5.0"];
           addEntryPointsLabels = true;
           addRoutersLabels = true;
           addServicesLabels = true;
@@ -144,20 +149,33 @@
   services.prometheus.scrapeConfigs = [
     {
       job_name = "traefik";
-      static_configs = [{
-        targets = [ "127.0.0.1:8082" ];
-      }];
+      static_configs = [
+        {
+          targets = ["127.0.0.1:8082"];
+        }
+      ];
     }
   ];
 
   # Persist our traefik data & logs
   environment.persistence."/persist" = {
     directories = [
-      { directory = "/var/lib/traefik"; user = "traefik"; group = "traefik"; }
-      { directory = "/var/log/traefik"; user = "traefik"; group = "traefik"; }
-      { directory = "/plugins-storage"; user = "traefik"; group = "traefik"; }
+      {
+        directory = "/var/lib/traefik";
+        user = "traefik";
+        group = "traefik";
+      }
+      {
+        directory = "/var/log/traefik";
+        user = "traefik";
+        group = "traefik";
+      }
+      {
+        directory = "/plugins-storage";
+        user = "traefik";
+        group = "traefik";
+      }
     ];
     hideMounts = true;
   };
 }
-

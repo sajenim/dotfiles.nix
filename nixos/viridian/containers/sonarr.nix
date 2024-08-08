@@ -1,8 +1,6 @@
-{ ... }:
-let
+{...}: let
   port = "8989";
-in
-{
+in {
   virtualisation.oci-containers.containers = {
     # PVR for Usenet and BitTorrent users
     sonarr = {
@@ -42,8 +40,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.services = {
     sonarr.loadBalancer.servers = [
-      { url = "http://127.0.0.1:${port}"; }
+      {url = "http://127.0.0.1:${port}";}
     ];
   };
 }
-

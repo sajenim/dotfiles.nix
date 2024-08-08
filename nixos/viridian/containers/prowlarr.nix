@@ -1,8 +1,6 @@
-{ ... }:
-let
+{...}: let
   port = "9696";
-in
-{
+in {
   virtualisation.oci-containers.containers = {
     # Indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps.
     prowlarr = {
@@ -36,11 +34,10 @@ in
       service = "prowlarr";
     };
   };
-  
+
   services.traefik.dynamicConfigOptions.http.services = {
     prowlarr.loadBalancer.servers = [
-      { url = "http://127.0.0.1:${port}"; }
+      {url = "http://127.0.0.1:${port}";}
     ];
   };
 }
-

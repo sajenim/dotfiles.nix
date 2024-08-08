@@ -1,9 +1,7 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   nixpkgs.overlays = [
     (final: prev: {
-      discord = prev.discord.override { withOpenASAR = true; };
+      discord = prev.discord.override {withOpenASAR = true;};
     })
   ];
 

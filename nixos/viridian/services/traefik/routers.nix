@@ -1,6 +1,4 @@
-{ ... }:
-
-{ 
+{...}: {
   services.traefik.dynamicConfigOptions.http.routers = {
     traefik-dashboard = {
       rule = "Host(`traefik.kanto.dev`)";
@@ -25,4 +23,3 @@
     };
   };
 }
-

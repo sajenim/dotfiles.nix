@@ -1,13 +1,11 @@
-{ config, ... }:
-let
+{config, ...}: let
   port = "8181";
-in
-{
+in {
   age.secrets.microbin = {
-   # Environment variables for microbin
-   rekeyFile = ./environment.age;
-   owner = "sajenim";
-   group = "users";
+    # Environment variables for microbin
+    rekeyFile = ./environment.age;
+    owner = "sajenim";
+    group = "users";
   };
 
   virtualisation.oci-containers.containers = {
@@ -43,8 +41,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.services = {
     microbin.loadBalancer.servers = [
-      { url = "http://127.0.0.1:${port}"; }
+      {url = "http://127.0.0.1:${port}";}
     ];
   };
 }
-

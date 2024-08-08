@@ -1,8 +1,6 @@
-{ ... }:
-let
+{...}: let
   port = "5055";
-in
-{
+in {
   virtualisation.oci-containers.containers = {
     # Request management
     jellyseerr = {
@@ -39,8 +37,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.services = {
     jellyseerr.loadBalancer.servers = [
-      { url = "http://127.0.0.1:${port}"; }
+      {url = "http://127.0.0.1:${port}";}
     ];
   };
 }
-

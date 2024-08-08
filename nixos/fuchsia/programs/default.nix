@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs = {
     zsh.enable = true;
     # Load and unload environment variables.
@@ -9,4 +7,3 @@
     adb.enable = true;
   };
 }
-

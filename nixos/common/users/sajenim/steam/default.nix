@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   fileSystems."/home/sajenim/.local/share/Steam" = {
     device = "/dev/disk/by-label/data";
     fsType = "btrfs";

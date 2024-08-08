@@ -1,8 +1,11 @@
-{ config, pkgs, inputs, ... }:
-let
-  hostname = config.networking.hostName;
-in
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: let
+  hostname = config.networking.hostName;
+in {
   imports = [
     inputs.agenix.nixosModules.default
     inputs.agenix-rekey.nixosModules.default
@@ -20,7 +23,7 @@ in
     # Pubkey for rekeying
     hostPubkey = ../../${hostname}/ssh_host_ed25519_key.pub;
     # Master identity used for decryption
-    masterIdentities = [ ../users/sajenim/agenix-rekey.pub ];
+    masterIdentities = [../users/sajenim/agenix-rekey.pub];
     # Where we store the rekeyed secrets
     storageMode = "local";
     localStorageDir = ./. + "/secrets/rekeyed/${config.networking.hostName}";

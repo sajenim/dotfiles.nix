@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.rofi = {
     enable = true;
     font = "Fisa Code 10";
@@ -16,4 +14,3 @@
     recursive = true;
   };
 }
-

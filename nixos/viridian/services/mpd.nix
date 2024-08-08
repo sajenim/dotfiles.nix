@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   services.mpd = {
     enable = true;
     musicDirectory = "/srv/multimedia/library/music";
@@ -28,7 +26,7 @@
   };
   networking.firewall = {
     # # for NFSv3; view with `rpcinfo -p`
-    allowedTCPPorts = [ 111 2049 4000 4001 4002 20048 ];
-    allowedUDPPorts = [ 111 2049 4000 4001 4002 20048 ];
+    allowedTCPPorts = [111 2049 4000 4001 4002 20048];
+    allowedUDPPorts = [111 2049 4000 4001 4002 20048];
   };
 }

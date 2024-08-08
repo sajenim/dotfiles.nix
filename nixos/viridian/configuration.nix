@@ -1,6 +1,4 @@
-{ pkgs, ... }: 
-
-{
+{pkgs, ...}: {
   imports = [
     ../common/global
     ../common/users/sajenim
@@ -33,24 +31,24 @@
       enable = true;
       allowPing = true;
       allowedTCPPorts = [
-        53    # adguardhome (DNS)
-        80    # traefik     (HTTP)
-        443   # traefik     (HTTPS)
+        53 # adguardhome (DNS)
+        80 # traefik     (HTTP)
+        443 # traefik     (HTTPS)
         32372 # qbittorrent
-        6600  # mpd
+        6600 # mpd
       ];
       allowedUDPPorts = [
-        53    # adguardhome (DNS)
-        80    # traefik     (HTTP)
-        443   # traefik     (HTTPS)
+        53 # adguardhome (DNS)
+        80 # traefik     (HTTP)
+        443 # traefik     (HTTPS)
         32372 # qbittorrent
         51820 # Wireguard
-        6600  # mpd
+        6600 # mpd
       ];
     };
   };
 
- programs = {
+  programs = {
     zsh.enable = true;
   };
 
@@ -65,4 +63,3 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
 }
-

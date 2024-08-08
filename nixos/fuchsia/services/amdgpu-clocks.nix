@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # Our custom power state
   environment.etc = {
     "default/amdgpu-custom-states.card0" = {
@@ -26,6 +24,5 @@
   };
 
   # Install our overclocking script.
-  environment.systemPackages = with pkgs; [ amdgpu-clocks ];
+  environment.systemPackages = with pkgs; [amdgpu-clocks];
 }
-

@@ -1,8 +1,11 @@
-{ config, inputs, pkgs, ... }:
-let
-  port = "8080";
-in
 {
+  config,
+  inputs,
+  pkgs,
+  ...
+}: let
+  port = "8080";
+in {
   imports = [
     inputs.crowdsec.nixosModules.crowdsec
     inputs.crowdsec.nixosModules.crowdsec-firewall-bouncer
@@ -86,9 +89,12 @@ in
 
   environment.persistence."/persist" = {
     directories = [
-      { directory = "/var/lib/crowdsec"; user = "crowdsec"; group = "crowdsec"; }
+      {
+        directory = "/var/lib/crowdsec";
+        user = "crowdsec";
+        group = "crowdsec";
+      }
     ];
     hideMounts = true;
   };
 }
-

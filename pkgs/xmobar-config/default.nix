@@ -1,5 +1,4 @@
-{ pkgs }:
-
+{pkgs}:
 pkgs.haskellPackages.developPackage {
   root = ./.;
 }

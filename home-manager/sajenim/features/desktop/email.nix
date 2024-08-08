@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # protonmail-bridge requires password manager
     pass
@@ -115,4 +113,3 @@
     ];
   };
 }
-

@@ -1,6 +1,4 @@
-{ outputs, ... }:
-
-{
+{outputs, ...}: {
   imports = [
     ./age.nix
     ./env.nix

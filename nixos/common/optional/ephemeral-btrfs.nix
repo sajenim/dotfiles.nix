@@ -1,8 +1,10 @@
-{ lib, config, ... }:
-let
-  hostname = config.networking.hostName;
-in
 {
+  lib,
+  config,
+  ...
+}: let
+  hostname = config.networking.hostName;
+in {
   imports = [
     ./persist.nix
   ];
@@ -36,26 +38,26 @@ in
     "/" = {
       device = "/dev/disk/by-label/${hostname}";
       fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" ];
+      options = ["subvol=root" "compress=zstd"];
     };
 
     "/nix" = {
       device = "/dev/disk/by-label/${hostname}";
       fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" ];
+      options = ["subvol=nix" "compress=zstd"];
     };
 
     "/persist" = {
       device = "/dev/disk/by-label/${hostname}";
       fsType = "btrfs";
-      options = [ "subvol=persist" "compress=zstd" ];
+      options = ["subvol=persist" "compress=zstd"];
       neededForBoot = true;
     };
 
     "/swap" = {
       device = "/dev/disk/by-label/${hostname}";
       fsType = "btrfs";
-      options = [ "subvol=swap" "compress=zstd" ];
+      options = ["subvol=swap" "compress=zstd"];
     };
   };
 }

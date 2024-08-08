@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   services.openssh = {
     enable = true;
     settings = {
@@ -8,7 +6,7 @@
       PasswordAuthentication = false;
       LogLevel = "VERBOSE";
     };
-    ports = [ 22 ];
+    ports = [22];
     openFirewall = true;
   };
 

@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.mpd = {
     enable = true;
     musicDirectory = "nfs://viridian.kanto.dev/srv/multimedia/library/music";

@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   services.samba = {
     enable = true;
     securityType = "user";
@@ -9,7 +7,7 @@
       workgroup = WORKGROUP
       server string = smbnix
       netbios name = smbnix
-      security = user 
+      security = user
       #use sendfile = yes
       #max protocol = smb2
       # note: localhost is the ipv6 localhost ::1
@@ -47,5 +45,5 @@
     openFirewall = true;
   };
 
-  environment.persistence."/persist".directories = [ "/var/lib/samba" ];
+  environment.persistence."/persist".directories = ["/var/lib/samba"];
 }

@@ -1,8 +1,6 @@
-{ ... }:
-let
+{...}: let
   port = "9925";
-in
-{
+in {
   virtualisation.oci-containers.containers = {
     mealie = {
       autoStart = true;
@@ -29,7 +27,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.routers = {
     mealie = {
-     rule = "Host(`mealie.kanto.dev`)";
+      rule = "Host(`mealie.kanto.dev`)";
       entryPoints = [
         "websecure"
       ];
@@ -43,9 +41,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.services = {
     mealie.loadBalancer.servers = [
-      { url = "http://127.0.0.1:${port}"; }
+      {url = "http://127.0.0.1:${port}";}
     ];
   };
-
 }
-

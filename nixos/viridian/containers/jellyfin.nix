@@ -1,8 +1,6 @@
-{ ... }:
-let
+{...}: let
   port = "8096";
-in
-{
+in {
   virtualisation.oci-containers.containers = {
     # Volunteer-built media solution that puts you in control of your media
     jellyfin = {
@@ -35,7 +33,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.routers = {
     jellyfin = {
-     rule = "Host(`jellyfin.kanto.dev`)";
+      rule = "Host(`jellyfin.kanto.dev`)";
       entryPoints = [
         "websecure"
       ];
@@ -48,8 +46,7 @@ in
 
   services.traefik.dynamicConfigOptions.http.services = {
     jellyfin.loadBalancer.servers = [
-      { url = "http://127.0.0.1:${port}"; }
+      {url = "http://127.0.0.1:${port}";}
     ];
   };
 }
-

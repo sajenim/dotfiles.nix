@@ -1,7 +1,8 @@
-{ inputs, pkgs, ... }:
-
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   # Install our nixvim configuration for neovim.
-  home.packages = [ inputs.nixvim.packages.${pkgs.system}.default ];
+  home.packages = [inputs.nixvim.packages.${pkgs.system}.default];
 }
-

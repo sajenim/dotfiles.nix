@@ -1,13 +1,11 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     fzf # command-line fuzzy finder
   ];
 
   programs.zsh = {
     enable = true;
-    
+
     # Enable extra features
     autosuggestion = {
       enable = true;
@@ -17,17 +15,17 @@
     };
     enableCompletion = true;
     dotDir = ".config/zsh";
-    
+
     # Commands that should be added to to top of '.zshrc'
     initExtraFirst = ''
     '';
 
     # Aliases
     shellAliases = {
-      c  = "clear";
-      r  = "cd ~/.repositories";
-      p  = "cd ~/.print";
-      d  = "cd ~/.repositories/dotfiles.nix";
+      c = "clear";
+      r = "cd ~/.repositories";
+      p = "cd ~/.print";
+      d = "cd ~/.repositories/dotfiles.nix";
       la = "ls -a";
       ll = "ls -l";
       tt = "wezterm cli set-tab-title ";
@@ -40,7 +38,7 @@
       crkbd = "$HOME/.github/qmk_keymaps/keyboards/crkbd/keymaps/sajenim";
       kchrn = "$HOME/.github/qmk_keymaps/keyboards/keychron/q4/ansi_v2/keymaps/sajenim";
     };
- 
+
     # Install plugins
     plugins = [
       {
@@ -53,7 +51,7 @@
         };
       }
     ];
-   
+
     # Extra commands that should be added to '.zshrc'
     initExtra = ''
       eval "$(direnv hook zsh)"
@@ -66,4 +64,3 @@
     '';
   };
 }
-

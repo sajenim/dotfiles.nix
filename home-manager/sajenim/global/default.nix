@@ -1,4 +1,8 @@
-{ inputs, outputs, ... }: {
+{
+  inputs,
+  outputs,
+  ...
+}: {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     ../features/cli
@@ -12,10 +16,10 @@
     ];
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = (_: true);
+      allowUnfreePredicate = _: true;
     };
   };
-  
+
   programs.home-manager.enable = true;
 
   home = {

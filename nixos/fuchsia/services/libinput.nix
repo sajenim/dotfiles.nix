@@ -1,9 +1,7 @@
-{ ... }:
-
-{
+{...}: {
   services.libinput = {
     enable = true;
-    mouse = { accelProfile = "flat"; };
+    mouse = {accelProfile = "flat";};
   };
 
   # DBus daemon to configure input devices.

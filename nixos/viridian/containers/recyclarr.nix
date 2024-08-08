@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   virtualisation.oci-containers.containers = {
     # Automatically synchronize recommended settings from the TRaSH guides to your Sonarr/Radarr instances
     recyclarr = {
