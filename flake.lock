@@ -112,7 +112,7 @@
     "devshell_2": {
       "inputs": {
         "nixpkgs": [
-          "nixvim-config",
+          "nixvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -198,7 +198,7 @@
     "flake-parts_2": {
       "inputs": {
         "nixpkgs-lib": [
-          "nixvim-config",
+          "nixvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -291,18 +291,18 @@
     "git-hooks": {
       "inputs": {
         "flake-compat": [
-          "nixvim-config",
+          "nixvim",
           "nixvim",
           "flake-compat"
         ],
         "gitignore": "gitignore_2",
         "nixpkgs": [
-          "nixvim-config",
+          "nixvim",
           "nixvim",
           "nixpkgs"
         ],
         "nixpkgs-stable": [
-          "nixvim-config",
+          "nixvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -346,7 +346,7 @@
     "gitignore_2": {
       "inputs": {
         "nixpkgs": [
-          "nixvim-config",
+          "nixvim",
           "nixvim",
           "git-hooks",
           "nixpkgs"
@@ -411,7 +411,7 @@
     "home-manager_3": {
       "inputs": {
         "nixpkgs": [
-          "nixvim-config",
+          "nixvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -448,7 +448,7 @@
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
-          "nixvim-config",
+          "nixvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -613,6 +613,26 @@
     },
     "nixvim": {
       "inputs": {
+        "flake-parts": "flake-parts",
+        "nixpkgs": "nixpkgs_4",
+        "nixvim": "nixvim_2"
+      },
+      "locked": {
+        "lastModified": 1723012155,
+        "narHash": "sha256-7AlUEGsbIOCQmIRc+lH/k2CJ32pdEkFszyMekTOVoJc=",
+        "ref": "refs/heads/master",
+        "rev": "e3dc3f07d69bcb0c9df5875aefd7dbf3877be794",
+        "revCount": 14,
+        "type": "git",
+        "url": "https://git.sajenim.dev/jasmine/nvim.nix.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.sajenim.dev/jasmine/nvim.nix.git"
+      }
+    },
+    "nixvim_2": {
+      "inputs": {
         "devshell": "devshell_2",
         "flake-compat": "flake-compat_3",
         "flake-parts": "flake-parts_2",
@@ -637,31 +657,11 @@
         "type": "github"
       }
     },
-    "nixvim-config": {
-      "inputs": {
-        "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_4",
-        "nixvim": "nixvim"
-      },
-      "locked": {
-        "lastModified": 1723012155,
-        "narHash": "sha256-7AlUEGsbIOCQmIRc+lH/k2CJ32pdEkFszyMekTOVoJc=",
-        "ref": "refs/heads/master",
-        "rev": "e3dc3f07d69bcb0c9df5875aefd7dbf3877be794",
-        "revCount": 14,
-        "type": "git",
-        "url": "https://git.sajenim.dev/jasmine/nvim.nix.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://git.sajenim.dev/jasmine/nvim.nix.git"
-      }
-    },
     "nuschtosSearch": {
       "inputs": {
         "flake-utils": "flake-utils_4",
         "nixpkgs": [
-          "nixvim-config",
+          "nixvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -718,7 +718,7 @@
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nixvim-config": "nixvim-config"
+        "nixvim": "nixvim"
       }
     },
     "systems": {
@@ -814,7 +814,7 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "nixvim-config",
+          "nixvim",
           "nixvim",
           "nixpkgs"
         ]
