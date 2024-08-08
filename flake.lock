@@ -618,11 +618,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1723012155,
-        "narHash": "sha256-7AlUEGsbIOCQmIRc+lH/k2CJ32pdEkFszyMekTOVoJc=",
+        "lastModified": 1723081800,
+        "narHash": "sha256-Nbn0d1a0pteRZ+4L85ve7p/BatHdK14riRuTU4dKTVA=",
         "ref": "refs/heads/master",
-        "rev": "e3dc3f07d69bcb0c9df5875aefd7dbf3877be794",
-        "revCount": 14,
+        "rev": "a6a7676c4e8cd3ccdf5d36e1946abd3e62d25c88",
+        "revCount": 15,
         "type": "git",
         "url": "https://git.sajenim.dev/jasmine/nvim.nix.git"
       },
