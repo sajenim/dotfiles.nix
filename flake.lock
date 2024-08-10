@@ -8,11 +8,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1722339003,
-        "narHash": "sha256-ZeS51uJI30ehNkcZ4uKqT4ZDARPyqrHADSKAwv5vVCU=",
+        "lastModified": 1723293904,
+        "narHash": "sha256-b+uqzj+Wa6xgMS9aNbX4I+sXeb5biPDi39VgvSFqFvU=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "3f1dae074a12feb7327b4bf43cbac0d124488bb7",
+        "rev": "f6291c5935fdc4e0bef208cfc0dcab7e3f7a1c41",
         "type": "github"
       },
       "original": {
@@ -52,11 +52,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720978971,
-        "narHash": "sha256-AtDyr1FjqoveFqgu9ebQHSzxu0tMgF2ejWBfiN4NKS4=",
+        "lastModified": 1723059122,
+        "narHash": "sha256-sbfMRAe3SgRrPtkbsDzyA1voSUCmlQo52+DuUyLDrJA=",
         "ref": "refs/heads/main",
-        "rev": "79461e2bc663aed53dcadc2a40c181aad97cee8e",
-        "revCount": 14,
+        "rev": "77bbc1bdd5aac087d061500f3660fa1abe5e77be",
+        "revCount": 15,
         "type": "git",
         "url": "https://codeberg.org/kampka/nix-flake-crowdsec.git"
       },
@@ -474,11 +474,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1722562463,
-        "narHash": "sha256-LctuHlTmJPqQna/3F10v4eNE8/KYh2bu0naEwalJ73o=",
+        "lastModified": 1723253776,
+        "narHash": "sha256-EIChmYD+Wp2558uJLoQw3dFNRAYmS0u/r1KPlNagpWw=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "6c5e8f138e4ba944f423850148651e00589dde73",
+        "rev": "3b93cd39408aaef0ce9db7261f779e021fb95aae",
         "type": "github"
       },
       "original": {
@@ -533,11 +533,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1722630782,
-        "narHash": "sha256-hMyG9/WlUi0Ho9VkRrrez7SeNlDzLxalm9FwY7n/Noo=",
+        "lastModified": 1723175592,
+        "narHash": "sha256-M0xJ3FbDUc4fRZ84dPGx5VvgFsOzds77KiBMW/mMTnI=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d04953086551086b44b6f3c6b7eeb26294f207da",
+        "rev": "5e0ca22929f3342b19569b21b2f3462f053e497b",
         "type": "github"
       },
       "original": {
@@ -565,11 +565,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1722651103,
-        "narHash": "sha256-IRiJA0NVAoyaZeKZluwfb2DoTpBAj+FLI0KfybBeDU0=",
+        "lastModified": 1722987190,
+        "narHash": "sha256-68hmex5efCiM2aZlAAEcQgmFI4ZwWt8a80vOeB/5w3A=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a633d89c6dc9a2a8aae11813a62d7c58b2c0cc51",
+        "rev": "21cc704b5e918c5fbf4f9fff22b4ac2681706d90",
         "type": "github"
       },
       "original": {
@@ -618,11 +618,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1723081800,
-        "narHash": "sha256-Nbn0d1a0pteRZ+4L85ve7p/BatHdK14riRuTU4dKTVA=",
+        "lastModified": 1723082328,
+        "narHash": "sha256-VCyRD+hutSS6vFdC1lyvm2iko3vHvrHHv4icAaDfwOc=",
         "ref": "refs/heads/master",
-        "rev": "a6a7676c4e8cd3ccdf5d36e1946abd3e62d25c88",
-        "revCount": 15,
+        "rev": "537828c2e96c5a266be6886e9a2e2703f22c0cb4",
+        "revCount": 16,
         "type": "git",
         "url": "https://git.sajenim.dev/jasmine/nvim.nix.git"
       },
