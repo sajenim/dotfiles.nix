@@ -12,7 +12,7 @@ in {
     # Self-hosted, open-source pastbin
     microbin = {
       autoStart = true;
-      image = "danielszabo99/microbin:2.0";
+      image = "danielszabo99/microbin:2.0.4";
       ports = [
         "${port}:8080/tcp" # WebUI
       ];

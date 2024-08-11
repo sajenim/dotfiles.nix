@@ -4,7 +4,7 @@ in {
   virtualisation.oci-containers.containers = {
     mealie = {
       autoStart = true;
-      image = "ghcr.io/mealie-recipes/mealie:v1.9.0";
+      image = "ghcr.io/mealie-recipes/mealie:v1.11.0";
       ports = [
         "${port}:9000"
       ];
