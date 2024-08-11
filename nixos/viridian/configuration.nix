@@ -1,29 +1,19 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
+    # Global configuration for all our systems
     ../common/global
+    # Our user configuration and optional user units
     ../common/users/sajenim
     ../common/users/spectre
-
+    # Programs and services
+    ./programs
     ./services
     ./containers
+    # Setup our hardware
     ./hardware-configuration.nix
   ];
 
-  boot.kernel.sysctl = {
-    "net.ipv4.ip_unprivileged_port_start" = 0;
-  };
-
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-      intel-compute-runtime
-    ];
-  };
-
+  # Networking configuration
   networking = {
     hostName = "viridian";
     networkmanager.enable = true;
@@ -42,16 +32,12 @@
         80 # traefik     (HTTP)
         443 # traefik     (HTTPS)
         32372 # qbittorrent
-        51820 # Wireguard
         6600 # mpd
       ];
     };
   };
 
-  programs = {
-    zsh.enable = true;
-  };
-
+  # Use docker instead of podman for our containers.
   virtualisation.docker = {
     enable = true;
     liveRestore = false;
