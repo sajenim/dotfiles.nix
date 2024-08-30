@@ -9,7 +9,7 @@
       # Automatically run the garbage collector an a specified time.
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 14d";
     };
 
     # This will add each flake input as a registry
