@@ -1,5 +1,7 @@
 # This file defines overlays
-{inputs, ...}: {
+{inputs, ...}: let
+  raster2dymolw_v2 = ./raster2dymolw_v2;
+in {
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: _prev: import ../pkgs final.pkgs;
 
@@ -10,6 +12,12 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
+    cups-dymo = prev.cups-dymo.overrideAttrs (oldAttrs: {
+      installPhase = ''
+        installPhase
+        cp ${raster2dymolw_v2} $out/lib/cups/filter/raster2dymolw_v2
+      '';
+    });
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./printer
     ./amdgpu-clocks.nix
     ./flatpak.nix
     ./libinput.nix
