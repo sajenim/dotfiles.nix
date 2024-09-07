@@ -101,15 +101,4 @@
       proton.isDefault = true;
     };
   };
-
-  home.persistence."/persist/home/sajenim" = {
-    directories = [
-      # email configuration
-      ".config/protonmail"
-      # email cache of messages
-      ".local/share/protonmail"
-      # gpg encrypted passwords
-      ".password-store"
-    ];
-  };
 }

@@ -1,10 +1,5 @@
-{
-  inputs,
-  outputs,
-  ...
-}: {
+{outputs, ...}: {
   imports = [
-    inputs.impermanence.nixosModules.home-manager.impermanence
     ../features/cli
   ];
 
@@ -27,22 +22,6 @@
     homeDirectory = "/home/sajenim";
     sessionVariables = {
       EDITOR = "nvim";
-    };
-
-    persistence."/persist/home/sajenim" = {
-      directories = [
-        ".gnupg"
-        ".ssh"
-        ".var/app"
-        ".local/bin"
-        ".local/share/flatpak"
-        ".local/share/nix"
-        ".local/share/direnv"
-      ];
-      files = [
-        ".zsh_history"
-      ];
-      allowOther = true;
     };
   };
 

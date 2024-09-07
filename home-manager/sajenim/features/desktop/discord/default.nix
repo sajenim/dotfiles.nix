@@ -14,9 +14,4 @@
     enable = true;
     source = ./config/custom.css;
   };
-
-  home.persistence."/persist/home/sajenim".directories = [
-    ".config/discord"
-    ".config/BetterDiscord"
-  ];
 }

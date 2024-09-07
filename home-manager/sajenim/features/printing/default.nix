@@ -7,10 +7,5 @@
       openscad
       unstable.prusa-slicer
     ];
-    persistence."/persist/home/sajenim" = {
-      directories = [
-        ".config/PrusaSlicer"
-      ];
-    };
   };
 }

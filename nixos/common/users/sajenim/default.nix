@@ -8,6 +8,7 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
+
   users.users.sajenim = {
     isNormalUser = true;
     extraGroups = ["audio" "docker" "networkmanager" "wheel" "adbusers"];
@@ -25,5 +26,11 @@
       sajenim = import "${inputs.self}/home-manager/sajenim/${config.networking.hostName}.nix";
     };
     backupFileExtension = "bak";
+  };
+
+  fileSystems."/home/sajenim" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "btrfs";
+    options = ["subvol=sajenim" "compress=zstd"];
   };
 }

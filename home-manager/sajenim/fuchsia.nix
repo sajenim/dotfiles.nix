@@ -24,28 +24,5 @@
       # Misc
       firefox
     ];
-
-    persistence."/persist/home/sajenim" = {
-      directories = [
-        ".mozilla"
-        # Hidden user data
-        ".repositories"
-        ".print"
-        # Mutable configurations
-        ".config/htop"
-        ".config/lazygit"
-        ".config/Yubico"
-        # Application specific data
-        ".local/share/PrismLauncher"
-        ".local/share/Jellyfin Media Player"
-        # Our user data
-        "Documents"
-        "Downloads"
-        "Games"
-        "Music"
-        "Pictures"
-        "Videos"
-      ];
-    };
   };
 }
