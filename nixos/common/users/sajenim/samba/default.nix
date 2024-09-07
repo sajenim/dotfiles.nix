@@ -11,7 +11,7 @@
   environment.systemPackages = [pkgs.cifs-utils];
 
   fileSystems."/home/sajenim/.backup" = {
-    device = "//192.168.20.4/sajenim";
+    device = "//192.168.50.227/sajenim";
     fsType = "cifs";
     options = let
       # this line prevents hanging on network split
