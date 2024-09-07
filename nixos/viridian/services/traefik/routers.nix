@@ -6,7 +6,7 @@
         "websecure"
       ];
       middlewares = [
-        "admin"
+        "internal"
       ];
       service = "api@internal";
     };
@@ -17,7 +17,7 @@
         "websecure"
       ];
       middlewares = [
-        "admin"
+        "internal"
       ];
       service = "ender1";
     };

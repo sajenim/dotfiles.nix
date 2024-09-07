@@ -11,7 +11,7 @@
     # Restrict access to internal networks
     internal.ipwhitelist.sourcerange = [
       "127.0.0.1/32" # localhost
-      "192.168.20.1/24" # lan
+      "192.168.50.1/24" # lan
     ];
 
     # Restrict access based on geo-location
