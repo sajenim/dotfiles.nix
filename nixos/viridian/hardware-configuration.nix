@@ -60,13 +60,13 @@ in {
   };
 
   fileSystems."/srv/containers" = {
-    device = "/dev/disk/by-label/${hostname}";
+    device = "/dev/disk/by-label/data";
     fsType = "btrfs";
     options = ["subvol=containers" "compress=zstd"];
   };
 
   fileSystems."/srv/services" = {
-    device = "/dev/disk/by-label/${hostname}";
+    device = "/dev/disk/by-label/data";
     fsType = "btrfs";
     options = ["subvol=services" "compress=zstd"];
   };
