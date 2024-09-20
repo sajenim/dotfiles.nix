@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./mangohud.nix
+    ./mangohud
   ];
 
   home = {

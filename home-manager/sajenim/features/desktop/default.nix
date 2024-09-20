@@ -5,19 +5,19 @@
 }: {
   imports = [
     ./discord
+    ./dunst
+    ./email
+    ./irc
+    ./mpd
+    ./picom
     ./rofi
     ./wezterm
-
-    ./email.nix
-    ./irc.nix
-    ./mpd.nix
-    ./picom.nix
   ];
 
   home.packages = with pkgs; [
     feh
-    xmobar
-    xmonad
+    xmobar # custom build using xmobar-config
+    xmonad # custom build using xmonad-config
   ];
 
   home.file = {

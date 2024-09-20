@@ -2,13 +2,37 @@
   imports = [
     # Global configuration for all our systems
     ../common/global
+
     # Our user configuration and optional user units
     ../common/users/sajenim
     ../common/users/spectre
-    # Programs and services
-    ./programs
-    ./services
-    ./containers
+
+    # Containers
+    ./containers/jellyfin
+    ./containers/jellyseerr
+    ./containers/lidarr
+    ./containers/mealie
+    ./containers/microbin
+    ./containers/prowlarr
+    ./containers/qbittorrent
+    ./containers/radarr
+    ./containers/recyclarr
+    ./containers/sonarr
+
+    # Services
+    ./services/borgbackup
+    ./services/crowdsec
+    ./services/forgejo
+    ./services/grafana
+    ./services/lighttpd
+    ./services/minecraft
+    ./services/mpd
+    ./services/mysql
+    ./services/paperless-ngx
+    ./services/prometheus
+    ./services/samba
+    ./services/traefik
+
     # Setup our hardware
     ./hardware-configuration.nix
   ];
@@ -21,26 +45,26 @@
       enable = true;
       allowPing = true;
       allowedTCPPorts = [
-        53 # adguardhome (DNS)
-        80 # traefik     (HTTP)
-        443 # traefik     (HTTPS)
-        32372 # qbittorrent
-        6600 # mpd
-      ];
-      allowedUDPPorts = [
-        53 # adguardhome (DNS)
-        80 # traefik     (HTTP)
-        443 # traefik     (HTTPS)
-        32372 # qbittorrent
-        6600 # mpd
+        80
+        443
+        6600
       ];
     };
   };
 
-  # Use docker instead of podman for our containers.
-  virtualisation.docker = {
-    enable = true;
-    liveRestore = false;
+  # Configure programs
+  programs = {
+    zsh.enable = true;
+  };
+
+  # Manage linux containers
+  virtualisation = {
+    docker = {
+      enable = true;
+      liveRestore = false;
+    };
+    # Implementation to use for containers
+    oci-containers.backend = "docker";
   };
 
   # Required for smooth remote deployments

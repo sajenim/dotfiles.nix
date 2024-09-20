@@ -1,12 +1,8 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./git.nix
     ./nvim.nix
     ./zsh.nix
-  ];
-
-  home.packages = with pkgs; [
-    lazygit
   ];
 
   programs.ssh = {
