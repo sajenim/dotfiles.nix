@@ -23,6 +23,8 @@
       jellyfin-media-player
       # Misc
       firefox
+      # Unstable
+      unstable.immich-go
     ];
   };
 }

@@ -24,6 +24,7 @@
     ./services/crowdsec
     ./services/forgejo
     ./services/grafana
+    ./services/immich
     ./services/lighttpd
     ./services/minecraft
     ./services/mpd
