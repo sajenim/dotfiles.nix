@@ -5,7 +5,6 @@
 
     # Our user configuration and optional user units
     ../common/users/sajenim
-    ../common/users/sajenim/samba
     ../common/users/sajenim/steam
 
     # Optional components

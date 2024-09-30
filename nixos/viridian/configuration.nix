@@ -5,7 +5,6 @@
 
     # Our user configuration and optional user units
     ../common/users/sajenim
-    ../common/users/spectre
 
     # Containers
     ./containers/jellyfin
@@ -31,7 +30,6 @@
     ./services/mysql
     ./services/paperless-ngx
     ./services/prometheus
-    ./services/samba
     ./services/traefik
 
     # Setup our hardware

@@ -71,12 +71,6 @@ in {
     options = ["subvol=services" "compress=zstd"];
   };
 
-  fileSystems."/srv/shares" = {
-    device = "/dev/disk/by-label/data";
-    fsType = "btrfs";
-    options = ["subvol=shares" "compress=zstd"];
-  };
-
   fileSystems."/srv/backup" = {
     device = "/dev/disk/by-label/data";
     fsType = "btrfs";
