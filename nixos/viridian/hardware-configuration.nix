@@ -77,6 +77,12 @@ in {
     options = ["subvol=backup" "compress=zstd"];
   };
 
+  fileSystems."/srv/shares" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "btrfs";
+    options = ["subvol=shares" "compress=zstd"];
+  };
+
   swapDevices = [
     {
       device = "/swap/swapfile";

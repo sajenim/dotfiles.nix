@@ -19,5 +19,15 @@
       compression = "auto,zstd";
       startAt = "daily";
     };
+
+    shares = {
+      paths = [
+        "/srv/shares"
+      ];
+      encryption.mode = "none";
+      repo = "/srv/backup/shares";
+      compression = "auto,zstd";
+      startAt = "daily";
+    };
   };
 }
