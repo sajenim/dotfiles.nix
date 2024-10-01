@@ -15,6 +15,7 @@
     shell = pkgs.zsh;
     openssh.authorizedKeys.keyFiles = [
       "${inputs.self}/home-manager/sajenim/sajenim_sk.pub"
+      "${inputs.self}/home-manager/sajenim/p6p_biometric.pub"
     ];
     hashedPassword = "$y$j9T$qIhW5qL9J9w.w6JWa.bGo/$oddG3HJyOZ1mwHzYnYPJ/MzN38oHEBEvPDc0sB3rAf9";
   };
