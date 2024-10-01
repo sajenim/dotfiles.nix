@@ -19,6 +19,7 @@
       nmap # network mapper
       xclip # clipboard
       ripgrep # searches the current directory for a regex pattern
+      sshfs # Mount filesystems over SSH
 
       # HTTP
       curl # transfer dato to/from server
