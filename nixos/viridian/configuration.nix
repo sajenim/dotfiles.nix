@@ -6,31 +6,24 @@
     # Our user configuration and optional user units
     ../common/users/sajenim
 
-    # Containers
-    ./containers/jellyfin
-    ./containers/jellyseerr
-    ./containers/lidarr
-    ./containers/mealie
-    ./containers/microbin
-    ./containers/prowlarr
-    ./containers/qbittorrent
-    ./containers/radarr
-    ./containers/recyclarr
-    ./containers/sonarr
-
     # Services
     ./services/borgbackup
     ./services/crowdsec
     ./services/forgejo
-    ./services/grafana
     ./services/immich
     ./services/lighttpd
     ./services/minecraft
     ./services/mpd
-    ./services/mysql
     ./services/paperless-ngx
-    ./services/prometheus
     ./services/traefik
+
+    # Multimedia
+    ./multimedia/jellyfin
+    ./multimedia/lidarr
+    ./multimedia/prowlarr
+    ./multimedia/qbittorrent
+    ./multimedia/radarr
+    ./multimedia/sonarr
 
     # Setup our hardware
     ./hardware-configuration.nix
