@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  hostname = config.networking.hostName;
-in {
+}: {
   imports = [
     # Our ephemeral system. Wipe root on reboot.
     ../common/optional/ephemeral-btrfs.nix
@@ -69,12 +67,6 @@ in {
     device = "/dev/disk/by-label/data";
     fsType = "btrfs";
     options = ["subvol=services" "compress=zstd"];
-  };
-
-  fileSystems."/srv/backup" = {
-    device = "/dev/disk/by-label/data";
-    fsType = "btrfs";
-    options = ["subvol=backup" "compress=zstd"];
   };
 
   fileSystems."/srv/shares" = {
