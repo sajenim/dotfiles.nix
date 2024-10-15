@@ -57,16 +57,10 @@
     fsType = "ext4";
   };
 
-  fileSystems."/srv/containers" = {
+  fileSystems."/srv/multimedia/containers" = {
     device = "/dev/disk/by-label/data";
     fsType = "btrfs";
     options = ["subvol=containers" "compress=zstd"];
-  };
-
-  fileSystems."/srv/services" = {
-    device = "/dev/disk/by-label/data";
-    fsType = "btrfs";
-    options = ["subvol=services" "compress=zstd"];
   };
 
   fileSystems."/srv/shares" = {

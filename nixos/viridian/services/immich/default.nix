@@ -20,7 +20,7 @@
     port = 5489;
     host = "0.0.0.0";
     openFirewall = true;
-    mediaLocation = "/srv/services/immich/library";
+    mediaLocation = "/var/lib/immich";
     secretsFile = config.age.secrets.immich.path;
     database = {
       enable = true;
@@ -50,6 +50,21 @@
   services.traefik.dynamicConfigOptions.http.services = {
     immich.loadBalancer.servers = [
       {url = "http://127.0.0.1:${toString config.services.immich.port}";}
+    ];
+  };
+
+  environment.persistence."/persist" = {
+    directories = [
+      {
+        directory = "/var/lib/immich";
+        user = "immich";
+        group = "immich";
+      }
+      {
+        directory = "/var/lib/redis-immich";
+        user = "immich";
+        group = "immich";
+      }
     ];
   };
 }

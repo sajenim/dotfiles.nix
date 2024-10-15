@@ -5,20 +5,27 @@
 
   services.borgbackup.jobs."borgbase" = {
     paths = [
-      # Shares
-      "/srv/shares/sajenim"
       # Services
-      "/srv/services/forgejo"
-      "/srv/services/immich"
-      "/srv/services/minecraft"
-      "/srv/services/paperless-ngx"
-      # Containers
-      "/srv/containers/jellyfin"
-      "/srv/containers/lidarr"
-      "/srv/containers/prowlarr"
-      "/srv/containers/qbittorrent"
-      "/srv/containers/radarr"
-      "/srv/containers/sonarr"
+      "/srv/minecraft"
+      "/srv/shares/sajenim"
+      "/srv/www/sajenim.dev"
+      "/var/lib/crowdsec"
+      "/var/lib/forgejo"
+      "/var/lib/immich"
+      "/var/lib/paperless-ngx"
+      "/var/lib/postgresql"
+      "/var/lib/private/wiki-js"
+      "/var/lib/redis-immich"
+      "/var/lib/redis-paperless"
+      "/var/lib/traefik"
+      "/var/lib/wiki-js"
+      # Multimedia
+      "/srv/multimedia/containers/jellyfin"
+      "/srv/multimedia/containers/lidarr"
+      "/srv/multimedia/containers/prowlarr"
+      "/srv/multimedia/containers/qbittorrent"
+      "/srv/multimedia/containers/radarr"
+      "/srv/multimedia/containers/sonarr"
     ];
 
     repo = "o93k24r6@o93k24r6.repo.borgbase.com:repo";

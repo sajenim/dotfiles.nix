@@ -11,7 +11,7 @@ in {
       ];
       volumes = [
         # Container data
-        "/srv/containers/prowlarr:/config:rw"
+        "/srv/multimedia/containers/prowlarr:/config:rw"
       ];
       environment = {
         PUID = "1000";

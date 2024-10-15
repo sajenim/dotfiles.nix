@@ -13,7 +13,7 @@ in {
       volumes = [
         # Seedbox
         "/srv/multimedia/torrents:/data/torrents:rw"
-        "/srv/containers/qbittorrent:/config:rw"
+        "/srv/multimedia/containers/qbittorrent:/config:rw"
       ];
       environment = {
         PUID = "1000";

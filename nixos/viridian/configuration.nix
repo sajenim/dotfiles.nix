@@ -15,7 +15,9 @@
     ./services/minecraft
     ./services/mpd
     ./services/paperless-ngx
+    ./services/postgresql
     ./services/traefik
+    ./services/wiki-js
 
     # Multimedia
     ./multimedia/jellyfin

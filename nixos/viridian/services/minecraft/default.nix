@@ -70,7 +70,7 @@ in {
     };
 
     # Each server will be under a subdirectory named after the server name.
-    dataDir = "/srv/services/minecraft";
+    dataDir = "/srv/minecraft";
 
     # Open firewall for all servers.
     openFirewall = true;
@@ -95,6 +95,16 @@ in {
   services.traefik.dynamicConfigOptions.http.services = {
     minecraft.loadBalancer.servers = [
       {url = "http://127.0.0.1:${toString config.services.minecraft-servers.servers.kanto.serverProperties.server-port}";}
+    ];
+  };
+
+  environment.persistence."/persist" = {
+    directories = [
+      {
+        directory = "/srv/minecraft";
+        user = "minecraft";
+        group = "minecraft";
+      }
     ];
   };
 }

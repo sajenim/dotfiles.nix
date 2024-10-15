@@ -16,8 +16,8 @@ in {
         # Media library
         "/srv/multimedia/library:/media:ro"
         # Container data
-        "/srv/containers/jellyfin/config:/config:rw"
-        "/srv/containers/jellyfin/cache:/cache:rw"
+        "/srv/multimedia/containers/jellyfin/config:/config:rw"
+        "/srv/multimedia/containers/jellyfin/cache:/cache:rw"
       ];
       environment = {
         PUID = "1000";

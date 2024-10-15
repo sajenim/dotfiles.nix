@@ -1,5 +1,5 @@
 {config, ...}: let
-  dir = "/srv/services/paperless-ngx";
+  dir = "/var/lib/paperless-ngx";
 in {
   age.secrets.paperless-ngx = {
     rekeyFile = ./password.age;
@@ -32,6 +32,21 @@ in {
   services.traefik.dynamicConfigOptions.http.services = {
     paperless-ngx.loadBalancer.servers = [
       {url = "http://127.0.0.1:${toString config.services.paperless.port}";}
+    ];
+  };
+
+  environment.persistence."/persist" = {
+    directories = [
+      {
+        directory = "/var/lib/paperless-ngx";
+        user = "paperless";
+        group = "paperless";
+      }
+      {
+        directory = "/var/lib/redis-paperless";
+        user = "redis-paperless";
+        group = "redis-paperless";
+      }
     ];
   };
 }

@@ -13,7 +13,7 @@ in {
         # Media library
         "/srv/multimedia:/data:rw"
         # Container data
-        "/srv/containers/lidarr:/config:rw"
+        "/srv/multimedia/containers/lidarr:/config:rw"
       ];
       environment = {
         PUID = "1000";

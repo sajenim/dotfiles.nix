@@ -98,6 +98,11 @@
                 main = "sajenim.dev";
                 sans = ["*.sajenim.dev"];
               }
+              # Keyboards
+              {
+                main = "sajkbd.io";
+                sans = ["*.sajkbd.io"];
+              }
             ];
           };
         };
