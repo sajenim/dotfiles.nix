@@ -26,7 +26,7 @@
 
   services.traefik.dynamicConfigOptions.http.routers = {
     wiki-js = {
-      rule = "Host(`wiki.sajkbd.io`)";
+      rule = "Host(`docs.sajkbd.io`)";
       entryPoints = [
         "websecure"
       ];
@@ -44,5 +44,12 @@
     ];
   };
 
-  environment.persistence."/persist".directories = ["/var/lib/wiki-js"];
+  environment.persistence."/persist" = {
+    directories = [
+      {
+        directory = "/var/lib/private";
+        mode = "0700";
+      }
+    ];
+  };
 }

@@ -18,7 +18,6 @@
       "/var/lib/redis-immich"
       "/var/lib/redis-paperless"
       "/var/lib/traefik"
-      "/var/lib/wiki-js"
       # Multimedia
       "/srv/multimedia/containers/jellyfin"
       "/srv/multimedia/containers/lidarr"
