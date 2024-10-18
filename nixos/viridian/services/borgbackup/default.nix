@@ -36,4 +36,8 @@
     compression = "auto,lzma";
     startAt = "daily";
   };
+
+  programs.ssh.knownHostsFiles = [
+    ./borgbase_hosts
+  ];
 }
