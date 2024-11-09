@@ -6,6 +6,7 @@
   imports = [
     ./discord
     ./dunst
+    ./cava
     ./irc
     ./mpd
     ./picom
