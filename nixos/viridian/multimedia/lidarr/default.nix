@@ -27,7 +27,7 @@ in {
 
   services.traefik.dynamicConfigOptions.http.routers = {
     lidarr = {
-      rule = "Host(`lidarr.kanto.dev`)";
+      rule = "Host(`lidarr.home.arpa`)";
       entryPoints = [
         "websecure"
       ];

@@ -8,9 +8,7 @@
 
   imports = [
     "${inputs.nixpkgs-unstable}/nixos/modules/services/web-servers/traefik.nix"
-    ./routers.nix
     ./middlewares.nix
-    ./services.nix
   ];
 
   age.secrets.traefik = {
@@ -88,11 +86,6 @@
             certResolver = "lets-encrypt";
             # List of domains in our network
             domains = [
-              # Internal services
-              {
-                main = "kanto.dev";
-                sans = ["*.kanto.dev"];
-              }
               # Public services
               {
                 main = "sajenim.dev";

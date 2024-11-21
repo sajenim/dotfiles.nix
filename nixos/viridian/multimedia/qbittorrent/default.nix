@@ -27,7 +27,7 @@ in {
 
   services.traefik.dynamicConfigOptions.http.routers = {
     qbittorrent = {
-      rule = "Host(`qbittorrent.kanto.dev`)";
+      rule = "Host(`qbittorrent.home.arpa`)";
       entryPoints = [
         "websecure"
       ];

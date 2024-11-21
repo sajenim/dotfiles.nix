@@ -81,7 +81,7 @@ in {
 
   services.traefik.dynamicConfigOptions.http.routers = {
     minecraft = {
-      rule = "Host(`minecraft.kanto.dev`)";
+      rule = "Host(`minecraft.home.arpa`)";
       entryPoints = [
         "websecure"
       ];

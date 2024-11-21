@@ -33,7 +33,7 @@ in {
 
   services.traefik.dynamicConfigOptions.http.routers = {
     jellyfin = {
-      rule = "Host(`jellyfin.kanto.dev`)";
+      rule = "Host(`jellyfin.home.arpa`)";
       entryPoints = [
         "websecure"
       ];

@@ -18,7 +18,7 @@ in {
 
   services.traefik.dynamicConfigOptions.http.routers = {
     paperless-ngx = {
-      rule = "Host(`docs.kanto.dev`)";
+      rule = "Host(`docs.home.arpa`)";
       entryPoints = [
         "websecure"
       ];

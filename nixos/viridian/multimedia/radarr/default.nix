@@ -26,7 +26,7 @@ in {
   };
   services.traefik.dynamicConfigOptions.http.routers = {
     radarr = {
-      rule = "Host(`radarr.kanto.dev`)";
+      rule = "Host(`radarr.home.arpa`)";
       entryPoints = [
         "websecure"
       ];

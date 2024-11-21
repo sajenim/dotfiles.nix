@@ -8,13 +8,13 @@
   programs.ssh = {
     enable = true;
     matchBlocks."viridian" = {
-      hostname = "viridian.kanto.dev";
+      hostname = "viridian.home.arpa";
       identityFile = "/home/sajenim/.ssh/sajenim_sk";
       port = 22;
     };
 
     matchBlocks."lavender" = {
-      hostname = "lavender.kanto.dev";
+      hostname = "lavender.home.arpa";
       identityFile = "/home/sajenim/.ssh/sajenim_sk";
       port = 22;
     };

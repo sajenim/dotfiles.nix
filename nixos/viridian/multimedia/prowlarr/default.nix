@@ -24,7 +24,7 @@ in {
   };
   services.traefik.dynamicConfigOptions.http.routers = {
     prowlarr = {
-      rule = "Host(`prowlarr.kanto.dev`)";
+      rule = "Host(`prowlarr.home.arpa`)";
       entryPoints = [
         "websecure"
       ];

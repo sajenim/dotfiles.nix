@@ -27,7 +27,7 @@ in {
 
   services.traefik.dynamicConfigOptions.http.routers = {
     sonarr = {
-      rule = "Host(`sonarr.kanto.dev`)";
+      rule = "Host(`sonarr.home.arpa`)";
       entryPoints = [
         "websecure"
       ];
