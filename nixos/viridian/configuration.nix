@@ -10,7 +10,6 @@
     ./services/borgbackup
     ./services/crowdsec
     ./services/forgejo
-    ./services/immich
     ./services/lighttpd
     ./services/minecraft
     ./services/mpd
