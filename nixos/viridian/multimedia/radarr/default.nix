@@ -5,7 +5,7 @@ in {
     # Movie collection manager for Usenet and BitTorrent users
     radarr = {
       autoStart = true;
-      image = "ghcr.io/hotio/radarr:release-5.8.3.8933";
+      image = "ghcr.io/hotio/radarr:release-5.15.1.9463";
       ports = [
         "${port}:7878/tcp" # WebUI
       ];

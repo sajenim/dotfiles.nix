@@ -5,7 +5,7 @@ in {
     # Indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps.
     prowlarr = {
       autoStart = true;
-      image = "ghcr.io/hotio/prowlarr:release-1.21.2.4649";
+      image = "ghcr.io/hotio/prowlarr:release-1.26.1.4844";
       ports = [
         "${port}:9696/tcp" # WebUI
       ];

@@ -5,7 +5,7 @@ in {
     # Volunteer-built media solution that puts you in control of your media
     jellyfin = {
       autoStart = true;
-      image = "jellyfin/jellyfin:10.9.9";
+      image = "jellyfin/jellyfin:10.10.3";
       ports = [
         "${port}:8096/tcp" # HTTP traffic
         "8920:8920/tcp" # HTTPS traffic
