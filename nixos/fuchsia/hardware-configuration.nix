@@ -48,17 +48,9 @@
       enable = true;
       powerOnBoot = true;
     };
-    pulseaudio = {
+    graphics = {
       enable = true;
-      support32Bit = true;
-      extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
-    };
-    opengl = {
-      enable = true;
-      # Vulkan
-      driSupport = true;
-      driSupport32Bit = true;
-      # OpenCL
+      enable32Bit = true;
       extraPackages = with pkgs; [
         rocmPackages.clr.icd
       ];
