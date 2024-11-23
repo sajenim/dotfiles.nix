@@ -1,18 +1,18 @@
 {pkgs, ...}: {
   services.mpd = {
     enable = true;
-    musicDirectory = "nfs://viridian.kanto.dev/srv/multimedia/library/music";
+    musicDirectory = "nfs://viridian.home.arpa/srv/multimedia/library/music";
     dbFile = null;
     extraConfig = ''
       database {
         plugin "proxy"
-        host "viridian.kanto.dev"
+        host "viridian.home.arpa"
         port "6600"
       }
 
       audio_output {
-        type "pulse"
-        name "PulseAudio"
+        type "pipewire"
+        name "pipewire server"
         server "127.0.0.1" # MPD must connect to the local sound server
       }
     '';
