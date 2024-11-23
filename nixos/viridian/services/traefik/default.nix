@@ -22,7 +22,7 @@
     User = "traefik";
     Group = "traefik";
     LogsDirectory = "traefik";
-    LogsDirectoryMode = "0750";
+    LogsDirectoryMode = "0755";
   };
 
   # Reverse proxy and load balancer for HTTP and TCP-based applications
@@ -50,6 +50,16 @@
       accessLog = {
         filePath = "/var/log/traefik/access.log";
         format = "json";
+        filters.statusCodes = [
+          "200-299" # log successful http requests
+          "400-599" # log failed http requests
+        ];
+        # collect logs in-memory buffer before writing into log file
+        bufferingSize = "0";
+        fields.headers = {
+          defaultMode = "drop"; # drop all headers per default
+          names.User-Agent = "keep"; # log user agent strings
+        };
       };
 
       # Install plugins
@@ -63,7 +73,7 @@
         # Authorize or block requests from IPs based on there reputation and behaviour.
         bouncer = {
           moduleName = "github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin";
-          version = "v1.3.2";
+          version = "v1.3.5";
         };
       };
 
@@ -99,21 +109,6 @@
             ];
           };
         };
-        # Used to expose metrics
-        metrics = {
-          address = ":8082";
-        };
-      };
-
-      # Provide metrics for the prometheus backend
-      metrics = {
-        prometheus = {
-          entryPoint = "metrics";
-          buckets = ["0.1" "0.3" "1.2" "5.0"];
-          addEntryPointsLabels = true;
-          addRoutersLabels = true;
-          addServicesLabels = true;
-        };
       };
 
       # Retrieve certificates from an ACME server
@@ -141,19 +136,20 @@
         insecureSkipVerify = true;
       };
     };
-  };
 
-  # Scrape our traefik metrics
-  services.prometheus.scrapeConfigs = [
-    {
-      job_name = "traefik";
-      static_configs = [
-        {
-          targets = ["127.0.0.1:8082"];
-        }
-      ];
-    }
-  ];
+    dynamicConfigOptions.http.routers = {
+      traefik-dashboard = {
+        rule = "Host(`traefik.home.arpa`)";
+        entryPoints = [
+          "websecure"
+        ];
+        middlewares = [
+          "internal"
+        ];
+        service = "api@internal";
+      };
+    };
+  };
 
   # Persist our traefik data & logs
   environment.persistence."/persist" = {

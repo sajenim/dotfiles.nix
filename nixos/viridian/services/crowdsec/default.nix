@@ -21,14 +21,7 @@ in {
     group = "crowdsec";
   };
 
-  services.crowdsec = let
-    yaml = (pkgs.formats.yaml {}).generate;
-    acquisitions_file = yaml "acquisitions.yaml" {
-      source = "journalctl";
-      journalctl_filter = ["_SYSTEMD_UNIT=sshd.service"];
-      labels.type = "syslog";
-    };
-  in {
+  services.crowdsec = {
     enable = true;
     allowLocalJournalAccess = true;
     enrollKeyFile = config.age.secrets.enrollment-key.path;
@@ -36,7 +29,6 @@ in {
       api.server = {
         listen_uri = "127.0.0.1:${port}";
       };
-      crowdsec_service.acquisition_path = acquisitions_file;
       crowdsec_service.acquisition_dir = ./acquis.d;
     };
   };
@@ -79,6 +71,22 @@ in {
 
         if ! cscli collections list | grep -q "crowdsecurity/appsec-generic-rules"; then
           cscli collections install "crowdsecurity/appsec-generic-rules"
+        fi
+
+        if ! cscli collections list | grep -q "crowdsecurity/traefik"; then
+          cscli collections install "crowdsecurity/traefik"
+        fi
+
+        if ! cscli collections list | grep -q "crowdsecurity/http-cve"; then
+          cscli collections install "crowdsecurity/http-cve"
+        fi
+
+        if ! cscli collections list | grep -q "crowdsecurity/sshd"; then
+          cscli collections install "crowdsecurity/sshd"
+        fi
+
+        if ! cscli collections list | grep -q "crowdsecurity/base-http-scenarios"; then
+          cscli collections install "crowdsecurity/base-http-scenarios"
         fi
       '';
     in [
