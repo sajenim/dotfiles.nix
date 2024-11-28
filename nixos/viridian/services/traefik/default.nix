@@ -18,6 +18,7 @@
     group = "traefik";
   };
 
+  # Ensure our log directory has correct permission to be accesible by crowdsec
   systemd.services.traefik.serviceConfig = {
     User = "traefik";
     Group = "traefik";
@@ -43,10 +44,13 @@
         dashboard = true;
       };
 
+      # Everything that happens to Traefik itself
       log = {
         filePath = "/var/log/traefik/traefik.log";
         level = "ERROR";
       };
+
+      # Who Calls Whom?
       accessLog = {
         filePath = "/var/log/traefik/access.log";
         format = "json";
@@ -88,21 +92,29 @@
             scheme = "https";
           };
         };
+
         # Hypertext Transfer Protocol Secure
         websecure = {
           address = ":443";
+
+          # Enable some middlewares on all routers that use this entrypoint
+          http.middlewares = [
+            "geoblock@file"
+            "crowdsec@file"
+          ];
+
           # Requests wildcard SSL certs for our services
           http.tls = {
             certResolver = "lets-encrypt";
             # List of domains in our network
             domains = [
-              # Public services
               {
+                # DevOps
                 main = "sajenim.dev";
                 sans = ["*.sajenim.dev"];
               }
-              # Keyboards
               {
+                # Keyboards
                 main = "sajkbd.io";
                 sans = ["*.sajkbd.io"];
               }
@@ -131,20 +143,19 @@
           };
         };
       };
+
       # Disables SSL certificate verification between our traefik instance and our backend
       serversTransport = {
         insecureSkipVerify = true;
       };
     };
 
+    # Setup our dashboard
     dynamicConfigOptions.http.routers = {
       traefik-dashboard = {
         rule = "Host(`traefik.home.arpa`)";
         entryPoints = [
           "websecure"
-        ];
-        middlewares = [
-          "internal"
         ];
         service = "api@internal";
       };

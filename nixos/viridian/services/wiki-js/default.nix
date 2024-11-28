@@ -30,10 +30,6 @@
       entryPoints = [
         "websecure"
       ];
-      middlewares = [
-        "crowdsec"
-        "geoblock"
-      ];
       service = "wiki-js";
     };
   };

@@ -22,9 +22,6 @@ in {
       entryPoints = [
         "websecure"
       ];
-      middlewares = [
-        "internal"
-      ];
       service = "paperless-ngx";
     };
   };

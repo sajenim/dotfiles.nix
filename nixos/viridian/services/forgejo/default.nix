@@ -22,10 +22,6 @@
       entryPoints = [
         "websecure"
       ];
-      middlewares = [
-        "crowdsec"
-        "geoblock"
-      ];
       service = "forgejo";
     };
   };

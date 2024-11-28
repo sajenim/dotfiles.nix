@@ -28,9 +28,6 @@ in {
       entryPoints = [
         "websecure"
       ];
-      middlewares = [
-        "internal"
-      ];
       service = "prowlarr";
     };
   };
