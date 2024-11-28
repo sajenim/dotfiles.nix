@@ -26,6 +26,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Terminal Emulator
+    wezterm = {
+      url = "github:wez/wezterm/main?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Add any other flake you might need.
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixvim.url = "git+https://git.sajenim.dev/jasmine/nvim.nix.git";

@@ -1,6 +1,10 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    wezterm
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  home.packages = [
+    inputs.wezterm.packages.${pkgs.system}.default
   ];
 
   xdg.configFile = {
