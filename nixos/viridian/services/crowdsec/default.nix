@@ -95,6 +95,24 @@ in {
     ];
   };
 
+  environment.etc = {
+    "/crowdsec/parsers/s02-enrich/whitelist.yaml" = {
+      text = ''
+        name: "sajenim/whitelist"
+        description: "Whitelist events from my ipv4 addresses"
+        whitelist:
+          reason: "my ipv4 ranges"
+          ip:
+            - "127.0.0.1"
+          cidr:
+            - "192.168.0.0/16"
+            - "10.0.0.0/8"
+            - "172.16.0.0/12"
+      '';
+      mode = "0755";
+    };
+  };
+
   environment.persistence."/persist" = {
     directories = [
       {
