@@ -39,4 +39,9 @@
       (pkgs.callPackage ./lw5xl.nix {})
     ];
   };
+
+  hardware.sane = {
+    enable = true;
+    extraBackends = [pkgs.hplipWithPlugin];
+  };
 }
