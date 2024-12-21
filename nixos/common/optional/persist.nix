@@ -14,6 +14,12 @@
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"
+
+      # Directories that require mode other than 0755
+      {
+        directory = "/var/lib/private";
+        mode = "0700";
+      }
     ];
     files = [
       "/etc/machine-id"

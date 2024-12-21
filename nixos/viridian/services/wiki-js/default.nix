@@ -39,13 +39,4 @@
       {url = "http://127.0.0.1:${toString config.services.wiki-js.settings.port}";}
     ];
   };
-
-  environment.persistence."/persist" = {
-    directories = [
-      {
-        directory = "/var/lib/private";
-        mode = "0700";
-      }
-    ];
-  };
 }
