@@ -85,7 +85,7 @@ config.colors = {
 config.disable_default_key_bindings = true
 config.keys = {
 	--| Spawn Tab
-	{ key = "n", mods = "ALT", action = act.SpawnTab("CurrentPaneDomain") },
+	{ key = "Enter", mods = "ALT", action = act.SpawnTab("CurrentPaneDomain") },
 	--| Tab Navigation
 	{ key = "LeftArrow", mods = "ALT", action = act.ActivateTabRelative(-1) },
 	{ key = "RightArrow", mods = "ALT", action = act.ActivateTabRelative(1) },
