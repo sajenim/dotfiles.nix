@@ -729,11 +729,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1734856146,
-        "narHash": "sha256-oXK7b6ygXaQokpPZZhVrAkUrO2AKzmI/s1d7mqoI+ig=",
+        "lastModified": 1734913956,
+        "narHash": "sha256-QRV1O8EDCb3UlSuREG2Bfk11CCRJ0CU3vodVx/WXM1A=",
         "ref": "refs/heads/master",
-        "rev": "2f48251e914cde10985fdd551c3bdcc85e960c79",
-        "revCount": 26,
+        "rev": "875cd4cefa2e814fcda527de3864041ef65c08a4",
+        "revCount": 28,
         "type": "git",
         "url": "https://git.sajenim.dev/jasmine/nvim.nix.git"
       },
