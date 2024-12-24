@@ -1,4 +1,7 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  # Define a function to add GitHub Copilot plugin to Jetbrains IDEs
+  addGithubCopilot = ide: pkgs.jetbrains.plugins.addPlugins ide ["github-copilot"];
+in {
   # Enable Visual Studio Code (VSCode) program
   programs.vscode = {
     enable = true;
@@ -12,15 +15,9 @@
     pkgs.gcc # GCC compiler
     pkgs.python39 # Python 3.9 interpreter
 
-    # Jetbrains IDE's with GitHub Copilot plugin enabled
-    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion [
-      "github-copilot"
-    ])
-    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea-ultimate [
-      "github-copilot"
-    ])
-    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-professional [
-      "github-copilot"
-    ])
+    # Add GitHub Copilot plugin to Jetbrains IDEs
+    (addGithubCopilot pkgs.jetbrains.clion)
+    (addGithubCopilot pkgs.jetbrains.idea-ultimate)
+    (addGithubCopilot pkgs.jetbrains.pycharm-professional)
   ];
 }
