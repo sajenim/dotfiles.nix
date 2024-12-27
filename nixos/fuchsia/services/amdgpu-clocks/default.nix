@@ -10,7 +10,7 @@
         1: 875MHz
         # More fine-grain control of clocks and voltages are done with VDDC curve:
         OD_VDDC_CURVE:
-        0: 800MHz @ 699mV
+        0: 800MHz @ 700mV
         1: 1450MHz @ 795mV
         2: 1800MHz @ 950mV
         # Force power limit (in micro watts):
