@@ -57,7 +57,7 @@
     initExtra = ''
       eval "$(direnv hook zsh)"
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-      path+=('/home/sajenim/.local/bin')
+      path+=('/home/sajenim/.repositories/sysadmin.sh/bin')
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
       export PATH
