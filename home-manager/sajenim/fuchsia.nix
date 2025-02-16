@@ -13,7 +13,6 @@
       inkscape
       krita
       # Hardware
-      openrgb
       libratbag
       piper
       pulsemixer
@@ -23,8 +22,7 @@
       jellyfin-media-player
       # Misc
       firefox
-      # Unstable
-      unstable.immich-go
+      ledger-live-desktop
     ];
   };
 }
