@@ -8,6 +8,7 @@
       gamemode
       protonup-ng
       prismlauncher
+      unstable.bolt-launcher
     ];
   };
 }
