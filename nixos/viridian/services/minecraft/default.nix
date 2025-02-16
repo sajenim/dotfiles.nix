@@ -6,8 +6,8 @@
   ...
 }: let
   modpack = pkgs.fetchPackwizModpack rec {
-    version = "7091175a49";
-    url = "https://git.sajenim.dev/jasmine/minecraft-modpack/raw/commit/${version}/pack.toml";
+    version = "7091175";
+    url = "https://raw.githubusercontent.com/sajenim/minecraft-modpack/${version}/pack.toml";
     packHash = "sha256-9HZipG6/8GKnbXp0Qfug8Y2Db96hageUtprAuuuuGPM=";
   };
   mcVersion = modpack.manifest.versions.minecraft;
