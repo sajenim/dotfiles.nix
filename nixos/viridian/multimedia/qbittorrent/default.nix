@@ -5,7 +5,7 @@ in {
     # # Open-source software alternative to µTorrent
     qbittorrent = {
       autoStart = true;
-      image = "ghcr.io/hotio/qbittorrent:release-5.0.2";
+      image = "ghcr.io/hotio/qbittorrent:release-5.0.3";
       ports = [
         "${port}:8080/tcp" # WebUI
         "32372:32372/tcp" # Transport protocol

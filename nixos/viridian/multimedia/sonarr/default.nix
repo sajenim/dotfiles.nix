@@ -5,7 +5,7 @@ in {
     # PVR for Usenet and BitTorrent users
     sonarr = {
       autoStart = true;
-      image = "ghcr.io/hotio/sonarr:release-4.0.10.2544";
+      image = "ghcr.io/hotio/sonarr:release-4.0.13.2932";
       ports = [
         "${port}:8989/tcp" # WebUI
       ];
