@@ -12,7 +12,6 @@
 
     # Services
     ./services/amdgpu-clocks
-    ./services/flatpak
     ./services/libinput
     ./services/ollama
     ./services/printers
