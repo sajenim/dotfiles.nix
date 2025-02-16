@@ -6,6 +6,9 @@ xrandr --output HDMI-A-0 --mode 1920x1080 --output DisplayPort-0 --mode 2560x144
 # Apply our wallpaper
 feh --bg-center ~/.repositories/dotfiles.nix/assets/chinatown.png
 
+# Disable screen saver and DPMS features
+xset s off -dpms
+
 # Start our notification daemon
 dunst &
 
