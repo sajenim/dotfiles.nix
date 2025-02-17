@@ -30,7 +30,7 @@
       ll = "ls -l";
       tt = "wezterm cli set-tab-title ";
       deploy-viridian = "nixos-rebuild switch --flake .#viridian --target-host viridian --use-remote-sudo";
-      mount-backup = "sshfs sajenim@viridian.kanto.dev:/srv/shares/sajenim /home/sajenim/.backup -o IdentityFile=/home/sajenim/.ssh/sajenim_sk";
+      mount-backup = "sshfs viridian:/srv/shares/sajenim /home/sajenim/.backup";
     };
 
     # An attribute set that adds to named directory hash table
