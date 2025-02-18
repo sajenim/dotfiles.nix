@@ -21,6 +21,7 @@
       ncmpcpp
       jellyfin-media-player
       # Misc
+      libreoffice
       firefox
       ledger-live-desktop
     ];
