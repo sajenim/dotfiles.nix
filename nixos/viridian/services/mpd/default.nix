@@ -21,7 +21,7 @@
     statdPort = 4000;
     extraNfsdConfig = '''';
     exports = ''
-      /srv/multimedia/library/music fuchsia.home.arpa(rw,nohide,insecure,no_subtree_check)
+      /srv/multimedia/library/music 192.168.50.237(rw,nohide,insecure,no_subtree_check)
     '';
   };
   networking.firewall = {
