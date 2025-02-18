@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   fileSystems."/home/sajenim/.local/share/Steam" = {
     device = "/dev/disk/by-label/data";
     fsType = "btrfs";
@@ -10,6 +10,9 @@
 
   programs.steam = {
     enable = true;
+    extraCompatPackages = [
+      pkgs.unstable.proton-ge-bin
+    ];
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
