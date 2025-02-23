@@ -61,7 +61,7 @@ config.inactive_pane_hsb = {
 --| Tab Bar Appearance
 config.use_fancy_tab_bar = false
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = false
 config.tab_max_width = 24
 config.show_tab_index_in_tab_bar = false
