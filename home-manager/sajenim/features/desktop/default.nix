@@ -16,8 +16,7 @@
 
   home.packages = with pkgs; [
     feh
-    xmobar # custom build using xmobar-config
-    xmonad # custom build using xmonad-config
+    inputs.xmonad-config.packages.${pkgs.system}.default
   ];
 
   home.file = {
