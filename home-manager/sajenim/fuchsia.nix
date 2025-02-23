@@ -23,7 +23,10 @@
       # Misc
       libreoffice
       firefox
+      google-chrome
       ledger-live-desktop
+      unstable.zoom-us
+      zathura
     ];
   };
 }
