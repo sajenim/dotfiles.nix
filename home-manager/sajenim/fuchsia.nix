@@ -1,32 +1,25 @@
 {pkgs, ...}: {
   imports = [
     ./global
+    ./features/cli
     ./features/desktop
-    ./features/printing
+    ./features/editors
     ./features/games
+    ./features/printing
   ];
 
   home = {
     packages = with pkgs; [
       # Graphics
-      gimp
-      inkscape
-      krita
+      gimp inkscape krita
       # Hardware
-      libratbag
-      piper
-      pulsemixer
+      libratbag piper pulsemixer
       # Media
-      mpc-cli
-      ncmpcpp
-      jellyfin-media-player
-      # Misc
-      libreoffice
-      firefox
-      google-chrome
-      ledger-live-desktop
-      unstable.zoom-us
-      zathura
+      mpc-cli ncmpcpp jellyfin-media-player
+      # Browsers
+      firefox google-chrome
+      # University
+      libreoffice calibre x2goclient zoom-us
     ];
   };
 }

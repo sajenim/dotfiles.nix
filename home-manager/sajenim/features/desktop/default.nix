@@ -4,11 +4,9 @@
   ...
 }: {
   imports = [
+    ./cava
     ./discord
     ./dunst
-    ./editors
-    ./irc
-    ./mpd
     ./picom
     ./rofi
     ./wezterm
@@ -16,7 +14,6 @@
 
   home.packages = with pkgs; [
     feh
-    inputs.xmonad-config.packages.${pkgs.system}.default
   ];
 
   home.file = {

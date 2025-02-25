@@ -25,6 +25,11 @@
         user = "forgejo";
         identityFile = "/home/sajenim/.ssh/jasmine-forgejo_sk";
       };
+
+      "turing" = {
+        hostname = "turing.une.edu.au";
+        user = "jwils254";
+      };
     };
   };
 }
