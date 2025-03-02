@@ -18,8 +18,10 @@
       mpc-cli ncmpcpp jellyfin-media-player
       # Browsers
       firefox google-chrome
+      # Remarkabl
+      unstable.rmapi
       # University
-      libreoffice calibre x2goclient zoom-us
+      libreoffice obsidian x2goclient zoom-us
     ];
   };
 }
