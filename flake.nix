@@ -36,6 +36,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixvim.url = "git+https://git.sajenim.dev/jasmine/nvim.nix.git";
     xmonad-config.url = "git+https://git.sajenim.dev/jasmine/xmonad-config.git";
+    remarks.url = "github:Azeirah/remarks";
   };
 
   outputs = {
