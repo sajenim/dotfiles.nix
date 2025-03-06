@@ -29,6 +29,7 @@
       "turing" = {
         hostname = "turing.une.edu.au";
         user = "jwils254";
+        identityFile = "/home/sajenim/.ssh/jwils254_sk";
       };
     };
   };

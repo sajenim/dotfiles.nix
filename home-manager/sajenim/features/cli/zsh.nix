@@ -24,20 +24,13 @@
     shellAliases = {
       c = "clear";
       r = "cd ~/.repositories";
-      p = "cd ~/.print";
       d = "cd ~/.repositories/dotfiles.nix";
       la = "ls -a";
       ll = "ls -l";
       tt = "wezterm cli set-tab-title ";
       deploy-viridian = "nixos-rebuild switch --flake .#viridian --target-host viridian --use-remote-sudo";
       mount-backup = "sshfs viridian:/srv/shares/sajenim /home/sajenim/.backup";
-    };
-
-    # An attribute set that adds to named directory hash table
-    dirHashes = {
-      # QMK Keymaps
-      crkbd = "$HOME/.github/qmk_keymaps/keyboards/crkbd/keymaps/sajenim";
-      kchrn = "$HOME/.github/qmk_keymaps/keyboards/keychron/q4/ansi_v2/keymaps/sajenim";
+      mount-turing = "sshfs turing:/home/jwils254 /home/sajenim/.turing";
     };
 
     # Install plugins
@@ -60,6 +53,7 @@
       path+=('/home/sajenim/.repositories/sysadmin.sh/bin')
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
+      export _JAVA_AWT_WM_NONREPARENTING=1
       export PATH
       PROMPT='%F{blue}%n@%m %F{cyan}%~ %F{red}♥ %f';
     '';
