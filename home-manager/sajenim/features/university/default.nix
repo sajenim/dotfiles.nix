@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs;
     [
       libreoffice
@@ -15,13 +11,8 @@
       rmapi
       # Design and simulate digital logic circuits
       logisim-evolution
-    ])
-    ++ [
-      # Extract annotations (text highlights and scribbles)
-      # and convert them to Markdown, PDF, PNG, and SVG
-      inputs.remarks.packages.${pkgs.system}.default
-    ];
-  
+    ]);
+
   # Use our yubikey to login to university servers
   programs.ssh = {
     matchBlocks = {
