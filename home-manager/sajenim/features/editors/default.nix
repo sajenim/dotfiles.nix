@@ -10,8 +10,9 @@ in {
     ];
   };
 
-  # List of packages to be installed as part of the home configuration
+  # List of packages to be installed
   home.packages = [
+    # Toolchain
     pkgs.gcc # GCC compiler
     pkgs.python39 # Python 3.9 interpreter
 
