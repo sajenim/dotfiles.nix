@@ -7,9 +7,13 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: rec {
-    # ...
-    # });
+    logisim-evolution = prev.logisim-evolution.overrideAttrs (oldAttrs: {
+      postInstall =
+        (oldAttrs.postInstall or "")
+        + ''
+          wrapProgram $out/bin/logisim-evolution --set _JAVA_AWT_WM_NONREPARENTING 1
+        '';
+    });
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

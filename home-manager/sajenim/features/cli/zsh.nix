@@ -53,7 +53,6 @@
       path+=('/home/sajenim/.repositories/sysadmin.sh/bin')
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
-      export _JAVA_AWT_WM_NONREPARENTING=1
       export PATH
       PROMPT='%F{blue}%n@%m %F{cyan}%~ %F{red}♥ %f';
     '';
