@@ -6,22 +6,21 @@
     ./features/editors
     ./features/games
     ./features/printing
+    ./features/university
   ];
 
   home = {
     packages = with pkgs; [
       # Graphics
-      gimp inkscape krita
+      gimp
       # Hardware
-      libratbag piper pulsemixer
-      # Media
-      mpc-cli ncmpcpp jellyfin-media-player
+      piper
+      pulsemixer
+      # Multimedia
+      mpc-cli
+      ncmpcpp
       # Browsers
-      firefox google-chrome
-      # Remarkabl
-      unstable.rmapi
-      # University
-      libreoffice obsidian x2goclient zoom-us
+      firefox
     ];
   };
 }
