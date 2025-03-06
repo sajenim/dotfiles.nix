@@ -37,6 +37,7 @@
     nixvim.url = "git+https://git.sajenim.dev/jasmine/nvim.nix.git";
     xmonad-config.url = "git+https://git.sajenim.dev/jasmine/xmonad-config.git";
     remarks.url = "github:Azeirah/remarks";
+    nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";
   };
 
   outputs = {
