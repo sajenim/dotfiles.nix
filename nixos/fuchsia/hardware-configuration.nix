@@ -20,7 +20,7 @@
     };
 
     # Linux kernel used by NixOS.
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.unstable.linuxPackages;
     # Parameters added to the kernel command line.
     kernelParams = [
       # Enable amdgpu driver sysfs API that allows fine grain control of GPU
@@ -37,7 +37,7 @@
       };
       systemd-boot = {
         enable = true;
-        configurationLimit = 3;
+        configurationLimit = 20;
       };
     };
   };
