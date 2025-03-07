@@ -1,16 +1,16 @@
 [colors]
-background    = '#1d2021' # bg0
+background    = '#282828' # bg0
 foreground    = '#d4be98' # fg0
 
-selection_bg  = '#32302f' # bg_current_word
+selection_bg  = '#3c3836' # bg_current_word
 selection_fg  = '#a89984' # grey2
 
-cursor_fg     = '#32302f' # bg_current_word
+cursor_fg     = '#3c3836' # bg_current_word
 cursor_bg     = '#a89984' # grey2
 cursor_border = '#a89984' # grey2
 
 ansi = [
-    '#1d2021', # bg0
+    '#282828', # bg0
     '#ea6962', # red
     '#a9b665', # green
     '#d8a657', # yellow
@@ -34,4 +34,4 @@ brights = [
 [colors.indexed]
 
 [metadata]
-name = 'gruvbox_material_dark_hard'
+name = 'gruvbox_material_dark_medium'

@@ -39,7 +39,7 @@ config.font = wezterm.font("Fisa Code")
 config.font_size = 10.0
 
 --| Color scheme
-config.color_scheme = "gruvbox_material_dark_hard"
+config.color_scheme = "gruvbox_material_dark_medium"
 
 --| Cursor style
 config.default_cursor_style = "SteadyBar"
@@ -71,13 +71,13 @@ config.colors = {
 
 	tab_bar = {
 		--| Tab Bar Colors
-		background = "#282828",
+		background = "#32302f",
 		--| Tab Colors
-		active_tab = { bg_color = "#282828", fg_color = "#7daea3", intensity = "Normal", italic = false },
-		inactive_tab = { bg_color = "#282828", fg_color = "#a89984", intensity = "Normal", italic = false },
-		inactive_tab_hover = { bg_color = "#282828", fg_color = "#a89984", intensity = "Normal", italic = false },
-		new_tab = { bg_color = "#282828", fg_color = "#a89984", intensity = "Normal", italic = false },
-		new_tab_hover = { bg_color = "#282828", fg_color = "#a89984", intensity = "Normal", italic = false },
+		active_tab = { bg_color = "#32302f", fg_color = "#7daea3", intensity = "Normal", italic = false },
+		inactive_tab = { bg_color = "#32302f", fg_color = "#a89984", intensity = "Normal", italic = false },
+		inactive_tab_hover = { bg_color = "#32302f", fg_color = "#a89984", intensity = "Normal", italic = false },
+		new_tab = { bg_color = "#32302f", fg_color = "#a89984", intensity = "Normal", italic = false },
+		new_tab_hover = { bg_color = "#32302f", fg_color = "#a89984", intensity = "Normal", italic = false },
 	},
 }
 

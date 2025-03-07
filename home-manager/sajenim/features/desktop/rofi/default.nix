@@ -5,7 +5,7 @@
     plugins = with pkgs; [
       rofi-calc
     ];
-    theme = ./gruvbox-material/gruvbox-material-dark-hard.rasi;
+    theme = ./gruvbox-material/gruvbox-material-dark-medium.rasi;
   };
 
   xdg.configFile.theme = {

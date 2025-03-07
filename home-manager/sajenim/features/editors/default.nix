@@ -9,6 +9,10 @@
     extensions = with pkgs.vscode-extensions; [
       sainnhe.gruvbox-material # Gruvbox Material theme
     ];
+    userSettings = {
+      "window.menuBarVisibility" = "hidden";
+      "workbench.colorTheme" = "Gruvbox Material Dark";
+    };
   };
 
   # List of packages to be installed

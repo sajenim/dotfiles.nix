@@ -6,7 +6,7 @@
       input.method = "pulse";
       smoothing.noise_reduction = 88;
       color = {
-        background = "'#1d2021'";
+        background = "'#32302f'";
         foreground = "'#d4be98'";
       };
     };
