@@ -7,6 +7,7 @@
     ./cava
     ./discord
     ./dunst
+    ./gtk
     ./picom
     ./rofi
     ./wezterm

@@ -37,12 +37,18 @@
     direnv.enable = true;
     # Android debug bridge: communicate with devices
     adb.enable = true;
+    # Configuration storage system for xfce
+    xfconf.enable = true;
   };
 
   # Configure services
   services = {
     # Access smart cards using SCard API
     pcscd.enable = true;
+    # Mount, trash, and other functionalities
+    gvfs.enable = true;
+    # Thumbnail support for images
+    tumbler.enable = true;
   };
 
   # Manage linux containers
