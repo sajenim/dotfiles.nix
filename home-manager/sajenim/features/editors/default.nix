@@ -6,11 +6,15 @@
   # Enable Visual Studio Code (VSCode) program
   programs.vscode = {
     enable = true;
+    package = pkgs.unstable.vscode;
     extensions = with pkgs.vscode-extensions; [
       sainnhe.gruvbox-material # Gruvbox Material theme
+      github.copilot
+      github.copilot-chat
     ];
     userSettings = {
-      "window.menuBarVisibility" = "hidden";
+      "window.menuBarVisibility" = "compact";
+      "window.titleBarStyle" = "custom";
       "workbench.colorTheme" = "Gruvbox Material Dark";
     };
   };
@@ -20,21 +24,17 @@
     [
       # Toolchain
       gcc
-      jdk
-      unstable.python313 # Note: keep this in sync with school.
+      unstable.python313Full # Note: keep this in sync with school.
     ]
     # Install jetbrains IDEs with plugins
     ++ (with inputs.nix-jetbrains-plugins.lib."${system}"; [
       (buildIdeWithPlugins pkgs.jetbrains "clion" [
-        "com.github.copilot"
         "gruvbox-material-dark"
       ])
       (buildIdeWithPlugins pkgs.jetbrains "idea-ultimate" [
-        "com.github.copilot"
         "gruvbox-material-dark"
       ])
       (buildIdeWithPlugins pkgs.jetbrains "pycharm-professional" [
-        "com.github.copilot"
         "gruvbox-material-dark"
       ])
     ]);
