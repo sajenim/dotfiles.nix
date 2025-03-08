@@ -12,13 +12,7 @@
     ../common/optional/yubikey.nix
 
     # Services
-    ./services/amdgpu-clocks
-    ./services/flatpak
-    ./services/libinput
-    ./services/ollama
-    ./services/printers
-    ./services/udev
-    ./services/xserver
+    ./services
 
     # Setup our hardware
     ./hardware-configuration.nix

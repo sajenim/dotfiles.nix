@@ -7,24 +7,10 @@
     ../common/users/sajenim
 
     # Services
-    ./services/borgbackup
-    ./services/crowdsec
-    ./services/forgejo
-    ./services/lighttpd
-    ./services/minecraft
-    ./services/mpd
-    ./services/paperless-ngx
-    ./services/postgresql
-    ./services/traefik
-    ./services/wiki-js
+    ./services
 
     # Multimedia
-    ./multimedia/jellyfin
-    ./multimedia/lidarr
-    ./multimedia/prowlarr
-    ./multimedia/qbittorrent
-    ./multimedia/radarr
-    ./multimedia/sonarr
+    ./multimedia
 
     # Setup our hardware
     ./hardware-configuration.nix

@@ -31,12 +31,13 @@
       url = "github:wez/wezterm/main?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    # Our personal flakes
+    nixvim.url = "git+https://git.sajenim.dev/jasmine/nvim.nix.git";
+    xmonad-config.url = "git+https://git.sajenim.dev/jasmine/xmonad-config.git";
 
     # Add any other flake you might need.
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-    nixvim.url = "git+https://git.sajenim.dev/jasmine/nvim.nix.git";
-    xmonad-config.url = "git+https://git.sajenim.dev/jasmine/xmonad-config.git";
-    remarks.url = "github:Azeirah/remarks";
     nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";
   };
 
