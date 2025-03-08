@@ -33,9 +33,9 @@
   # Configure programs
   programs = {
     zsh.enable = true;
-    # Load and unload environment variables.
+    # Load and unload environment variables
     direnv.enable = true;
-    # Android debug bridge: communicate with devices.
+    # Android debug bridge: communicate with devices
     adb.enable = true;
   };
 
