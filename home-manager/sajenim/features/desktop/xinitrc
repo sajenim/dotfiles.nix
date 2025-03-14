@@ -15,5 +15,8 @@ dunst &
 # Enable our compositor
 picom -b
 
+# Fix for pinentry bug on NixOS
+gpgconf --reload gpg-agent
+
 # Launch our window manager
 exec xmonad

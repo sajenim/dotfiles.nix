@@ -33,12 +33,6 @@
     adb.enable = true;
   };
 
-  # Configure services
-  services = {
-    # Access smart cards using SCard API
-    pcscd.enable = true;
-  };
-
   # Manage linux containers
   virtualisation.docker = {
     enable = true;
