@@ -38,7 +38,6 @@
 
     # Add any other flake you might need.
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-    nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";
   };
 
   outputs = {
