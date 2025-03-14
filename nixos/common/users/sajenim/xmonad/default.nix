@@ -3,9 +3,13 @@
   inputs,
   ...
 }: {
-  # Install our XMonad and Xmobar configuration
   environment = {
-    systemPackages = [inputs.xmonad-config.packages.${pkgs.system}.default];
+    systemPackages = [
+      # Required for some XFCE/GTK stuff
+      pkgs.dconf
+      # Install our XMonad and Xmobar configuration
+      inputs.xmonad-config.packages.${pkgs.system}.default
+    ];
   };
 
   # Required dependencies for our xfce/gtk programs
