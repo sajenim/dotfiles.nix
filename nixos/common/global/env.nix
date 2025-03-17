@@ -33,4 +33,9 @@
     ];
     pathsToLink = ["/share/zsh"];
   };
+
+  # System Fonts
+  fonts.packages = with pkgs; [
+    lmodern
+  ];
 }
