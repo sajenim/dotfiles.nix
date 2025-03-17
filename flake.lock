@@ -802,11 +802,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1741961623,
-        "narHash": "sha256-ngIjyZGxoQAmvEMGicXFq17NUXhXQSI3OfSg406UNAs=",
+        "lastModified": 1742225750,
+        "narHash": "sha256-VskgW9OTtZNT/+AxIj2y9JyeJOkgtbVSenpFs0Lupd0=",
         "ref": "refs/heads/master",
-        "rev": "018c95dbd315ccce91cb5aab76a75e5d9f131105",
-        "revCount": 37,
+        "rev": "5eaf4e95b07cffd5b1e1157ecb35461840ad4b83",
+        "revCount": 38,
         "type": "git",
         "url": "https://git.sajenim.dev/jasmine/nvim.nix.git"
       },
