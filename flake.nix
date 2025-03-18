@@ -26,12 +26,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Terminal Emulator
-    wezterm = {
-      url = "github:wez/wezterm/main?dir=nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
     # Our personal flakes
     nixvim.url = "git+https://git.sajenim.dev/jasmine/nvim.nix.git";
     xmonad-config.url = "git+https://git.sajenim.dev/jasmine/xmonad-config.git";
