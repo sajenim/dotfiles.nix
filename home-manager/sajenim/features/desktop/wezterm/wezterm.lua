@@ -64,32 +64,32 @@ config.colors = {
 		active_tab = {
       bg_color = "#32302f",
       fg_color = "#7daea3",
-      intensity = "Normal",
-      italic = false
+      intensity = "Bold",
+      italic = true
     },
 		inactive_tab = {
       bg_color = "#32302f",
       fg_color = "#a89984",
-      intensity = "Normal",
-      italic = false
+      intensity = "Bold",
+      italic = true
     },
 		inactive_tab_hover = {
       bg_color = "#32302f",
       fg_color = "#a89984",
-      intensity = "Normal",
-      italic = false
+      intensity = "Bold",
+      italic = true
     },
 		new_tab = {
       bg_color = "#32302f",
       fg_color = "#a89984",
-      intensity = "Normal",
-      italic = false
+      intensity = "Bold",
+      italic = true
     },
 		new_tab_hover = {
       bg_color = "#32302f",
       fg_color = "#a89984",
-      intensity = "Normal",
-      italic = false
+      intensity = "Bold",
+      italic = true
     }
   }
 }
