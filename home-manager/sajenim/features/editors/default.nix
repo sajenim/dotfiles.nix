@@ -37,6 +37,9 @@ in {
     (buildIdeWithPlugins pkgs.jetbrains.pycharm-professional)
   ];
 
+  # Copy our vim configuration over for jetbrains
+  home.file.".ideavimrc".source = ./ideavimrc;
+
   # Enable Visual Studio Code (VSCode) program
   programs.vscode = {
     enable = true;
