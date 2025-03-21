@@ -5,7 +5,10 @@
 
 " Display relative line numbers
 set number=true
-set relativenumber = true
+set relativenumber=true
+
+" Use the clipboard for all operations
+set clipboard=unnamedplus
 
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
