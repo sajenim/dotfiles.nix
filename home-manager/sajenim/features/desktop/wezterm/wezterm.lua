@@ -26,88 +26,155 @@ function tab_title(tab_info)
 	return tab_info.active_pane.title
 end
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local title = tab_title(tab)
-	return { { Text = " " .. title .. "" } }
+wezterm.on(
+  'format-tab-title',
+  function(tab, tabs, panes, config, hover, max_width)
+	  local title = tab_title(tab)
+	  return {
+      { Text = ' ' .. title .. '' }
+    }
 end)
 
 -- Do not check for or show window with update information
 config.check_for_updates = false
 
---| Font Configuration
+--| Font configuration
 config.font = wezterm.font("Fisa Code")
 config.font_size = 10.0
 
---| Color scheme
+--| Enable gruvbox colour scheme
 config.color_scheme = "gruvbox_material_dark_medium"
 
---| Cursor style
-config.default_cursor_style = "SteadyBar"
-
---| Padding
+--| Pad window borders
 config.window_padding = {
-	left = 10,
-	right = 10,
-	top = 10,
+	left   = 10,
+	right  = 10,
+	top    = 10,
 	bottom = 10,
 }
 
---| Style Inactive Panes
-config.inactive_pane_hsb = {
-	saturation = 1.0,
-	brightness = 1.0,
-}
-
---| Tab Bar Appearance
+--| Disable modern tab bar
 config.use_fancy_tab_bar = false
-config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = false
-config.tab_bar_at_bottom = false
-config.tab_max_width = 24
-config.show_tab_index_in_tab_bar = false
+config.tab_max_width = 32
 
---| Colors
+--| Tab bar colors
 config.colors = {
-
-	tab_bar = {
-		--| Tab Bar Colors
+  tab_bar = {
 		background = "#32302f",
-		--| Tab Colors
-		active_tab = { bg_color = "#32302f", fg_color = "#7daea3", intensity = "Normal", italic = false },
-		inactive_tab = { bg_color = "#32302f", fg_color = "#a89984", intensity = "Normal", italic = false },
-		inactive_tab_hover = { bg_color = "#32302f", fg_color = "#a89984", intensity = "Normal", italic = false },
-		new_tab = { bg_color = "#32302f", fg_color = "#a89984", intensity = "Normal", italic = false },
-		new_tab_hover = { bg_color = "#32302f", fg_color = "#a89984", intensity = "Normal", italic = false },
-	},
+		active_tab = {
+      bg_color = "#32302f",
+      fg_color = "#7daea3",
+      intensity = "Normal",
+      italic = false
+    },
+		inactive_tab = {
+      bg_color = "#32302f",
+      fg_color = "#a89984",
+      intensity = "Normal",
+      italic = false
+    },
+		inactive_tab_hover = {
+      bg_color = "#32302f",
+      fg_color = "#a89984",
+      intensity = "Normal",
+      italic = false
+    },
+		new_tab = {
+      bg_color = "#32302f",
+      fg_color = "#a89984",
+      intensity = "Normal",
+      italic = false
+    },
+		new_tab_hover = {
+      bg_color = "#32302f",
+      fg_color = "#a89984",
+      intensity = "Normal",
+      italic = false
+    }
+  }
 }
 
---| Key Assignments
-config.disable_default_key_bindings = true
+--| Key assignments
 config.keys = {
-	--| Spawn Tab
-	{ key = "Enter", mods = "ALT", action = act.SpawnTab("CurrentPaneDomain") },
-	--| Tab Navigation
-	{ key = "LeftArrow", mods = "ALT", action = act.ActivateTabRelative(-1) },
-	{ key = "RightArrow", mods = "ALT", action = act.ActivateTabRelative(1) },
+	{ -- Spawn new tab
+    key = "Enter",
+    mods = "ALT",
+    action = act.SpawnTab("CurrentPaneDomain")
+  },
 
-	--| Split Panes
-	{ key = "v", mods = "ALT", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "s", mods = "ALT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	--| Adjust Pane Size
-	{ key = "PageDown", mods = "ALT", action = act.AdjustPaneSize({ "Down", 5 }) },
-	{ key = "PageUp", mods = "ALT", action = act.AdjustPaneSize({ "Up", 5 }) },
-	--| Pane Navigation
-	{ key = "DownArrow", mods = "ALT", action = act.ActivatePaneDirection("Next") },
-	{ key = "UpArrow", mods = "ALT", action = act.ActivatePaneDirection("Prev") },
-	--| Close Pane
-	{ key = "Escape", mods = "ALT", action = act.CloseCurrentPane({ confirm = false }) },
+	{ -- Focus previous tab
+    key = "LeftArrow",
+    mods = "ALT",
+    action = act.ActivateTabRelative(-1)
+  },
 
-	--| Copy Mode / Clipboard
-	{ key = "X", mods = "CTRL", action = act.ActivateCopyMode },
-	{ key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
+	{ -- Focus next tab
+    key = "RightArrow",
+    mods = "ALT",
+    action = act.ActivateTabRelative(1)
+  },
 
-	--| This lets us unify delete word across programs
-	{ key = "Backspace", mods = "CTRL", action = act.SendKey({ key = "w", mods = "CTRL" }) },
+	{ -- Split pane vertically
+    key = "v",
+    mods = "ALT",
+    action = act.SplitVertical({domain = "CurrentPaneDomain"})
+  },
+
+	{ -- Split pane horizontally
+    key = "s",
+    mods = "ALT",
+    action = act.SplitHorizontal({domain = "CurrentPaneDomain"})
+  },
+
+	{ -- Move pane split down
+    key = "PageDown",
+    mods = "ALT",
+    action = act.AdjustPaneSize({"Down", 5})
+  },
+
+	{ -- Move pane split up
+    key = "PageUp",
+    mods = "ALT",
+    action = act.AdjustPaneSize({"Up", 5})
+  },
+
+	{ -- Focus next pane
+    key = "DownArrow",
+    mods = "ALT",
+    action = act.ActivatePaneDirection("Next")
+  },
+
+	{ -- Focus previous pane
+    key = "UpArrow",
+    mods = "ALT",
+    action = act.ActivatePaneDirection("Prev")
+  },
+
+	{ -- Close pane
+    key = "Escape",
+    mods = "ALT",
+    action = act.CloseCurrentPane({confirm = false})
+  },
+
+	{ -- Activate vi copy mode
+    key = "X",
+    mods = "CTRL",
+    action = act.ActivateCopyMode
+  },
+
+	{ -- Paste from clipboard
+    key = "V",
+    mods = "CTRL",
+    action = act.PasteFrom("Clipboard")
+  },
+
+	{ -- This lets us unify delete word across programs
+    key = "Backspace",
+    mods = "CTRL",
+    action = act.SendKey({key = "w", mods = "CTRL"})
+  },
 }
+-- Disable the default keybindings
+config.disable_default_key_bindings = true
 
 return config
