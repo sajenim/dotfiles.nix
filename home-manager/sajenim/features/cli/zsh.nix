@@ -28,7 +28,6 @@
       la = "ls -a";
       ll = "ls -l";
       tt = "wezterm cli set-tab-title ";
-      deploy-viridian = "nixos-rebuild switch --flake .#viridian --target-host viridian --use-remote-sudo";
       mount-backup = "sshfs viridian:/srv/shares/sajenim /home/sajenim/.backup";
       mount-turing = "sshfs turing:/home/jwils254 /home/sajenim/.turing";
     };
