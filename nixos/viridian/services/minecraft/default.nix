@@ -70,7 +70,7 @@ in {
     };
 
     # Each server will be under a subdirectory named after the server name.
-    dataDir = "/srv/minecraft";
+    dataDir = "/var/lib/minecraft";
 
     # Open firewall for all servers.
     openFirewall = true;
@@ -98,7 +98,7 @@ in {
   environment.persistence."/persist" = {
     directories = [
       {
-        directory = "/srv/minecraft";
+        directory = "/var/lib/minecraft";
         user = "minecraft";
         group = "minecraft";
       }
