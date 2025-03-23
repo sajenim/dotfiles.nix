@@ -11,10 +11,6 @@
       "/srv/www/sajenim.dev"
       "/var/lib/crowdsec"
       "/var/lib/forgejo"
-      "/var/lib/paperless-ngx"
-      "/var/lib/postgresql"
-      "/var/lib/private/wiki-js"
-      "/var/lib/redis-paperless"
       "/var/lib/traefik"
       # Multimedia
       "/srv/multimedia/containers/jellyfin"

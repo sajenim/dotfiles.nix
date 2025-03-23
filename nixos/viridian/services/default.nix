@@ -6,9 +6,6 @@
     ./lighttpd
     ./minecraft
     ./mpd
-    ./paperless-ngx
-    ./postgresql
     ./traefik
-    ./wiki-js
   ];
 }
