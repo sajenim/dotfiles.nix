@@ -181,6 +181,5 @@
         group = "traefik";
       }
     ];
-    hideMounts = true;
   };
 }

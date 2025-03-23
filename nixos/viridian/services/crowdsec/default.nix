@@ -121,6 +121,5 @@ in {
         group = "crowdsec";
       }
     ];
-    hideMounts = true;
   };
 }
