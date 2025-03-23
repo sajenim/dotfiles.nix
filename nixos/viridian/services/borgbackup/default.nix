@@ -5,12 +5,14 @@
 
   services.borgbackup.jobs."borgbase" = {
     paths = [
-      # Services
-      "/srv/minecraft"
-      "/srv/shares/sajenim"
+      # Websites
       "/srv/www/sajenim.dev"
+      # File shares
+      "/srv/shares/sajenim"
+      # Services
       "/var/lib/crowdsec"
       "/var/lib/forgejo"
+      "/var/lib/minecraft"
       "/var/lib/traefik"
       # Multimedia
       "/srv/multimedia/containers/jellyfin"
