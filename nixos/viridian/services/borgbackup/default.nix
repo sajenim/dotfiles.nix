@@ -23,10 +23,10 @@
       "/srv/multimedia/containers/sonarr"
     ];
 
-    repo = "o93k24r6@o93k24r6.repo.borgbase.com:repo";
+    repo = "r7ag7x1w@r7ag7x1w.repo.borgbase.com:repo";
     encryption = {
       mode = "repokey-blake2";
-      passCommand = "cat ${config.age.secrets.traefik.path}";
+      passCommand = "cat ${config.age.secrets.borgbackup.path}";
     };
     environment.BORG_RSH = "ssh -i /etc/ssh/ssh_host_ed25519_key";
     compression = "auto,lzma";
