@@ -3,6 +3,7 @@
     ./cava
     ./discord
     ./dunst
+    ./mpv
     ./picom
     ./rofi
     ./thunar
