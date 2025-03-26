@@ -1,9 +1,11 @@
 {pkgs, ...}: {
   home.packages = with pkgs;
     [
+      logisim # required for outdated projects
       libreoffice
       obsidian
       x2goclient
+      zathura
       zoom-us
     ]
     ++ (with unstable.pkgs; [
