@@ -23,6 +23,7 @@ in {
 
   services.crowdsec = {
     enable = true;
+    package = inputs.crowdsec.packages."x86_64-linux".crowdsec;
     allowLocalJournalAccess = true;
     enrollKeyFile = config.age.secrets.enrollment-key.path;
     settings = {
@@ -35,6 +36,7 @@ in {
 
   services.crowdsec-firewall-bouncer = {
     enable = true;
+    package = inputs.crowdsec.packages."x86_64-linux".crowdsec-firewall-bouncer;
     settings = {
       api_key = "2025f0be-35ca-406c-8737-810321c918c2";
       api_url = "http://localhost:${port}";

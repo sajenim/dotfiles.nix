@@ -21,10 +21,7 @@
     impermanence.url = "github:nix-community/impermanence";
 
     # Security enhancement.
-    crowdsec = {
-      url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    crowdsec.url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
 
     # Our personal flakes
     nixvim.url = "git+https://git.sajenim.dev/jasmine/nvim.nix.git";
