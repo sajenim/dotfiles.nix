@@ -1,21 +1,18 @@
 {pkgs, ...}: {
-  home.packages = with pkgs;
-    [
-      logisim # required for outdated projects
-      libreoffice
-      obsidian
-      x2goclient
-      zathura
-      zoom-us
-    ]
-    ++ (with unstable.pkgs; [
-      # Allows access to the ReMarkable Cloud API
-      rmapi
-      # Design and simulate digital logic circuits
-      logisim-evolution
-    ]);
+  imports = [
+    ./remarkable.nix
+  ];
 
-  # Use our yubikey to login to university servers
+  home.packages = with pkgs; [
+    logisim # required for outdated projects
+    libreoffice
+    obsidian
+    x2goclient
+    zathura
+    zoom-us
+  ];
+
+  # Enable the use of the yubikey for ssh authentication
   programs.ssh = {
     matchBlocks = {
       "turing" = {
