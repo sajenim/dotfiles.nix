@@ -4,8 +4,8 @@
 " Find more examples here: https://jb.gg/share-ideavimrc
 
 " Display relative line numbers
-set number=true
-set relativenumber=true
+set number
+set relativenumber
 
 " Use the clipboard for all operations
 set clipboard=unnamedplus
