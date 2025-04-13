@@ -27,10 +27,6 @@ in {
     gcc
     unstable.python313Full # Note: keep this in sync with school.
 
-    # Typesetting
-    pandoc # Markup Converter
-    texlive.combined.scheme-full # TeX Distribution
-
     # Install jetbrains IDE's with plugins
     (buildIdeWithPlugins pkgs.jetbrains.clion)
     (buildIdeWithPlugins pkgs.jetbrains.idea-ultimate)

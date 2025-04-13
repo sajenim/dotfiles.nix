@@ -8,7 +8,6 @@
     libreoffice
     obsidian
     x2goclient
-    zathura
     zoom-us
   ];
 
