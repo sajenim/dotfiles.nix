@@ -3,6 +3,12 @@
   pkgs,
   ...
 }: {
-  # Install our nixvim configuration for neovim.
-  home.packages = [inputs.nixvim.packages.${pkgs.system}.default];
+  home.packages = [
+    # Toolchain
+    pkgs.gcc
+    pkgs.python313Full # Note: keep this in sync with school
+
+    # Install our nixvim configuration for neovim.
+    inputs.nixvim.packages.${pkgs.system}.default
+  ];
 }
