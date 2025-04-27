@@ -24,7 +24,7 @@
     crowdsec.url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
 
     # Our personal flakes
-    nixvim.url = "git+https://git.sajenim.dev/jasmine/nvim.nix.git";
+    nixvim.url = "git+https://git.sajenim.dev/jasmine/nixvim-config.git";
     xmonad-config.url = "git+https://git.sajenim.dev/jasmine/xmonad-config.git";
 
     # Add any other flake you might need.
