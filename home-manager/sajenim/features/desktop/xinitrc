@@ -1,10 +1,10 @@
 #/bin/bash
 
 # Setup our monitors
-xrandr --output HDMI-A-0 --mode 1920x1080 --output DisplayPort-0 --mode 2560x1440 --right-of HDMI-A-0
+xrandr --output HDMI-A-0 --mode 1920x1080 --rotate left --output DisplayPort-0 --mode 2560x1440 --right-of HDMI-A-0
 
 # Apply our wallpaper
-feh --bg-center ~/.repositories/nix-config/assets/chinatown.png
+feh --bg-center ~/.repositories/nix-config/assets/chinatown.png --bg-center ~/.repositories/nix-config/assets/chinatown-rotated.png
 
 # Disable screen saver and DPMS features
 xset s off -dpms
