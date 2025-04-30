@@ -4,7 +4,6 @@
     ./flatpak
     ./libinput
     ./ollama
-    ./printers
     ./udev
     ./xserver
   ];

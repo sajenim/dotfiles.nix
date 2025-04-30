@@ -3,6 +3,5 @@
     logisim
     libreoffice
     x2goclient
-    zoom-us
   ];
 }

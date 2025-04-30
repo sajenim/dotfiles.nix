@@ -13,8 +13,7 @@
       outputs.overlays.unstable-packages
     ];
     config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
+      allowUnfree = false;
     };
   };
 

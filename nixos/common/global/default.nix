@@ -14,7 +14,7 @@
       outputs.overlays.unstable-packages
     ];
     config = {
-      allowUnfree = true;
+      allowUnfree = false;
     };
   };
 

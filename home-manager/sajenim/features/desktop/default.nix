@@ -1,7 +1,6 @@
 {inputs, ...}: {
   imports = [
     ./cava
-    ./discord
     ./dunst
     ./mpv
     ./picom

@@ -27,7 +27,6 @@
       wget # download files from web
 
       # Archive
-      unrar # extract roshal archive
       unzip # extract zip archive
       p7zip # extract 7z archive
     ];
