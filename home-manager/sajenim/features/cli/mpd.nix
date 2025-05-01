@@ -1,4 +1,12 @@
 {pkgs, ...}: {
+
+  # Install some applications for managing mpd 
+  home.packages = with pkgs; [
+    mpc-cli
+    ncmpcpp
+  ];
+
+  # Setup our mpd client service
   services.mpd = {
     enable = true;
     musicDirectory = "nfs://viridian.home.arpa/srv/multimedia/library/music";
@@ -16,10 +24,5 @@
         server "127.0.0.1" # MPD must connect to the local sound server
       }
     '';
-  };
-
-  services.mpd-discord-rpc = {
-    enable = true;
-    package = pkgs.unstable.mpd-discord-rpc;
   };
 }

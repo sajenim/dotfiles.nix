@@ -1,9 +1,6 @@
 {outputs, ...}: {
   imports = [
-    ../features/cli/git.nix
-    ../features/cli/ssh.nix
-    ../features/cli/nvim.nix
-    ../features/cli/zsh.nix
+    ../features/cli
   ];
 
   nixpkgs = {

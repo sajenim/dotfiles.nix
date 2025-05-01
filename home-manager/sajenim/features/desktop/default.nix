@@ -1,12 +1,22 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./cava
     ./dunst
     ./mpv
     ./picom
     ./rofi
-    ./thunar
     ./wezterm
+  ];
+
+  # Install some packages for our desktop environment
+  home.packages = with pkgs; [
+    firefox
+    gimp
+    piper
   ];
 
   home.file = {
@@ -19,5 +29,15 @@
 
     # Configure the initialization of xinit
     ".xinitrc".source = ./xinitrc;
+  };
+
+  # Configure GTK 2/3 applications to use gruvbox-material
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Gruvbox-Material-Dark";
+      package = pkgs.unstable.gruvbox-material-gtk-theme;
+    };
+    iconTheme.name = "Gruvbox-Material-Dark";
   };
 }
