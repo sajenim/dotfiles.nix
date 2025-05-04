@@ -13,7 +13,6 @@
       ranger # console file manager
       htop # system monitor
       scrot # screenshot
-      direnv # load environment
       jq # JSON processor
       git # version control
       nmap # network mapper
