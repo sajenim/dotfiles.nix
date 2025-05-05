@@ -12,6 +12,7 @@
       # Services
       "/var/lib/crowdsec"
       "/var/lib/forgejo"
+      "/var/lib/jupyterhub"
       "/var/lib/minecraft"
       "/var/lib/traefik"
       # Multimedia
