@@ -6,7 +6,7 @@
   home.packages = [
     # Toolchain
     pkgs.gcc
-    pkgs.python313Full # Note: keep this in sync with school
+    pkgs.python313Full
 
     # Setup developer environments
     pkgs.direnv
