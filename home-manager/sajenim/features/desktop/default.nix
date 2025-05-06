@@ -17,6 +17,7 @@
     firefox
     gimp
     piper
+    zathura
   ];
 
   home.file = {
