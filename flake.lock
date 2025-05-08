@@ -997,11 +997,11 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1746542827,
-        "narHash": "sha256-oF2jOy8VlYcJFdC56bix83r/arRH34f8Ty17JIvNPo8=",
+        "lastModified": 1746711743,
+        "narHash": "sha256-LqW1a5RJ2EED1MQLsjss2Z3NeshoQyuVdt+1RTb76sU=",
         "ref": "refs/heads/master",
-        "rev": "ac25f653e7436c4a342879e2a57b59d0278044f0",
-        "revCount": 21,
+        "rev": "f840b1d49e0061f81f58c067374421681ef4091c",
+        "revCount": 22,
         "type": "git",
         "url": "https://git.sajenim.dev/jasmine/xmonad-config.git"
       },
