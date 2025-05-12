@@ -406,11 +406,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745557122,
-        "narHash": "sha256-eqSo9ugzsqhFgaDFYUZj943nurlX4L6f+AW0skJ4W+M=",
+        "lastModified": 1746171682,
+        "narHash": "sha256-EyXUNSa+H+YvGVuQJP1nZskXAowxKYp79RNUsNdQTj4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "dd26f75fb4ec1c731d4b1396eaf4439ce40a91c1",
+        "rev": "50eee705bbdbac942074a8c120e8194185633675",
         "type": "github"
       },
       "original": {
@@ -494,11 +494,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1745891977,
-        "narHash": "sha256-BYQSzHBiU5Fku0DZLDQYkm9xHNAv8DSbTUq6Y2jnKwc=",
+        "lastModified": 1746669743,
+        "narHash": "sha256-QxWruaCkxR4Qb8a9dGKvnxwu0y4WHZ/Ib+dDKWPOoNQ=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "0fac4e42dc31f712155c13ecc092af221ad409ae",
+        "rev": "195c6e72f08f4efcd0309c1c5a18305d93ed0567",
         "type": "github"
       },
       "original": {
@@ -555,11 +555,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1745794561,
-        "narHash": "sha256-T36rUZHUART00h3dW4sV5tv4MrXKT7aWjNfHiZz7OHg=",
+        "lastModified": 1746461020,
+        "narHash": "sha256-7+pG1I9jvxNlmln4YgnlW4o+w0TZX24k688mibiFDUE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5461b7fa65f3ca74cef60be837fd559a8918eaa0",
+        "rev": "3730d8a308f94996a9ba7c7138ede69c1b9ac4ae",
         "type": "github"
       },
       "original": {
@@ -602,11 +602,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1745868005,
-        "narHash": "sha256-hZScOyQphT4RUmSEJX+2OxjIlGgLwSd8iW1LNtAWIOs=",
+        "lastModified": 1746557022,
+        "narHash": "sha256-QkNoyEf6TbaTW5UZYX0OkwIJ/ZMeKSSoOMnSDPQuol0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "330d0a4167924b43f31cc9406df363f71b768a02",
+        "rev": "1d3aeb5a193b9ff13f63f4d9cc169fb88129f860",
         "type": "github"
       },
       "original": {
@@ -997,11 +997,11 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1746711743,
-        "narHash": "sha256-LqW1a5RJ2EED1MQLsjss2Z3NeshoQyuVdt+1RTb76sU=",
+        "lastModified": 1747014850,
+        "narHash": "sha256-kF0JEhlFXtsUuCnajxIehiTx2QzFX1u7UklgYrDtTew=",
         "ref": "refs/heads/master",
-        "rev": "f840b1d49e0061f81f58c067374421681ef4091c",
-        "revCount": 22,
+        "rev": "1c496f9adf0402ead829c2654d498b6e338c5883",
+        "revCount": 30,
         "type": "git",
         "url": "https://git.sajenim.dev/jasmine/xmonad-config.git"
       },
