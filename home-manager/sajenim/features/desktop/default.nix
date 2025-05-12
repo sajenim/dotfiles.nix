@@ -5,10 +5,8 @@
 }: {
   imports = [
     ./cava
-    ./dunst
     ./mpv
     ./picom
-    ./rofi
     ./wezterm
   ];
 

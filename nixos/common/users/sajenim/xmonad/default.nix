@@ -10,6 +10,8 @@
     systemPackages = [
       # Required for some XFCE/GTK stuff
       pkgs.dconf
+      # Dynamic menu for X
+      pkgs.dmenu
       # Picture viewer
       pkgs.xfce.ristretto
       # Install our XMonad and Xmobar configuration
