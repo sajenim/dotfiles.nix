@@ -55,6 +55,7 @@
         rocmPackages.clr.icd
       ];
     };
+    keyboard.qmk.enable = true;
   };
 
   # Setup our filesystems
