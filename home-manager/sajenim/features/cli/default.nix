@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./git.nix
-    ./irc.nix
     ./mpd.nix
     ./nvim.nix
     ./remarkable.nix
