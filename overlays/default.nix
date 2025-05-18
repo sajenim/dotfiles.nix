@@ -7,9 +7,12 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: rec {
-    # ...
-    # });
+    dmenu = prev.dmenu.overrideAttrs (oldAttrs: {
+      patches = [
+        ./patches/dmenu-bar-height-5.2.diff
+        ./patches/dmenu-gruvbox-20210329-9ae8ea5.diff
+      ];
+    });
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
