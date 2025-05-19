@@ -82,7 +82,7 @@ config.colors = {
 config.disable_default_key_bindings = true
 
 -- Setup leader key
-config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "Space", mods = "ALT", timeout_milliseconds = 1000 }
 
 -- General keymaps
 config.keys = {
@@ -97,14 +97,14 @@ config.keys = {
 	},
 
 	{ -- Focus previous tab
-		key = "PageUp",
-		mods = "CTRL",
+		key = "Home",
+		mods = "ALT",
 		action = wezterm.action.ActivateTabRelative(-1),
 	},
 
 	{ -- Focus next tab
-		key = "PageDown",
-		mods = "CTRL",
+		key = "End",
+		mods = "ALT",
 		action = wezterm.action.ActivateTabRelative(1),
 	},
 
@@ -164,8 +164,8 @@ config.keys = {
 smart_splits.apply_to_config(config, {
 	direction_keys = { "LeftArrow", "DownArrow", "UpArrow", "RightArrow" },
 	modifiers = {
-		move = "CTRL",
-		resize = "CTRL|ALT",
+		move = "ALT",
+		resize = "ALT|CTRL",
 	},
 })
 
